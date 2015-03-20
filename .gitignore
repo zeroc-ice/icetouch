@@ -1,0 +1,31 @@
+# Ignore objects and archives.
+*.[oa]
+*.dylib
+*.pyc
+.gdb_history
+.DS_Store
+*#
+.#*
+*~
+.metadata
+# VIM swap file
+*.swp
+
+# OS X Keychain
+*.keychain
+.fl????????
+
+.depend
+
+project.xcworkspace
+xcuserdata
+xcshareddata
+SDKs
+macosx
+iphoneos
+iphonesimulator
+test/cpp/Ice
+test/objc/Common
+test/objc/Ice
+bin
+lib
