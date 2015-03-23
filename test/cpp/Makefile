@@ -67,8 +67,7 @@ all:: $(addsuffix .target,$(SUBDIRS))
 		if [ -f $(testdir)/$*/run.py ]; \
 		then \
 		    cat $(testdir)/$*/run.py | \
-			sed -e 's/"scripts", "TestUtil\.py"/"allTests\.py"/g' \
-			    -e 's/path\[0\]/os.getenv("ICE_HOME", os.path.join(path[0], ".." , "ice-dev"))/g' > $*/run.py; \
+			sed -e 's/"scripts", "TestUtil\.py"/"allTests\.py"/g' -e 's/path\[0\]/path[0], "ice"/g' > $*/run.py; \
 			chmod a+x $*/run.py; \
 		fi; \
 	fi
