@@ -2,8 +2,8 @@
 #
 # Copyright (c) 2003-2015 ZeroC, Inc. All rights reserved.
 #
-# This copy of Ice is licensed to you under the terms described in the
-# ICE_LICENSE file included in this distribution.
+# This copy of Ice Touch is licensed to you under the terms described
+# in the ICE_TOUCH_LICENSE file included in this distribution.
 #
 # **********************************************************************
 
@@ -50,8 +50,6 @@ endif
 
 .PHONY: $(EVERYTHING) $(SUBDIRS)
 
-.PRECIOUS: %/Makefile %/run.py
-
 all:: $(addsuffix .target,$(SUBDIRS))
 
 #
@@ -73,15 +71,6 @@ all:: $(addsuffix .target,$(SUBDIRS))
 	fi
 	@echo "making all in $*"
 	@$(MAKE) all --directory=$*
-
-$(filter-out clean,$(EVERYTHING_EXCEPT_ALL))::
-	@for subdir in $(SUBDIRS); \
-	do \
-		if [ -d $$subdir ]; \
-		    echo "making $@ in $$subdir"; \
-		    ( cd $$subdir && $(MAKE) $@ ) || exit 1; \
-		fi
-	done
 
 clean::
 	rm -rf Ice

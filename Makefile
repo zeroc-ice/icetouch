@@ -2,8 +2,8 @@
 #
 # Copyright (c) 2003-2015 ZeroC, Inc. All rights reserved.
 #
-# This copy of Ice Touch is licensed to you under the terms described in the
-# ICE_TOUCH_LICENSE file included in this distribution.
+# This copy of Ice Touch is licensed to you under the terms described
+# in the ICE_TOUCH_LICENSE file included in this distribution.
 #
 # **********************************************************************
 
@@ -20,7 +20,7 @@ SUBDIRS		= src test
 
 INSTALL_SUBDIRS	=
 
-install:: install-common
+install::
 	@for subdir in $(INSTALL_SUBDIRS); \
 	do \
 	    if test ! -d $$subdir ; \
@@ -106,7 +106,24 @@ tests:
 	    ( cd test && $(MAKE) -f Makefile COMPILE_FOR_$$platform=yes ) || exit 1; \
 	done; \
 
-install:: install-common
+install::
+	@if test ! -d $(prefix) ; \
+	then \
+	    echo "Creating $(prefix)..." ; \
+	    $(call mkdir,$(prefix)) ; \
+	fi
+	@if test ! -f $(prefix)/ICE_TOUCH_LICENSE ; \
+	then \
+	    $(call installdata,$(top_srcdir)/ICE_TOUCH_LICENSE,$(prefix)) ; \
+	fi
+	@if test ! -f $(prefix)/ICE_LICENSE ; \
+	then \
+	    $(call installdata,$(top_srcdir)/ice/ICE_LICENSE,$(prefix)) ; \
+	fi
+	@if test ! -f $(prefix)/LICENSE ; \
+	then \
+	    $(call installdata,$(top_srcdir)/ice/LICENSE,$(prefix)) ; \
+	fi
 	if [ -d $(prefix)/SDKs/Cpp ]; \
 	then \
 		rm -rf $(prefix)/SDKs/Cpp; \
