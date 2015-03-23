@@ -52,7 +52,7 @@ sdks:
 	if [ ! -d SDKs ]; \
 	then \
 	    $(call mkdir,SDKs) ; \
-	    for sdk in SDKs/ObjC SDKs/Cpp; \
+	    for sdk in SDKs/Cpp SDKs/ObjC; \
 	    do \
 	        $(call mkdir,$$sdk) ;\
 	        $(call mkdir,$$sdk/bin) ;\

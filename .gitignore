@@ -25,7 +25,7 @@ macosx
 iphoneos
 iphonesimulator
 test/cpp/Ice
-test/objc/Common
-test/objc/Ice
+test/objective-c/Common
+test/objective-c/Ice
 bin
 lib

@@ -63,8 +63,14 @@ all:: $(addsuffix .target,$(SUBDIRS))
 	then \
 		mkdir -p $*; \
 		cat $(testdir)/$*/Makefile | \
-		   sed -e 's/^top_srcdir.*= \./top_srcdir = \.\.\/\./g' -e 's/-I[\.\/a-z]* //g' > $*/Makefile; \
-		if [ -f $(testdir)/$*/run.py ]; then cp $(testdir)/$*/run.py $*/run.py; fi; \
+		    sed -e 's/^top_srcdir.*= \./top_srcdir = \.\.\/\./g' -e 's/-I[\.\/a-z]* //g' > $*/Makefile; \
+		if [ -f $(testdir)/$*/run.py ]; \
+		then \
+		    cat $(testdir)/$*/run.py | \
+			sed -e 's/"scripts", "TestUtil\.py"/"allTests\.py"/g' \
+			    -e 's/path\[0\]/os.getenv("ICE_HOME", os.path.join(path[0], ".." , "ice-dev"))/g' > $*/run.py; \
+			chmod a+x $*/run.py; \
+		fi; \
 	fi
 	@echo "making all in $*"
 	@$(MAKE) all --directory=$*

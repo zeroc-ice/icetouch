@@ -12,9 +12,9 @@ top_srcdir	= ..
 include $(top_srcdir)/config/Make.rules
 
 ifeq ($(COMPILE_FOR_OSX),yes)
-SUBDIRS = translators cpp objc
+SUBDIRS = translators cpp objective-c
 else
-SUBDIRS = cpp objc
+SUBDIRS = cpp objective-c
 endif
 
 $(EVERYTHING)::

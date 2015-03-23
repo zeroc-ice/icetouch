@@ -10,15 +10,7 @@
 
 import os, sys, re, getopt
 
-path = [ ".", "..", "../..", "../../..", "../../../.." ]
-head = os.path.dirname(sys.argv[0])
-if len(head) > 0:
-    path = [os.path.join(head, p) for p in path]
-path = [os.path.abspath(p) for p in path if os.path.exists(os.path.join(p, "scripts", "TestUtil.py")) ]
-if len(path) == 0:
-    raise RuntimeError("can't find toplevel directory!")
-
-sys.path.append(os.path.join(path[0], "scripts"))
+sys.path.append(os.path.join(os.path.dirname(__file__), "ice", "scripts"))
 import TestUtil
 
 #
@@ -57,36 +49,38 @@ tests = [
      ("cpp/Ice/metrics", ["core", "nossl", "nows", "noipv6", "nocompress", "nomingw"]),
      ("cpp/Ice/enums", ["once"]),
      ("cpp/Ice/services", ["once"]),
-     ("objc/Ice/proxy", ["core"]),
-     ("objc/Ice/ami", ["core", "nocompress"]),
-     ("objc/Ice/operations", ["core"]),
-     ("objc/Ice/exceptions", ["core"]),
-     ("objc/Ice/inheritance", ["core"]),
-     ("objc/Ice/invoke", ["core"]),
-     ("objc/Ice/metrics", ["core", "nows", "nossl", "noipv6", "nocompress"]),
-     ("objc/Ice/facets", ["core"]),
-     ("objc/Ice/objects", ["core"]),
-     ("objc/Ice/optional", ["core"]),
-     ("objc/Ice/interceptor", ["core"]),
-     ("objc/Ice/dispatcher", ["core"]),
-     ("objc/Ice/defaultServant", ["core"]),
-     ("objc/Ice/servantLocator", ["core"]),
-     ("objc/Ice/defaultValue", ["core"]),
-     ("objc/Ice/binding", ["core"]),
-     ("objc/Ice/stream", ["core"]),
-     ("objc/Ice/hold", ["core"]),
-     ("objc/Ice/faultTolerance", ["core"]),
-     ("objc/Ice/location", ["core"]),
-     ("objc/Ice/adapterDeactivation", ["core"]),
-     ("objc/Ice/slicing/exceptions", ["core"]),
-     ("objc/Ice/slicing/objects", ["core"]),
-     ("objc/Ice/retry", ["core"]),
-     ("objc/Ice/timeout", ["core", "nocompress"]),
-     ("objc/Ice/hash", ["core"]),
-     ("objc/Ice/info", ["core", "noipv6", "nocompress"]),
-     ("objc/Ice/enums", ["once"]),
-     ("objc/Ice/acm", ["core"]),
+     ("objective-c/Ice/proxy", ["core"]),
+     ("objective-c/Ice/ami", ["core", "nocompress"]),
+     ("objective-c/Ice/operations", ["core"]),
+     ("objective-c/Ice/exceptions", ["core"]),
+     ("objective-c/Ice/inheritance", ["core"]),
+     ("objective-c/Ice/invoke", ["core"]),
+     ("objective-c/Ice/metrics", ["core", "nows", "nossl", "noipv6", "nocompress"]),
+     ("objective-c/Ice/facets", ["core"]),
+     ("objective-c/Ice/objects", ["core"]),
+     ("objective-c/Ice/optional", ["core"]),
+     ("objective-c/Ice/interceptor", ["core"]),
+     ("objective-c/Ice/dispatcher", ["core"]),
+     ("objective-c/Ice/defaultServant", ["core"]),
+     ("objective-c/Ice/servantLocator", ["core"]),
+     ("objective-c/Ice/defaultValue", ["core"]),
+     ("objective-c/Ice/binding", ["core"]),
+     ("objective-c/Ice/stream", ["core"]),
+     ("objective-c/Ice/hold", ["core"]),
+     ("objective-c/Ice/faultTolerance", ["core"]),
+     ("objective-c/Ice/location", ["core"]),
+     ("objective-c/Ice/adapterDeactivation", ["core"]),
+     ("objective-c/Ice/slicing/exceptions", ["core"]),
+     ("objective-c/Ice/slicing/objects", ["core"]),
+     ("objective-c/Ice/retry", ["core"]),
+     ("objective-c/Ice/timeout", ["core", "nocompress"]),
+     ("objective-c/Ice/hash", ["core"]),
+     ("objective-c/Ice/info", ["core", "noipv6", "nocompress"]),
+     ("objective-c/Ice/enums", ["once"]),
+     ("objective-c/Ice/acm", ["core"]),
     ]
 
+# Run tests relative to ice sub-directory.
+tests = [ (os.path.join("..", "test", x), y) for x, y in tests ]
 if __name__ == "__main__":
-    TestUtil.run(tests)
+    TestUtil.run(tests, True)

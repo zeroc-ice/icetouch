@@ -81,27 +81,220 @@ prefix			?= /Library/Developer/IceTouch-$(VERSION)
 # ----------------------------------------------------------------------
 
 ifeq ($(ice_language),)
-ifneq ($(strip $(foreach s,src/objc test/objc,$(findstring $(s),$(CURDIR)))),)
-ice_language = objc
+ifneq ($(strip $(foreach s,src/objective-c test/objective-c,$(findstring $(s),$(CURDIR)))),)
+ice_language = objective-c
 else
 ice_language = cpp
 endif
 endif
 
-ifeq ($(ice_language),cpp)
-	sdksubdir = Cpp
-else ifeq ($(ice_language),objc)
-	sdksubdir = ObjC
+VERSION			= 3.6.0
+# VERSION_MAJOR   = 3
+# VERSION_MINOR   = 6
+# VERSION_PATCH   = 0
+# SOVERSION		= 36
+# SHORT_VERSION	= 3.6
+
+INSTALL			= cp -fp
+INSTALL_PROGRAM	= ${INSTALL}
+INSTALL_LIBRARY	= ${INSTALL}
+INSTALL_DATA	= ${INSTALL}
+
+ifeq ($(ICE_HOME),)
+ice_dir := $(top_srcdir)/ice
 else
-$(error unknown language for SDK)
+ice_dir	:= $(ICE_HOME)
 endif
 
-include $(top_srcdir)/config/Make.common.rules
-
-LDFLAGS		= $(LDPLATFORMFLAGS) $(COMPFLAGS)
-ifeq ($(ice_language),objc)
-LDFLAGS		+= -ObjC
+ifeq ($(OPTIMIZE_SPEED),yes)
+    OPTIMIZE		= yes
+else ifeq ($(OPTIMIZE_SIZE),yes)
+    OPTIMIZE		= yes
+else ifeq ($(OPTIMIZE),yes)
+    OPTIMIZE_SPEED	= yes
 endif
+
+ifeq ($(IOS_TARGET_MIN_SDK_VERSION),)
+     IOS_TARGET_MIN_SDK_VERSION = 7.1
+endif
+
+ifeq ($(OSX_TARGET_MIN_SDK_VERSION),)
+    OSX_TARGET_MIN_SDK_VERSION = 10.9
+endif
+
+ifneq ($(XCODE_PATH),)
+    export DEVELOPER_DIR := $(XCODE_PATH)/Contents/Developer
+endif
+
+ifeq ($(COMPILE_FOR_IPHONE_SIMULATOR),yes)
+    PLATFORM_NAME = iphonesimulator
+else ifeq ($(COMPILE_FOR_IPHONE),yes)
+    PLATFORM_NAME = iphoneos
+else
+    PLATFORM_NAME = macosx
+	COMPILE_FOR_OSX = yes
+endif
+
+slicedir 	= $(ice_dir)/slice
+bindir		= $(top_srcdir)/SDKs/$(sdksubdir)/bin
+sdkdir		= $(top_srcdir)/SDKs/$(sdksubdir)/$(PLATFORM_NAME).sdk
+sdksubdir 	= $(if $(ice_language:cpp=),ObjC,Cpp)
+libdir		= $(sdkdir)/usr/local/lib
+ifeq ($(COMPILE_TRANSLATORS),yes)
+includedir	= $(ice_dir)/cpp/include
+else
+includedir	= $(sdkdir)/usr/local/include
+endif
+
+ifeq ($(COMPILE_FOR_IPHONE),yes)
+    SDK_NAME = iphoneos$(IOS_SDK_VERSION)
+    ifeq ($(ARCHFLAGS),)
+        ifeq ($(OPTIMIZE),yes)
+            ARCHFLAGS = -arch armv7 -arch armv7s -arch arm64
+        else
+            ARCHFLAGS = -arch armv7 -arch arm64
+        endif
+    endif
+    # Set the achitecture to ARM for dependencies
+    CPPPLATFORMFLAGS = -arch armv7
+endif
+
+ifeq ($(COMPILE_FOR_IPHONE_SIMULATOR),yes)
+    COMPILE_FOR_IPHONE = yes
+    SDK_NAME = iphonesimulator$(IOS_SDK_VERSION)
+    ifeq ($(ARCHFLAGS),)
+        ARCHFLAGS = -arch i386 -arch x86_64
+    endif
+endif
+
+ifneq ($(COMPILE_FOR_IPHONE),yes)
+    SDK_NAME = macosx$(OSX_SDK_VERSION)
+    ifeq ($(ARCHFLAGS),)
+        ARCHFLAGS = -arch x86_64
+    endif
+endif
+
+ifeq ($(COMPILE_TRANSLATORS),)
+    CC     = xcrun -sdk $(SDK_NAME) clang
+    CXX    = xcrun -sdk $(SDK_NAME) clang++
+else
+    # No SDK when building the translators. When specifying an SDK,
+    # Xcode doesn't use the headers/libraries from /usr or /usr/local.
+    CC     = xcrun clang
+    CXX    = xcrun clang++
+endif
+
+OPT_FLAGS =
+ifeq ($(OPTIMIZE_SPEED),yes)
+    OPT_FLAGS	= -O2
+endif
+ifeq ($(OPTIMIZE_SIZE),yes)
+    OPT_FLAGS 	= -Oz
+endif
+
+COMPFLAGS = -Wall
+ifeq ($(OPTIMIZE),yes)
+    COMPFLAGS	:= $(OPT_FLAGS) -DNDEBUG $(COMPFLAGS)
+else
+    COMPFLAGS	:= -g $(COMPFLAGS)
+endif
+
+COMPFLAGS += $(ARCHFLAGS)
+
+OBJDIR = $(PLATFORM_NAME)
+
+ifeq ($(COMPILE_FOR_IPHONE),yes)
+    ifeq ($(COMPILE_FOR_IPHONE_SIMULATOR),yes)
+        CPPPLATFORMFLAGS   += -mios-simulator-version-min=$(IOS_TARGET_MIN_SDK_VERSION)
+    else
+        CPPPLATFORMFLAGS   += -miphoneos-version-min=$(IOS_TARGET_MIN_SDK_VERSION)
+    endif
+else
+    CPPPLATFORMFLAGS    += -mmacosx-version-min=$(OSX_TARGET_MIN_SDK_VERSION)
+endif
+
+LDPLATFORMFLAGS	 := $(CPPPLATFORMFLAGS)
+CPPPLATFORMFLAGS += -pthread -fvisibility=hidden
+
+ICECPPFLAGS		= -I$(slicedir)
+SLICE2OBJCFLAGS	= $(ICECPPFLAGS)
+SLICE2CPPFLAGS	= $(ICECPPFLAGS)
+CPPFLAGS		= -I$(includedir) $(CPPPLATFORMFLAGS)
+
+SLICE2OBJC	 	= $(bindir)/slice2objc
+SLICE2CPP  		= $(bindir)/slice2cpp
+
+mklibname	  = lib$(1).a
+mklibfilename = lib$(1).a
+mklib		  = if [ ! -d "$(dir $1)" ]; then mkdir -p $(dir $1); fi; \
+		  	    echo "libtool -static -o $1 $2"; \
+				rm -f $(1); \
+				libtool -no_warning_for_no_symbols -static -o $(1) $(2)
+mklibtargets	= $(3)
+
+installlib	= $(INSTALL) $(2)/$(5) $(1); \
+			  chmod a+rx $(1)/$(5)
+
+installdata	= $(INSTALL_DATA) $(1) $(2); \
+			  chmod a+r $(2)/$(notdir $(1))
+
+installprogram	= $(INSTALL_PROGRAM) $(1) $(2); \
+			  chmod a+rx $(2)/$(notdir $(1))
+
+mkdir		= mkdir $(1) ; \
+			  chmod a+rx $(1)
+
+#
+# mkheader ORIG,DEST
+#
+mkheader = echo "cp $1 $2"; \
+		   mkdir -p $(dir $2); \
+		   cp $1 $2; \
+		   chmod a+r $2; \
+
+#
+# mkobj FILE.[cpp|m|mm],FILE.o,CPPFLAGS,COMPILER,COMPFLAGS
+#
+mkobj = echo "$(if $4,$4,$(CXX)) $(if $3,$3,$(CPPFLAGS)) $(if $5,$5,$(COMPFLAGS)) -c $1 -o $2"; \
+		if [ -n "$(dir $2)" -a ! -d "$(dir $2)" ]; then mkdir -p $(dir $2); fi; \
+		$(if $4,$4,$(CXX)) -c $1 -o $2 $(if $3,$3,$(CPPFLAGS)) $(if $5,$5,$(COMPFLAGS)) || exit 1; \
+		mkdir -p $(dependdir); \
+		$(CXX) -DMAKEDEPEND -MM -MT $2 $(if $3,$3,$(CPPFLAGS)) -c $1 > $(dependdir)/$(notdir $(2:.o=.d)) \
+
+#
+# mkslice FILE.ice,STEM,[HEADERDIR,OUTPUTDIR,FLAGS,TRANSLATOR]
+#
+mkslice = echo "$6 $5 $(if $4,--output-dir $4,) $1"; \
+		  if [ -n "$3" -a ! -d "$3" ]; then mkdir -p $3; fi; \
+		  if [ -n "$4" -a ! -d "$4" ]; then mkdir -p $4; fi; \
+		  $6 $5 $(if $4,--output-dir $4,) $1 || exit 1; \
+		  if [ -n "$3" ]; then mv $(if $4,$4/$2.h,$2.h) $3/; fi; \
+		  if [ ! -d $(dependdir) ]; then mkdir -p $(dependdir); fi; \
+		  if [ -n "$3" ]; \
+		  then \
+			  $6 $5 --depend $1 | $(ice_dir)/config/makedepend.py "$3/" > $(dependdir)/$2.ice.d; \
+		  else \
+		  	  $6 $5 --depend $1 > $(dependdir)/$2.ice.d; \
+          fi
+
+all::
+
+install-common::
+	@if test ! -d $(prefix) ; \
+	then \
+	    echo "Creating $(prefix)..." ; \
+	    $(call mkdir,$(prefix)) ; \
+	fi
+	@if test ! -f $(prefix)/ICE_TOUCH_LICENSE ; \
+	then \
+	    $(call installdata,$(top_srcdir)/../ICE_TOUCH_LICENSE,$(prefix)) ; \
+	fi
+	@if test ! -f $(prefix)/LICENSE ; \
+	then \
+	    $(call installdata,$(top_srcdir)/../LICENSE,$(prefix)) ; \
+	fi
+
+LDFLAGS	= $(LDPLATFORMFLAGS) $(COMPFLAGS) $(if $(ice_language:cpp=),-ObjC,)
 
 ifeq ($(COMPILE_FOR_IPHONE),yes)
 ICE_OS_LIBS     = -framework UIKit -framework CFNetwork -framework Security -framework Foundation -liconv
@@ -119,7 +312,7 @@ ifeq ($(MCPP_LIBS),)
 			MCPP_HOME = ../../../third-party/mcpp
 		endif
 	endif
-	MCPP_LIBS              = $(if $(MCPP_HOME),-L$(MCPP_HOME)/$(libsubdir)) -lmcpp
+	MCPP_LIBS = $(if $(MCPP_HOME),-L$(MCPP_HOME)/$(libsubdir)) -lmcpp
 endif
 
 LIBS            = -L$(libdir) $(if $(ice_language:cpp=),-lIceObjC,-lIce) $(ICE_OS_LIBS)
@@ -133,9 +326,10 @@ EVERYTHING_EXCEPT_ALL   = depend clean install
 
 dependdir 	= $(OBJDIR)/.depend
 cppdir	  	= $(ice_dir)/cpp
-objcdir	  	= $(ice_dir)/objc
+objcdir	  	= $(ice_dir)/objective-c
 langdir	  	= $(ice_dir)/$(ice_language)
 langext		= $(if $(ice_language:cpp=),m,cpp)
+langsubdir	= $(if $(ice_language:cpp=),objective-c,cpp)
 
 ifneq ($(HEADERS),)
 HEADERS := $(addprefix $(includedir)/,$(HEADERS))
@@ -150,66 +344,58 @@ endif
 # list specified in the C++ Makefile
 #
 ifneq ($(findstring test/,$(CURDIR)),)
-
-gettestdir	= $(if $(subst $(ice_language),,$(lastword $1)),$(call gettestdir,$(wordlist 2,$(words $1),x $1))/$(lastword $1),test)
+# Given the current directory, compute the path of the test directory
+# in the C++ or Objective-C tree
+gettestdir	= $(if $(subst $(langsubdir),,$(lastword $1)),$(call gettestdir,$(wordlist 2,$(words $1),x $1))/$(lastword $1),test)
 testdir		= $(langdir)/$(call gettestdir,$(subst /, ,$(CURDIR)))
 
+# Derive SRCS from OBJS, and prefix OBJS with OBJDIR
 SRCS		:= $(addprefix $(testdir)/,$(subst .o,.$(langext),$(filter-out $(SLICE_OBJS),$(OBJS))))
 OBJS		:= $(addprefix $(OBJDIR)/,$(OBJS))
 
+# Derive TEST_SLICE_SRCS from SLICE_OBJS
 TEST_SLICE_SRCS += $(addprefix $(testdir)/,$(SLICE_OBJS:.o=.ice))
-HEADERS 		+= $(patsubst $(testdir)/%.ice,$(OBJDIR)/include/%.h,$(TEST_SLICE_SRCS))
 SRCS    		+= $(patsubst $(testdir)/%.ice,$(OBJDIR)/%.$(langext),$(TEST_SLICE_SRCS))
-
 endif
 
 #
 # If SLICE_DIRS is specified, add the $(slicedir)/DIR/*.ice Slice
-# files to the SLICE_SRCS variable and compute the derived headers and
-# sources to add them to HEADERS/SRCS.
+# files to the SLICE_SRCS variable and compute the derived sources to
+# add them to SRCS.
 #
 ifneq ($(SLICE_DIRS),)
 SLICE_SRCS += $(foreach sdir,$(SLICE_DIRS),$(wildcard $(slicedir)/$(sdir)/*.ice))
-
-ifneq ($(SLICE_SRCS),)
-HEADERS += $(patsubst $(slicedir)/%.ice,$(includedir)$(if $(ice_language:cpp=),/objc,)/%.h,$(SLICE_SRCS))
-SRCS    += $(patsubst $(slicedir)/%.ice,$(OBJDIR)/%.$(langext),$(SLICE_SRCS))
-endif
-
+SRCS += $(patsubst $(slicedir)/%.ice,$(OBJDIR)/%.$(langext),$(SLICE_SRCS))
 endif
 
 #
-# If PRIVATE_SLICE_SRCS is specified, compute the derived headers and
-# sources to add them to HEADERS/SRCS.
+# If PRIVATE_SLICE_SRCS is specified, compute the derived sources to
+# add them to SRCS.
 #
 ifneq ($(PRIVATE_SLICE_SRCS),)
 PRIVATE_SLICE_SRCS := $(addprefix $(slicedir)/,$(PRIVATE_SLICE_SRCS))
-
-HEADERS += $(patsubst $(slicedir)/%.ice,$(OBJDIR)/include/%.h,$(PRIVATE_SLICE_SRCS))
-SRCS    += $(patsubst $(slicedir)/%.ice,$(OBJDIR)/%.$(langext),$(PRIVATE_SLICE_SRCS))
+SRCS += $(patsubst $(slicedir)/%.ice,$(OBJDIR)/%.$(langext),$(PRIVATE_SLICE_SRCS))
 endif
 
 
 #
 # If HEADER_DIRS is specified, add the $(langdir)/include/DIR/*.h
-# headers to the HEADERS variable.
+# headers to the HEADERS variable (exclude generated headers).
 #
 ifneq ($(HEADER_DIRS),)
 exclude = $(patsubst $(slicedir)/%.ice,%.h,$(SLICE_SRCS) $(PRIVATE_SLICE_SRCS))
 exclude := $(addprefix %/,$(exclude))
-
 HEADERS += $(subst $(langdir)/include,$(includedir),$(foreach h,$(HEADER_DIRS),$(filter-out $(exclude),$(wildcard $(langdir)/include/$(h)/*.h))))
 endif
 
 #
 # If SRC_DIRS is specified, add the $(langdir)/src/DIR/*.[cpp|m|mm]
-# source files to the SRCS variable..
+# source files to the SRCS variable (exclude generated sources).
 #
 ifneq ($(SRC_DIRS),)
 exclude = $(patsubst $(slicedir)/%.ice,%.$(langext),$(SLICE_SRCS) $(PRIVATE_SLICE_SRCS))
 exclude += $(EXCLUDE_SRCS)
 exclude := $(addprefix %/,$(exclude))
-
 SRCS += $(foreach l,cpp m mm,$(foreach s,$(SRC_DIRS),$(filter-out $(exclude),$(wildcard $(langdir)/src/$(s)/*.$(l)))))
 endif
 
@@ -218,17 +404,12 @@ SRCS += $(addprefix ./,$(LOCAL_SRCS))
 endif
 
 #
-# Derive OBJS from SRCS or SRCS from OBJS
+# Derive OBJS from SRCS
 #
-# Compute the list of objects from the SRCS variable if OBJS isn't
-# set. We remove the source directory prefix and add a unique suffix
-# to ensure the object file names are unique. For example, for the
+# We remove the source directory prefix and add a unique suffix to
+# ensure the object file names are unique. For example, for the
 # ../../../../cpp/src/Ice/TcpEndpointI.cpp source file, the object
 # file will be $(OBJDIR)/Ice/TcpEndpointI_Ice_cpp.o
-#
-# If OBJS is set but not SRCS derive the sources from the list of
-# objects. This is required for tests which specify the objects
-# instead of the sources.
 #
 srcdirs 	= $(langdir)/src . $(OBJDIR) # Directories where sources are located
 mkobjname   = $(OBJDIR)/$(if $(subst ./,,$(dir $1)),$(basename $1)_$(subst /,_,$(dir $1))$(subst .,,$(suffix $1)),$(basename $1)).o
@@ -238,9 +419,9 @@ OBJS	 	= $(call mkobjs,$(SRCS))
 endif
 
 #
-# Compute the list suffixes for object names (_Ice_sdk_cpp.o,
-# _IceUtil_cpp.o, etc) and create the list of the patterns to
-# use as object targets for object implict rules below (e.g.:
+# Compute the suffixes for object names (_Ice_sdk_cpp.o,
+# _IceUtil_cpp.o, etc) and create the list of the patterns to use as
+# object targets for object implict rules below (e.g.:
 # $(OBJDIR)/%_IceUtil_cpp.o $(OBJDIR)/%_Ice_cpp.o ...)
 #
 unique		 = $(if $1,$(firstword $1) $(call unique,$(filter-out $(firstword $1),$1)))
@@ -260,7 +441,7 @@ objpatterns  = $(foreach s,$(objsuffixes),$(OBJDIR)/%_$(s))
 mkobjtargetpattern = $(filter $1,$(objpatterns))
 
 #
-# Include dependencies for slice files and objects
+# Include dependencies for slice files and object files
 #
 ifneq ($(SLICE_SRCS),)
 -include $(addprefix $(dependdir)/, $(notdir $(SLICE_SRCS:.ice=.ice.d)))
@@ -278,7 +459,7 @@ endif
 #
 ifneq ($(OBJS),)
 ifeq ($(wildcard $(dependdir)/*.d),)
-$(OBJS): $(HEADERS) | $(OBJDIR)
+$(OBJS): $(SRCS) $(HEADERS) | $(OBJDIR)
 endif
 endif
 
@@ -303,19 +484,19 @@ $(call mkobjtargetpattern,$(OBJDIR)/%_cpp.o): $(OBJDIR)/%.cpp
 
 # Generated Objective-C source
 $(call mkobjtargetpattern,$(OBJDIR)/%_m.o): $(OBJDIR)/%.m
-	@$(call mkobj,$<,$@,$(OBJC_CPPFLAGS),$(CC))
+	@$(call mkobj,$<,$@,-I$(OBJDIR)/include $(OBJC_CPPFLAGS),$(CC))
 
 # C++ source
 $(call mkobjtargetpattern,$(OBJDIR)/%_cpp.o): $(cppdir)/src/%.cpp
-	@$(call mkobj,$<,$@,-I$(cppdir)/src $(CXX_CPPFLAGS))
+	@$(call mkobj,$<,$@,-I$(OBJDIR)/include -I$(cppdir)/src $(CXX_CPPFLAGS))
 
 # Objective-C source
 $(call mkobjtargetpattern,$(OBJDIR)/%_m.o): $(objcdir)/src/%.m
-	@$(call mkobj,$<,$@,-I$(objcdir)/src $(OBJC_CPPFLAGS),$(CC))
+	@$(call mkobj,$<,$@,-I$(OBJDIR)/include -I$(objcdir)/src $(OBJC_CPPFLAGS),$(CC))
 
 # Objective-C++ source from C++ source directory
 $(call mkobjtargetpattern,$(OBJDIR)/%_mm.o): $(cppdir)/src/%.mm
-	@$(call mkobj,$<,$@,-I$(cppdir)/src $(OBJCXX_CPPFLAGS))
+	@$(call mkobj,$<,$@,-I$(OBJDIR)/include -I$(cppdir)/src $(OBJCXX_CPPFLAGS))
 
 # Compile public Slice files from slice directory to C++
 $(includedir)/%.h $(OBJDIR)/%.cpp: $(slicedir)/%.ice $(SLICE2CPP)
@@ -342,7 +523,7 @@ ifneq ($(findstring test/,$(CURDIR)),)
 
 ifeq ($(COMPILE_FOR_IPHONE),yes)
 
-mktestname2	= $(if $(subst $(ice_language),,$(lastword $1)),$(call mktestname2,$(wordlist 2,$(words $1),x $1),$(lastword $1)_$2),$(top_srcdir)/test/cpp/iPhone/container/Bundles-$(OBJDIR)/$2.bundle/lib$2.dylib)
+mktestname2	= $(if $(subst $(langsubdir),,$(lastword $1)),$(call mktestname2,$(wordlist 2,$(words $1),x $1),$(lastword $1)_$2),$(top_srcdir)/test/cpp/iPhone/container/Bundles-$(OBJDIR)/$2.bundle/lib$2.dylib)
 mktestname = $(call mktestname2,$(subst /, ,$(CURDIR)),$(1))
 mktest 	   = bundledir=$(dir $(1)); libname=$(notdir $(basename $(1))); \
 			 if test ! -f $$bundledir/Info.plist ; \
@@ -366,30 +547,37 @@ COLOBJS 	:= $(if $(COLOBJS),$(addprefix $(OBJDIR)/, $(COLOBJS)))
 SLICE_OBJS 	:= $(if $(SLICE_OBJS),$(addprefix $(OBJDIR)/, $(SLICE_OBJS)))
 
 ICECPPFLAGS	:= -I$(testdir) $(ICECPPFLAGS)
-CPPFLAGS 	:= -I$(OBJDIR)/include -I$(langdir)/test/include -I$(testdir) $(CPPFLAGS)
 
 #
 # It's important that the two following rules appear first, otherwise
 # we could endup compiling generated sources from the test directory
 # instead of compiling the source from $(OBJDIR).
 #
+ifeq ($(ice_language),cpp)
+
+CPPFLAGS 	:= -I$(OBJDIR)/include -I$(langdir)/test/include -I$(testdir) $(CPPFLAGS)
+
 %.o: %.cpp
 	@$(call mkobj,$<,$@,$(CXX_CPPFLAGS))
-
-%.o: %.m
-	@$(call mkobj,$<,$@,$(OBJC_CPPFLAGS))
 
 $(OBJDIR)/%.o: $(testdir)/%.cpp
 	@$(call mkobj,$<,$@,$(CXX_CPPFLAGS))
 
-$(OBJDIR)/%.o: $(testdir)/%.m
-	@$(call mkobj,$<,$@,-I$(langdir)/test/Ice $(OBJC_CPPFLAGS))
-
 $(OBJDIR)/include/%.h $(OBJDIR)/%.cpp: $(testdir)/%.ice $(SLICE2CPP)
 	@$(call slice2cpp,$<,$(*F),$(OBJDIR)/include,$(OBJDIR),$(SLICE2CPPFLAGS))
+else
+
+CPPFLAGS 	:= -I$(OBJDIR)/include -I$(langdir)/test/include -I$(langdir)/test/Ice $(CPPFLAGS)
+
+%.o: %.m
+	@$(call mkobj,$<,$@,$(OBJC_CPPFLAGS))
+
+$(OBJDIR)/%.o: $(testdir)/%.m
+	@$(call mkobj,$<,$@,$(OBJC_CPPFLAGS))
 
 $(OBJDIR)/include/%.h $(OBJDIR)/%.m: $(testdir)/%.ice $(SLICE2OBJC)
 	@$(call slice2objc,$<,$(*F),$(OBJDIR)/include,$(OBJDIR),$(SLICE2OBJCFLAGS))
+endif
 
 # Make sure the tests executables depend on the SDK static library.
 $(TARGETS):	$(libdir)/$(call mklibname,$(if $(ice_language:cpp=),IceObjC,Ice))

@@ -1,0 +1,3 @@
+[submodule "ice-dev"]
+	path = ice
+	url = https://github.com/ZeroC-Inc/ice-dev.git
