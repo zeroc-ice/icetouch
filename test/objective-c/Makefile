@@ -48,6 +48,9 @@ else
 SUBDIRS		=
 endif
 
+# Make sure we build $(top_srcdir)/test/lib/TestCommon as a static library
+export STATICLIBS = yes
+
 .PHONY: $(EVERYTHING) $(SUBDIRS)
 
 all:: $(addsuffix .target,$(SUBDIRS))
@@ -77,3 +80,4 @@ $(addsuffix .target,$(filter-out Common,$(SUBDIRS))): Common.target
 clean::
 	rm -rf Common
 	rm -rf Ice
+	rm -rf $(top_srcdir)/test/lib

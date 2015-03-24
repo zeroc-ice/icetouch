@@ -118,11 +118,11 @@ install::
 	fi
 	@if test ! -f $(prefix)/ICE_LICENSE ; \
 	then \
-	    $(call installdata,$(top_srcdir)/ice/ICE_LICENSE,$(prefix)) ; \
+	    $(call installdata,$(ice_dir)/ICE_LICENSE,$(prefix)) ; \
 	fi
 	@if test ! -f $(prefix)/LICENSE ; \
 	then \
-	    $(call installdata,$(top_srcdir)/ice/LICENSE,$(prefix)) ; \
+	    $(call installdata,$(ice_dir)/LICENSE,$(prefix)) ; \
 	fi
 	if [ -d $(prefix)/SDKs/Cpp ]; \
 	then \

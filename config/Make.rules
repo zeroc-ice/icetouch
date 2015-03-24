@@ -18,7 +18,13 @@ prefix			?= /Library/Developer/IceTouch-$(VERSION)
 # choose the version you want to use to build Ice Touch. The default
 # is the one returned by "xcode-select -print-path".
 #
-#XCODE_PATH          = /Applications/Xcode.app
+#XCODE_PATH   	= /Applications/Xcode.app
+
+#
+# If MCPP is not installed in a standard location where the compiler
+# can find it, set MCPP_HOME to the Mcpp installation directory.
+#
+#MCPP_HOME		?= /opt/mcpp
 
 #
 # Define OPTIMIZE_SIZE as yes if you want to build with minimal size.
@@ -89,11 +95,6 @@ endif
 endif
 
 VERSION			= 3.6.0
-# VERSION_MAJOR   = 3
-# VERSION_MINOR   = 6
-# VERSION_PATCH   = 0
-# SOVERSION		= 36
-# SHORT_VERSION	= 3.6
 
 INSTALL			= cp -fp
 INSTALL_PROGRAM	= ${INSTALL}
@@ -282,23 +283,12 @@ all::
 LDFLAGS	= $(LDPLATFORMFLAGS) $(COMPFLAGS) $(if $(ice_language:cpp=),-ObjC,)
 
 ifeq ($(COMPILE_FOR_IPHONE),yes)
-ICE_OS_LIBS     = -framework UIKit -framework CFNetwork -framework Security -framework Foundation -liconv
+ICE_OS_LIBS 	= -framework UIKit -framework CFNetwork -framework Security -framework Foundation -liconv
 else ifeq ($(COMPILE_FOR_OSX),yes)
-ICE_OS_LIBS     = -framework Security -framework Foundation -lbz2 -liconv
+ICE_OS_LIBS 	= -framework Security -framework Foundation -lbz2 -liconv
 endif
 
-ifeq ($(MCPP_LIBS),)
-	ifeq ($(MCPP_HOME),)
-		#
-		# If libmcpp.a is in the third-party subdirectory, we are building the core C++ distribution
-		# and we used that mcpp package.
-		#
-		ifneq ($(wildcard ../../../third-party/mcpp/lib/libmcpp.a),)
-			MCPP_HOME = ../../../third-party/mcpp
-		endif
-	endif
-	MCPP_LIBS = $(if $(MCPP_HOME),-L$(MCPP_HOME)/$(libsubdir)) -lmcpp
-endif
+MCPP_LIBS 		= $(if $(MCPP_HOME),-L$(MCPP_HOME)/$(libsubdir)) -lmcpp
 
 LIBS            = -L$(libdir) $(if $(ice_language:cpp=),-lIceObjC,-lIce) $(ICE_OS_LIBS)
 TEST_LIBS		= -L$(top_srcdir)/test/lib -lTestCommon $(LIBS)
