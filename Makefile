@@ -45,9 +45,6 @@ endif
 
 all:: sdks
 
-install:: sdks
-	$(call mkdir,$(prefix)/SDKs)
-
 sdks:
 	if [ ! -d SDKs ]; \
 	then \
@@ -123,6 +120,10 @@ install::
 	@if test ! -f $(prefix)/LICENSE ; \
 	then \
 	    $(call installdata,$(ice_dir)/LICENSE,$(prefix)) ; \
+	fi
+	@if test ! -d $(prefix)/SDKs ; \
+	then \
+		$(call mkdir,$(prefix)/SDKs); \
 	fi
 	if [ -d $(prefix)/SDKs/Cpp ]; \
 	then \

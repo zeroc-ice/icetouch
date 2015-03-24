@@ -560,7 +560,7 @@ $(TARGETS):	$(libdir)/$(call mklibname,$(if $(ice_language:cpp=),IceObjC,Ice))
 endif
 
 ifneq ($(TARGETS),)
-all:: $(TARGETS)
+install all:: $(TARGETS)
 
 clean::
 	-rm -f $(TARGETS)
