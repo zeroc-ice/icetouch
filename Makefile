@@ -43,7 +43,7 @@ ifeq ($(create_runpath_symlink),yes)
 	fi
 endif
 
-all:: sdks
+install all:: sdks
 
 sdks:
 	if [ ! -d SDKs ]; \
