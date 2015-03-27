@@ -30,7 +30,7 @@ $(libdir)/$(LIBNAME): $(OBJS)
 CPPFLAGS		:= -I$(objcdir)/src/Ice -DICE_API_EXPORTS $(CPPFLAGS)
 SLICE2OBJCFLAGS	:= --ice --dll-export ICE_API $(SLICE2CPPFLAGS)
 
-ifeq ($(COMPILE_FOR_IPHONE),yes)
+ifneq ($(PLATFORM_NAME),macosx)
 SLICE2OBJCFLAGS	:= -DICE_USE_CFSTREAM $(SLICE2OBJCFLAGS)
 endif
 

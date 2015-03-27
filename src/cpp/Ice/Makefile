@@ -48,7 +48,7 @@ include $(top_srcdir)/config/Make.rules
 CPPFLAGS		:= -DICE_API_EXPORTS $(CPPFLAGS)
 SLICE2CPPFLAGS	:= --ice --dll-export ICE_API $(SLICE2CPPFLAGS)
 
-ifeq ($(COMPILE_FOR_IPHONE),yes)
+ifneq ($(PLATFORM_NAME),macosx)
 SLICE2CPPFLAGS	:= -DICE_USE_CFSTREAM $(SLICE2CPPFLAGS)
 endif
 

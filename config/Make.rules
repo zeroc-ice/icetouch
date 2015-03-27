@@ -127,27 +127,28 @@ ifneq ($(XCODE_PATH),)
     export DEVELOPER_DIR := $(XCODE_PATH)/Contents/Developer
 endif
 
-ifeq ($(COMPILE_FOR_IPHONE_SIMULATOR),yes)
+ifeq ($(COMPILE_TRANSLATORS),yes)
+	PLATFORM_NAME = macosx
+else ifeq ($(COMPILE_FOR_IPHONE_SIMULATOR),yes)
     PLATFORM_NAME = iphonesimulator
 else ifeq ($(COMPILE_FOR_IPHONE),yes)
     PLATFORM_NAME = iphoneos
 else
     PLATFORM_NAME = macosx
-	COMPILE_FOR_OSX = yes
 endif
 
 slicedir 	= $(ice_dir)/slice
 bindir		= $(top_srcdir)/SDKs/$(sdksubdir)/bin
 sdkdir		= $(top_srcdir)/SDKs/$(sdksubdir)/$(PLATFORM_NAME).sdk
 sdksubdir 	= $(if $(ice_language:cpp=),ObjC,Cpp)
-libdir		= $(sdkdir)/usr/local/lib
+libdir		= $(sdkdir)/usr/lib
 ifeq ($(COMPILE_TRANSLATORS),yes)
 includedir	= $(ice_dir)/cpp/include
 else
-includedir	= $(sdkdir)/usr/local/include
+includedir	= $(sdkdir)/usr/include
 endif
 
-ifeq ($(COMPILE_FOR_IPHONE),yes)
+ifeq ($(PLATFORM_NAME),iphoneos)
     SDK_NAME = iphoneos$(IOS_SDK_VERSION)
     ifeq ($(ARCHFLAGS),)
         ifeq ($(OPTIMIZE),yes)
@@ -158,17 +159,12 @@ ifeq ($(COMPILE_FOR_IPHONE),yes)
     endif
     # Set the achitecture to ARM for dependencies
     CPPPLATFORMFLAGS = -arch armv7
-endif
-
-ifeq ($(COMPILE_FOR_IPHONE_SIMULATOR),yes)
-    COMPILE_FOR_IPHONE = yes
+else ifeq ($(PLATFORM_NAME),iphonesimulator)
     SDK_NAME = iphonesimulator$(IOS_SDK_VERSION)
     ifeq ($(ARCHFLAGS),)
         ARCHFLAGS = -arch i386 -arch x86_64
     endif
-endif
-
-ifneq ($(COMPILE_FOR_IPHONE),yes)
+else
     SDK_NAME = macosx$(OSX_SDK_VERSION)
     ifeq ($(ARCHFLAGS),)
         ARCHFLAGS = -arch x86_64
@@ -204,14 +200,12 @@ COMPFLAGS += $(ARCHFLAGS)
 
 OBJDIR = $(PLATFORM_NAME)
 
-ifeq ($(COMPILE_FOR_IPHONE),yes)
-    ifeq ($(COMPILE_FOR_IPHONE_SIMULATOR),yes)
-        CPPPLATFORMFLAGS   += -mios-simulator-version-min=$(IOS_TARGET_MIN_SDK_VERSION)
-    else
-        CPPPLATFORMFLAGS   += -miphoneos-version-min=$(IOS_TARGET_MIN_SDK_VERSION)
-    endif
+ifeq ($(PLATFORM_NAME),iphoneos)
+    CPPPLATFORMFLAGS   += -miphoneos-version-min=$(IOS_TARGET_MIN_SDK_VERSION)
+else ifeq ($(PLATFORM_NAME),iphonesimulator)
+	CPPPLATFORMFLAGS   += -mios-simulator-version-min=$(IOS_TARGET_MIN_SDK_VERSION)
 else
-    CPPPLATFORMFLAGS    += -mmacosx-version-min=$(OSX_TARGET_MIN_SDK_VERSION)
+    CPPPLATFORMFLAGS   += -mmacosx-version-min=$(OSX_TARGET_MIN_SDK_VERSION)
 endif
 
 LDPLATFORMFLAGS	 := $(CPPPLATFORMFLAGS)
@@ -282,10 +276,10 @@ all::
 
 LDFLAGS	= $(LDPLATFORMFLAGS) $(COMPFLAGS) $(if $(ice_language:cpp=),-ObjC,)
 
-ifeq ($(COMPILE_FOR_IPHONE),yes)
-ICE_OS_LIBS 	= -framework UIKit -framework CFNetwork -framework Security -framework Foundation -liconv
-else ifeq ($(COMPILE_FOR_OSX),yes)
+ifeq ($(PLATFORM_NAME),macosx)
 ICE_OS_LIBS 	= -framework Security -framework Foundation -lbz2 -liconv
+else
+ICE_OS_LIBS 	= -framework UIKit -framework CFNetwork -framework Security -framework Foundation -liconv
 endif
 
 MCPP_LIBS 		= $(if $(MCPP_HOME),-L$(MCPP_HOME)/$(libsubdir)) -lmcpp
@@ -496,7 +490,7 @@ endif
 #
 ifneq ($(findstring test/,$(CURDIR)),)
 
-ifeq ($(COMPILE_FOR_IPHONE),yes)
+ifneq ($(PLATFORM_NAME),macosx)
 
 mktestname2	= $(if $(subst $(langsubdir),,$(lastword $1)),$(call mktestname2,$(wordlist 2,$(words $1),x $1),$(lastword $1)_$2),$(top_srcdir)/test/cpp/iPhone/container/Bundles-$(OBJDIR)/$2.bundle/lib$2.dylib)
 mktestname = $(call mktestname2,$(subst /, ,$(CURDIR)),$(1))

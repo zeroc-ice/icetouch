@@ -11,11 +11,7 @@ top_srcdir	= ..
 
 include $(top_srcdir)/config/Make.rules
 
-ifeq ($(COMPILE_FOR_OSX),yes)
 SUBDIRS = translators cpp objective-c
-else
-SUBDIRS = cpp objective-c
-endif
 
 $(EVERYTHING)::
 	@for subdir in $(SUBDIRS); \

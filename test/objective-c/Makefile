@@ -11,7 +11,7 @@ top_srcdir	= ../..
 
 include $(top_srcdir)/config/Make.rules
 
-ifneq ($(COMPILE_FOR_OSX),)
+ifeq ($(PLATFORM_NAME),macosx)
 SUBDIRS		= Common \
 			  Ice/proxy \
 		  	  Ice/acm \

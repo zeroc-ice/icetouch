@@ -43,7 +43,7 @@ SUBDIRS	= Ice/admin \
 		  Ice/servantLocator \
 		  Ice/udp
 
-ifeq ($(COMPILE_FOR_IPHONE),)
+ifeq ($(PLATFORM_NAME),macosx)
 SUBDIRS:= $(SUBDIRS) \
 		  Ice/faultTolerance
 endif
