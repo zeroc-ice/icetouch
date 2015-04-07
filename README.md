@@ -1,4 +1,4 @@
-[![Build Status](https://magnum.travis-ci.com/ZeroC-Inc/icetouch.svg?token=icxd1yE9Nf6WLivZz2vF&branch=master)](https://magnum.travis-ci.com/ZeroC-Inc/icetouch)
+[![Build Status](https://magnum.travis-ci.com/zeroc-ice/icetouch.svg?token=icxd1yE9Nf6WLivZz2vF&branch=master)](https://magnum.travis-ci.com/zeroc-ice/icetouch)
 
 Ice Touch is ZeroC's implementation of Ice for iOS devices and OS X,
 with full support for developpment in the Objective-C and C++
