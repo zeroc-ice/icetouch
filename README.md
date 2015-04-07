@@ -22,10 +22,10 @@ Ice Touch provides development kits and run times for iOS devices, the
 iOS simulator and OS X.
 
 Like Ice, Ice Touch is available under the terms and conditions of the
-GNU General Public License v2 (see the ICE_TOUCH_LICENSE
-file). Commercial licenses are available for customers who wish to use
-Ice Touch in proprietary products. Please contact sales@zeroc.com for
-more information on licensing Ice Touch.
+GNU General Public License v2 (see the ICE_LICENSE file). Commercial
+licenses are available for customers who wish to use Ice Touch in
+proprietary products. Please contact sales@zeroc.com for more
+information on licensing Ice Touch.
 
 Documentation
 -------------

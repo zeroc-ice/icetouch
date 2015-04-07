@@ -3,7 +3,7 @@
 # Copyright (c) 2003-2015 ZeroC, Inc. All rights reserved.
 #
 # This copy of Ice Touch is licensed to you under the terms described
-# in the ICE_TOUCH_LICENSE file included in this distribution.
+# in the ICE_LICENSE file included in this distribution.
 #
 # **********************************************************************
 
@@ -109,9 +109,9 @@ install::
 	    echo "Creating $(prefix)..." ; \
 	    $(call mkdir,$(prefix)) ; \
 	fi
-	@if test ! -f $(prefix)/ICE_TOUCH_LICENSE ; \
+	@if test ! -f $(prefix)/ICE_LICENSE ; \
 	then \
-	    $(call installdata,$(top_srcdir)/ICE_TOUCH_LICENSE,$(prefix)) ; \
+	    $(call installdata,$(top_srcdir)/ICE_LICENSE,$(prefix)) ; \
 	fi
 	@if test ! -f $(prefix)/ICE_LICENSE ; \
 	then \
