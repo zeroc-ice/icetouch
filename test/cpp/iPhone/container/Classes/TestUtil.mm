@@ -187,11 +187,11 @@ MainHelperI::run()
         args.push_back("--IceSSL.CheckCertName=0");
         if(_config.type == TestConfigTypeServer)
         {
-            args.push_back("--IceSSL.CertFile=s_rsa1024.pfx");
+            args.push_back("--IceSSL.CertFile=server.p12");
         }
         else
         {
-            args.push_back("--IceSSL.CertFile=c_rsa1024.pfx");
+            args.push_back("--IceSSL.CertFile=client.p12");
         }
         args.push_back("--IceSSL.Password=password");
         args.push_back("--Ice.Override.ConnectTimeout=10000"); // COMPILERFIX: Workaround for SSL hang on iOS devices

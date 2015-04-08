@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AlternateSDK</key>
+	<string>IceTouch 1.4.0</string>
 	<key>CanonicalName</key>
 	<string>IceTouch 1.4.0</string>
 	<key>CustomProperties</key>
@@ -11,7 +13,13 @@
 		<key>PLATFORM_NAME</key>
 		<string>iPhoneSimulator</string>
 	</dict>
+	<key>DisplayName</key>
+	<string>Ice Touch 1.4.0</string>
 	<key>IsBaseSDK</key>
 	<string>NO</string>
+	<key>MinimumSupportedToolsVersion</key>
+	<string>6.0</string>
+	<key>Version</key>
+	<string>1.4.0</string>
 </dict>
 </plist>
