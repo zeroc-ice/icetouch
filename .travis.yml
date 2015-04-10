@@ -1,19 +1,20 @@
 language: objective-c
 env:
-  - BUILD_TARGET=OSX
-  - BUILD_TARGET=IPHONE
-  - BUILD_TARGET=IPHONE_SIMULATOR
+- BUILD_TARGET=OSX
+- BUILD_TARGET=IPHONE
+- BUILD_TARGET=IPHONE_SIMULATOR
 git:
   submodules: false
 before_install:
-  - echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
-  - git submodule update --init --recursive
+- echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
+- git submodule update --init --recursive
 install:
-  - brew install mcpp
+- brew install mcpp
 before_script:
-  - export COMPILE_FOR_${BUILD_TARGET}=yes
+- export COMPILE_FOR_${BUILD_TARGET}=yes
 script:
-  - make -j3
-  - python allTests.py --debug --env
+- make -j3
+- python allTests.py --debug --env
 notifications:
-  email: travis-ci@zeroc.com
+  slack:
+    secure: Y+pkmB5LWR0oHCH+h9e1HJsSLxZtiL3oCpAoDaVTr8dqFSAj+v/s9WTi2Qo2wfAWTAcsdMeCrNg1qb2iM8OCTX0LQ3oCTlQO3xozyAojcxJXta0l3NRPCVD6Co7qWjJUPC/uiBieAreLZXztv6TNl13l7HFPDsIZitMNM2HyRSQ=
