@@ -11,7 +11,7 @@
 # Select an installation base directory. The directory will be created
 # if it does not exist.
 #
-prefix			?= /Library/Developer/IceTouch-$(VERSION)
+prefix		?= /Library/Developer/IceTouch-$(VERSION)
 
 #
 # Xcode root directory. If you have several Xcode versions installed,
@@ -24,7 +24,7 @@ prefix			?= /Library/Developer/IceTouch-$(VERSION)
 # If MCPP is not installed in a standard location where the compiler
 # can find it, set MCPP_HOME to the Mcpp installation directory.
 #
-#MCPP_HOME		?= /opt/mcpp
+#MCPP_HOME	?= /opt/mcpp
 
 #
 # Define OPTIMIZE_SIZE as yes if you want to build with minimal size.
@@ -33,8 +33,8 @@ prefix			?= /Library/Developer/IceTouch-$(VERSION)
 # These options are mutually exclusive. If neither is set, Ice Touch
 # is built with debug information.
 #
-#OPTIMIZE_SIZE		= yes
-#OPTIMIZE_SPEED		= yes
+#OPTIMIZE_SIZE	= yes
+#OPTIMIZE_SPEED	= yes
 
 #
 # The default is to build the slice2cpp and slice2objc translators if
@@ -61,7 +61,7 @@ prefix			?= /Library/Developer/IceTouch-$(VERSION)
 # The minimum SDK version supported by targets, the default is 7.1
 # to allow using Ice Touch binaries on older iOS versions.
 #
-#IOS_TARGET_MIN_SDK_VERSION = 7.1
+#IOS_TARGET_MIN_SDK_VERSION 	= 7.1
 
 #
 # The build architectures. The default is to build fat binaries with all
@@ -88,15 +88,15 @@ prefix			?= /Library/Developer/IceTouch-$(VERSION)
 
 ifeq ($(ice_language),)
 ifneq ($(strip $(foreach s,src/objective-c test/objective-c,$(findstring $(s),$(CURDIR)))),)
-ice_language = objective-c
+ice_language 	= objective-c
 else
-ice_language = cpp
+ice_language 	= cpp
 endif
 endif
 
-VERSION			= 3.6.0
+VERSION		= 3.6.0
 
-INSTALL			= cp -fp
+INSTALL		= cp -fp
 INSTALL_PROGRAM	= ${INSTALL}
 INSTALL_LIBRARY	= ${INSTALL}
 INSTALL_DATA	= ${INSTALL}
@@ -128,7 +128,7 @@ ifneq ($(XCODE_PATH),)
 endif
 
 ifeq ($(COMPILE_TRANSLATORS),yes)
-	PLATFORM_NAME = macosx
+    PLATFORM_NAME = macosx
 else ifeq ($(COMPILE_FOR_IPHONE_SIMULATOR),yes)
     PLATFORM_NAME = iphonesimulator
 else ifeq ($(COMPILE_FOR_IPHONE),yes)
@@ -143,9 +143,9 @@ sdkdir		= $(top_srcdir)/SDKs/$(sdksubdir)/$(PLATFORM_NAME).sdk
 sdksubdir 	= $(if $(ice_language:cpp=),ObjC,Cpp)
 libdir		= $(sdkdir)/usr/lib
 ifeq ($(COMPILE_TRANSLATORS),yes)
-includedir	= $(ice_dir)/cpp/include
+    includedir	= $(ice_dir)/cpp/include
 else
-includedir	= $(sdkdir)/usr/include
+    includedir	= $(sdkdir)/usr/include
 endif
 
 ifeq ($(PLATFORM_NAME),iphoneos)
@@ -203,7 +203,7 @@ OBJDIR = $(PLATFORM_NAME)
 ifeq ($(PLATFORM_NAME),iphoneos)
     CPPPLATFORMFLAGS   += -miphoneos-version-min=$(IOS_TARGET_MIN_SDK_VERSION)
 else ifeq ($(PLATFORM_NAME),iphonesimulator)
-	CPPPLATFORMFLAGS   += -mios-simulator-version-min=$(IOS_TARGET_MIN_SDK_VERSION)
+    CPPPLATFORMFLAGS   += -mios-simulator-version-min=$(IOS_TARGET_MIN_SDK_VERSION)
 else
     CPPPLATFORMFLAGS   += -mmacosx-version-min=$(OSX_TARGET_MIN_SDK_VERSION)
 endif
@@ -211,67 +211,67 @@ endif
 LDPLATFORMFLAGS	 := $(CPPPLATFORMFLAGS)
 CPPPLATFORMFLAGS += -pthread -fvisibility=hidden
 
-ICECPPFLAGS		= -I$(slicedir)
+ICECPPFLAGS	= -I$(slicedir)
 SLICE2OBJCFLAGS	= $(ICECPPFLAGS)
 SLICE2CPPFLAGS	= $(ICECPPFLAGS)
-CPPFLAGS		= -I$(includedir) $(CPPPLATFORMFLAGS)
+CPPFLAGS	= -I$(includedir) $(CPPPLATFORMFLAGS)
 
-SLICE2OBJC	 	= $(bindir)/slice2objc
-SLICE2CPP  		= $(bindir)/slice2cpp
+SLICE2OBJC	= $(bindir)/slice2objc
+SLICE2CPP  	= $(bindir)/slice2cpp
 
-mklibname	  = lib$(1).a
+mklibname	= lib$(1).a
 mklibfilename = lib$(1).a
-mklib		  = if [ ! -d "$(dir $1)" ]; then mkdir -p $(dir $1); fi; \
-		  	    echo "libtool -static -o $1 $2"; \
-				rm -f $(1); \
-				libtool -no_warning_for_no_symbols -static -o $(1) $(2)
+mklib		= if [ ! -d "$(dir $1)" ]; then mkdir -p $(dir $1); fi; \
+	    	  echo "libtool -static -o $1 $2"; \
+		  rm -f $(1); \
+		  libtool -no_warning_for_no_symbols -static -o $(1) $(2)
+
 mklibtargets	= $(3)
 
 installlib	= $(INSTALL) $(2)/$(5) $(1); \
-			  chmod a+rx $(1)/$(5)
+		  chmod a+rx $(1)/$(5)
 
 installdata	= $(INSTALL_DATA) $(1) $(2); \
-			  chmod a+r $(2)/$(notdir $(1))
+		  chmod a+r $(2)/$(notdir $(1))
 
 installprogram	= $(INSTALL_PROGRAM) $(1) $(2); \
-			  chmod a+rx $(2)/$(notdir $(1))
+		  chmod a+rx $(2)/$(notdir $(1))
 
 mkdir		= mkdir $(1) ; \
-			  chmod a+rx $(1)
+		  chmod a+rx $(1)
 
 #
 # mkheader ORIG,DEST
 #
 mkheader = echo "cp $1 $2"; \
-		   mkdir -p $(dir $2); \
-		   cp $1 $2; \
-		   chmod a+r $2; \
+	   mkdir -p $(dir $2); \
+	   cp $1 $2; \
+	   chmod a+r $2; \
 
 #
 # mkobj FILE.[cpp|m|mm],FILE.o,CPPFLAGS,COMPILER,COMPFLAGS
 #
 mkobj = echo "$(if $4,$4,$(CXX)) $(if $3,$3,$(CPPFLAGS)) $(if $5,$5,$(COMPFLAGS)) -c $1 -o $2"; \
-		if [ -n "$(dir $2)" -a ! -d "$(dir $2)" ]; then mkdir -p $(dir $2); fi; \
-		$(if $4,$4,$(CXX)) -c $1 -o $2 $(if $3,$3,$(CPPFLAGS)) $(if $5,$5,$(COMPFLAGS)) || exit 1; \
-		mkdir -p $(dependdir); \
-		$(CXX) -DMAKEDEPEND -MM -MT $2 $(if $3,$3,$(CPPFLAGS)) -c $1 > $(dependdir)/$(notdir $(2:.o=.d)) \
+	if [ -n "$(dir $2)" -a ! -d "$(dir $2)" ]; then mkdir -p $(dir $2); fi; \
+	$(if $4,$4,$(CXX)) -c $1 -o $2 $(if $3,$3,$(CPPFLAGS)) $(if $5,$5,$(COMPFLAGS)) || exit 1; \
+	mkdir -p $(dependdir); \
+	$(CXX) -DMAKEDEPEND -MM -MT $2 $(if $3,$3,$(CPPFLAGS)) -c $1 > $(dependdir)/$(notdir $(2:.o=.d)) \
 
 #
 # mkslice FILE.ice,STEM,[HEADERDIR,OUTPUTDIR,FLAGS,TRANSLATOR]
 #
 mkslice = echo "$6 $5 $(if $4,--output-dir $4,) $1"; \
-		  if [ -n "$3" -a ! -d "$3" ]; then mkdir -p $3; fi; \
-		  if [ -n "$4" -a ! -d "$4" ]; then mkdir -p $4; fi; \
-		  $6 $5 $(if $4,--output-dir $4,) $1 || exit 1; \
-		  if [ -n "$3" ]; then mv $(if $4,$4/$2.h,$2.h) $3/; fi; \
-		  if [ ! -d $(dependdir) ]; then mkdir -p $(dependdir); fi; \
-		  if [ -n "$3" ]; \
-		  then \
-			  $6 $5 --depend $1 | $(ice_dir)/config/makedepend.py "$3/" > $(dependdir)/$2.ice.d; \
-		  else \
-		  	  $6 $5 --depend $1 > $(dependdir)/$2.ice.d; \
+	  if [ -n "$3" -a ! -d "$3" ]; then mkdir -p $3; fi; \
+	  if [ -n "$4" -a ! -d "$4" ]; then mkdir -p $4; fi; \
+	  $6 $5 $(if $4,--output-dir $4,) $1 || exit 1; \
+	  if [ -n "$3" ]; then mv $(if $4,$4/$2.h,$2.h) $3/; fi; \
+	  if [ ! -d $(dependdir) ]; then mkdir -p $(dependdir); fi; \
+	  if [ -n "$3" ]; \
+	  then \
+	      $6 $5 --depend $1 | $(ice_dir)/config/makedepend.py "$3/" > $(dependdir)/$2.ice.d; \
+	  else \
+	      $6 $5 --depend $1 > $(dependdir)/$2.ice.d; \
           fi
-
 all::
 
 LDFLAGS	= $(LDPLATFORMFLAGS) $(COMPFLAGS) $(if $(ice_language:cpp=),-ObjC,)
@@ -282,16 +282,16 @@ else
 ICE_OS_LIBS 	= -framework UIKit -framework CFNetwork -framework Security -framework Foundation -liconv
 endif
 
-MCPP_LIBS 		= $(if $(MCPP_HOME),-L$(MCPP_HOME)/$(libsubdir)) -lmcpp
+MCPP_LIBS 	= $(if $(MCPP_HOME),-L$(MCPP_HOME)/$(libsubdir)) -lmcpp
 
 LIBS            = -L$(libdir) $(if $(ice_language:cpp=),-lIceObjC,-lIce) $(ICE_OS_LIBS)
-TEST_LIBS		= -L$(top_srcdir)/test/lib -lTestCommon $(LIBS)
+TEST_LIBS	= -L$(top_srcdir)/test/lib -lTestCommon $(LIBS)
 
 EVERYTHING		= all depend clean install
 EVERYTHING_EXCEPT_ALL   = depend clean install
 
 .SUFFIXES:
-.SUFFIXES:		.m .mm .cpp .o
+.SUFFIXES:	.m .mm .cpp .o
 
 dependdir 	= $(OBJDIR)/.depend
 cppdir	  	= $(ice_dir)/cpp
@@ -324,7 +324,7 @@ OBJS		:= $(addprefix $(OBJDIR)/,$(OBJS))
 
 # Derive TEST_SLICE_SRCS from SLICE_OBJS
 TEST_SLICE_SRCS += $(addprefix $(testdir)/,$(SLICE_OBJS:.o=.ice))
-SRCS    		+= $(patsubst $(testdir)/%.ice,$(OBJDIR)/%.$(langext),$(TEST_SLICE_SRCS))
+SRCS    	+= $(patsubst $(testdir)/%.ice,$(OBJDIR)/%.$(langext),$(TEST_SLICE_SRCS))
 endif
 
 #
@@ -381,7 +381,7 @@ endif
 # file will be $(OBJDIR)/Ice/TcpEndpointI_Ice_cpp.o
 #
 srcdirs 	= $(langdir)/src . $(OBJDIR) # Directories where sources are located
-mkobjname   = $(OBJDIR)/$(if $(subst ./,,$(dir $1)),$(basename $1)_$(subst /,_,$(dir $1))$(subst .,,$(suffix $1)),$(basename $1)).o
+mkobjname   	= $(OBJDIR)/$(if $(subst ./,,$(dir $1)),$(basename $1)_$(subst /,_,$(dir $1))$(subst .,,$(suffix $1)),$(basename $1)).o
 mkobjs		= $(foreach d,$(srcdirs),$(foreach f,$(patsubst $(d)/%,%,$(filter $(d)/%,$1)),$(call mkobjname,$f)))
 ifeq ($(OBJS),)
 OBJS	 	= $(call mkobjs,$(SRCS))
@@ -393,9 +393,9 @@ endif
 # object targets for object implict rules below (e.g.:
 # $(OBJDIR)/%_IceUtil_cpp.o $(OBJDIR)/%_Ice_cpp.o ...)
 #
-unique		 = $(if $1,$(firstword $1) $(call unique,$(filter-out $(firstword $1),$1)))
-objsuffixes  = $(call unique,$(foreach f,$(OBJS),$(patsubst $(firstword $(subst _, ,$f))_%,%,$f)))
-objpatterns  = $(foreach s,$(objsuffixes),$(OBJDIR)/%_$(s))
+unique		= $(if $1,$(firstword $1) $(call unique,$(filter-out $(firstword $1),$1)))
+objsuffixes  	= $(call unique,$(foreach f,$(OBJS),$(patsubst $(firstword $(subst _, ,$f))_%,%,$f)))
+objpatterns  	= $(foreach s,$(objsuffixes),$(OBJDIR)/%_$(s))
 
 #
 # Return a list of patterns matching the given pattern, For
@@ -493,15 +493,15 @@ ifneq ($(findstring test/,$(CURDIR)),)
 ifneq ($(PLATFORM_NAME),macosx)
 
 mktestname2	= $(if $(subst $(langsubdir),,$(lastword $1)),$(call mktestname2,$(wordlist 2,$(words $1),x $1),$(lastword $1)_$2),$(top_srcdir)/test/cpp/iPhone/container/Bundles-$(OBJDIR)/$2.bundle/lib$2.dylib)
-mktestname = $(call mktestname2,$(subst /, ,$(CURDIR)),$(1))
-mktest 	   = bundledir=$(dir $(1)); libname=$(notdir $(basename $(1))); \
-			 if test ! -f $$bundledir/Info.plist ; \
-			 then \
-				mkdir -p $$bundledir ; \
-				sed "s/NAME/$$libname/" $(top_srcdir)/test/cpp/iPhone/container/BundleInfo.plist > \
-						$$bundledir/Info.plist ; \
-			 fi ;\
-			 $(CXX) -bundle $(LDPLATFORMFLAGS) $(CXXFLAGS) -L$(libdir) -o $(1) $(2) $(3)
+mktestname 	= $(call mktestname2,$(subst /, ,$(CURDIR)),$(1))
+mktest 	   	= bundledir=$(dir $(1)); libname=$(notdir $(basename $(1))); \
+		  if test ! -f $$bundledir/Info.plist ; \
+		  then \
+		     mkdir -p $$bundledir ; \
+		     sed "s/NAME/$$libname/" $(top_srcdir)/test/cpp/iPhone/container/BundleInfo.plist > \
+					     $$bundledir/Info.plist ; \
+		  fi ;\
+	          $(CXX) -bundle $(LDPLATFORMFLAGS) $(CXXFLAGS) -L$(libdir) -o $(1) $(2) $(3)
 else
 
 mktestname	= $(1)

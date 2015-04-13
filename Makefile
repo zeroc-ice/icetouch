@@ -103,6 +103,11 @@ tests:
 	    ( cd test && $(MAKE) -f Makefile COMPILE_FOR_$$platform=yes ) || exit 1; \
 	done; \
 
+ifeq ($(COMPILE_FOR_OSX),yes)
+test::
+	@python $(top_srcdir)/allTests.py
+endif
+
 install::
 	@if test ! -d $(prefix) ; \
 	then \

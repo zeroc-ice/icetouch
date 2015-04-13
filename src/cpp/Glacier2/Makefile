@@ -17,7 +17,7 @@ SLICE_DIRS	= Glacier2
 HEADER_DIRS	= Glacier2
 
 SRCS		= Glacier2Lib/SessionHelper.cpp \
-			  Glacier2Lib/NullPermissionsVerifier.cpp
+		  Glacier2Lib/NullPermissionsVerifier.cpp
 
 include $(top_srcdir)/config/Make.rules
 

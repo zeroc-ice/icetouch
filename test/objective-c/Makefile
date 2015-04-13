@@ -13,37 +13,37 @@ include $(top_srcdir)/config/Make.rules
 
 ifeq ($(PLATFORM_NAME),macosx)
 SUBDIRS		= Common \
-			  Ice/proxy \
-		  	  Ice/acm \
-			  Ice/admin \
-			  Ice/ami \
-			  Ice/operations \
-			  Ice/exceptions \
-			  Ice/inheritance \
-			  Ice/facets \
-			  Ice/objects \
-			  Ice/optional \
-			  Ice/interceptor \
-			  Ice/invoke \
-			  Ice/dispatcher \
-			  Ice/defaultServant \
-			  Ice/defaultValue \
-			  Ice/enums \
-			  Ice/faultTolerance \
-			  Ice/location \
-			  Ice/adapterDeactivation \
-			  Ice/slicing/objects \
-			  Ice/slicing/exceptions \
-			  Ice/binding \
-			  Ice/hold \
-			  Ice/retry \
-			  Ice/stream \
-			  Ice/timeout \
-			  Ice/hash \
-			  Ice/info \
-			  Ice/metrics \
-			  Ice/services \
-			  Ice/servantLocator
+		  Ice/proxy \
+	  	  Ice/acm \
+		  Ice/admin \
+		  Ice/ami \
+		  Ice/operations \
+		  Ice/exceptions \
+		  Ice/inheritance \
+		  Ice/facets \
+		  Ice/objects \
+		  Ice/optional \
+		  Ice/interceptor \
+		  Ice/invoke \
+		  Ice/dispatcher \
+		  Ice/defaultServant \
+		  Ice/defaultValue \
+		  Ice/enums \
+		  Ice/faultTolerance \
+		  Ice/location \
+		  Ice/adapterDeactivation \
+		  Ice/slicing/objects \
+		  Ice/slicing/exceptions \
+		  Ice/binding \
+		  Ice/hold \
+		  Ice/retry \
+		  Ice/stream \
+		  Ice/timeout \
+		  Ice/hash \
+		  Ice/info \
+		  Ice/metrics \
+		  Ice/services \
+		  Ice/servantLocator
 else
 SUBDIRS		=
 endif
@@ -62,15 +62,15 @@ all:: $(addsuffix .target,$(SUBDIRS))
 %.target:
 	@if [ ! -d $* ]; \
 	then \
-		mkdir -p $*; \
-		cat $(testdir)/$*/Makefile | \
-		    sed -e 's/^top_srcdir.*= \./top_srcdir = \.\.\/\./g' -e 's/-I[\.\/a-z]* //g' > $*/Makefile; \
-		if [ -f $(testdir)/$*/run.py ]; \
-		then \
-		    cat $(testdir)/$*/run.py | \
-			sed -e 's/"scripts", "TestUtil\.py"/"allTests\.py"/g' -e 's/path\[0\]/path[0], "ice"/g' > $*/run.py; \
-			chmod a+x $*/run.py; \
-		fi; \
+	    mkdir -p $*; \
+	    cat $(testdir)/$*/Makefile | \
+	    sed -e 's/^top_srcdir.*= \./top_srcdir = \.\.\/\./g' -e 's/-I[\.\/a-z]* //g' > $*/Makefile; \
+	    if [ -f $(testdir)/$*/run.py ]; \
+	    then \
+	        cat $(testdir)/$*/run.py | \
+		sed -e 's/"scripts", "TestUtil\.py"/"allTests\.py"/g' -e 's/path\[0\]/path[0], "ice"/g' > $*/run.py; \
+	 	chmod a+x $*/run.py; \
+	    fi; \
 	fi
 	@echo "making all in $*"
 	@$(MAKE) all --directory=$*

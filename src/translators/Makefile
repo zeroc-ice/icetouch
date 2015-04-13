@@ -9,34 +9,34 @@
 
 top_srcdir	= ../..
 
-TARGETS			= $(top_srcdir)/SDKs/Cpp/bin/slice2cpp $(top_srcdir)/SDKs/ObjC/bin/slice2objc
+TARGETS		= $(top_srcdir)/SDKs/Cpp/bin/slice2cpp $(top_srcdir)/SDKs/ObjC/bin/slice2objc
 
 # Compile sources from the the IceUtil, Slice directories
-SRC_DIRS		:= IceUtil Slice
+SRC_DIRS	:= IceUtil Slice
 
 SLICE2CPP_SRCS 	:= slice2cpp/Main.cpp slice2cpp/Gen.cpp
 SLICE2OBJC_SRCS := slice2objc/Main.cpp slice2objc/Gen.cpp
 
-SRCS			:= $(SLICE2CPP_SRCS) $(SLICE2OBJC_SRCS)
+SRCS		:= $(SLICE2CPP_SRCS) $(SLICE2OBJC_SRCS)
 
 # Don't compile the sources below, they aren't needed for translators.
 EXCLUDE_SRCS	:= IceUtil/CountDownLatch.cpp \
-				   IceUtil/StopWatch.cpp \
-				   IceUtil/Timer.cpp \
-				   IceUtil/Thread.cpp \
-				   Slice/Grammar.cpp \
-				   Slice/Scanner.cpp \
-				   Slice/DotNetNames.cpp \
-				   Slice/CsUtil.cpp \
-				   Slice/JavaUtil.cpp \
-				   Slice/Python.cpp \
-				   Slice/PythonUtil.cpp \
-				   Slice/PHPUtil.cpp \
-				   Slice/Ruby.cpp \
-				   Slice/RubyUtil.cpp
+		   IceUtil/StopWatch.cpp \
+		   IceUtil/Timer.cpp \
+		   IceUtil/Thread.cpp \
+		   Slice/Grammar.cpp \
+		   Slice/Scanner.cpp \
+		   Slice/DotNetNames.cpp \
+		   Slice/CsUtil.cpp \
+		   Slice/JavaUtil.cpp \
+		   Slice/Python.cpp \
+		   Slice/PythonUtil.cpp \
+		   Slice/PHPUtil.cpp \
+		   Slice/Ruby.cpp \
+		   Slice/RubyUtil.cpp
 
-FLEXFLAGS	    := -L
-BISONFLAGS		:= --name-prefix "slice_" -dvt
+FLEXFLAGS	:= -L
+BISONFLAGS	:= --name-prefix "slice_" -dvt
 
 COMPILE_TRANSLATORS = yes
 
