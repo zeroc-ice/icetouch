@@ -1,7 +1,7 @@
 Contributing to the Ice Touch
 =============================
 
-Thank you for your interest in contributing to the Ice Builder for Ant!
+Thank you for your interest in contributing to the Ice Touch!
 
 How to Contribute
 -----------------
