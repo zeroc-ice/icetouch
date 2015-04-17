@@ -1,7 +1,7 @@
-Contributing to the Ice Touch
-=============================
+Contributing to Ice Touch
+==========================
 
-Thank you for your interest in contributing to the Ice Touch!
+Thank you for your interest in contributing to Ice Touch!
 
 How to Contribute
 -----------------
