@@ -12,6 +12,7 @@
 
 #include <Ice/ProtocolInstance.h>
 #include <Ice/IPEndpointI.h>
+#include <Ice/WSEndpoint.h>
 #include <Ice/EndpointFactory.h>
 #include <Ice/InstanceF.h>
 
@@ -73,7 +74,7 @@ typedef IceUtil::Handle<StreamEndpointI> StreamEndpointIPtr;
 class StreamAcceptor;
 typedef IceUtil::Handle<StreamAcceptor> StreamAcceptorPtr;
 
-class StreamEndpointI : public IceInternal::IPEndpointI
+class StreamEndpointI : public IceInternal::IPEndpointI, IceInternal::WSEndpointDelegate
 {
 public:
 
@@ -83,6 +84,7 @@ public:
     StreamEndpointI(const InstancePtr&, IceInternal::BasicStream*);
 
     virtual Ice::EndpointInfoPtr getInfo() const;
+    virtual Ice::EndpointInfoPtr getWSInfo(const std::string&) const;
 
     virtual Ice::Int timeout() const;
     virtual IceInternal::EndpointIPtr timeout(Ice::Int) const;

@@ -10,7 +10,7 @@
 #ifndef ICE_STREAM_TRANSCEIVER_H
 #define ICE_STREAM_TRANSCEIVER_H
 
-#include <Ice/Transceiver.h>
+#include <Ice/WSTransceiver.h>
 #include <Ice/Network.h>
 #include <Ice/Selector.h>
 
@@ -29,7 +29,8 @@ namespace IceObjC
 class Instance;
 typedef IceUtil::Handle<Instance> InstancePtr;
 
-class StreamTransceiver : public IceInternal::Transceiver, public IceInternal::StreamNativeInfo
+class StreamTransceiver : public IceInternal::Transceiver, public IceInternal::StreamNativeInfo,
+                          public IceInternal::WSTransceiverDelegate
 {
     enum State
     {
@@ -62,6 +63,7 @@ public:
     virtual std::string toString() const;
     virtual std::string toDetailedString() const;
     virtual Ice::ConnectionInfoPtr getInfo() const;
+    virtual Ice::ConnectionInfoPtr getWSInfo(const Ice::HeaderDict&) const;
     virtual void checkSendSize(const IceInternal::Buffer&);
     virtual void setBufferSize(int, int);
 
@@ -69,6 +71,7 @@ private:
 
     void checkCertificates();
     void checkError(CFErrorRef, const char*, int);
+    void fillConnectionInfo(const Ice::IPConnectionInfoPtr&) const;
 
     const InstancePtr _instance;
     const std::string _host;

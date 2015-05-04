@@ -178,37 +178,6 @@ readCert(const string& defaultDir, const string& certFile)
     return data;
 }
 
-template<class T> class InfoI : public T
-{
-public:
-
-    InfoI(const IceObjC::InstancePtr& instance) : _instance(instance)
-    {
-    }
-
-    virtual Ice::Short
-    type() const
-    {
-        return _instance->type();
-    }
-
-    virtual bool
-    datagram() const
-    {
-        return false;
-    }
-
-    virtual bool
-    secure() const
-    {
-        return _instance->secure();
-    }
-
-private:
-
-    const IceObjC::InstancePtr _instance;
-};
-
 }
 
 IceObjC::Instance::Instance(const Ice::CommunicatorPtr& com, Short type, const string& protocol, bool secure) :
@@ -228,7 +197,11 @@ IceObjC::Instance::Instance(const Ice::CommunicatorPtr& com, Short type, const s
                                                     &kCFTypeDictionaryValueCallBacks);
 
         string defaultDir = properties->getProperty("IceSSL.DefaultDir");
-        string certAuthFile = properties->getProperty("IceSSL.CertAuthFile");
+        string certAuthFile = properties->getProperty("IceSSL.CAs");
+        if(certAuthFile.empty())
+        {
+            certAuthFile = properties->getProperty("IceSSL.CertAuthFile");
+        }
         string certFile = properties->getProperty("IceSSL.CertFile");
 
         OSStatus err;
@@ -259,6 +232,11 @@ IceObjC::Instance::Instance(const Ice::CommunicatorPtr& com, Short type, const s
             // NOTE: on the iPhone, setting kCFStreamSSLAllowsAnyRoot = true isn't enough.
             //CFDictionarySetValue(_clientSettings, kCFStreamSSLAllowsAnyRoot, kCFBooleanTrue);
             CFDictionarySetValue(_clientSettings, kCFStreamSSLValidatesCertificateChain, kCFBooleanFalse);
+        }
+        else if(properties->getPropertyAsInt("IceSSL.UsePlatformCAs") <= 0)
+        {
+            // Setup an empty list of Root CAs to not use the system root CAs.
+            _certificateAuthorities = CFArrayCreate(0, 0, 0, 0);
         }
 
         if(!certFile.empty())
@@ -476,11 +454,31 @@ IceObjC::StreamEndpointI::getInfo() const
     IPEndpointInfoPtr info;
     if(_instance->secure())
     {
-        info = new InfoI<IceSSL::EndpointInfo>(_instance);
+        info = new InfoI<IceSSL::EndpointInfo>(const_cast<StreamEndpointI*>(this));
     }
     else
     {
-        info = new InfoI<Ice::TCPEndpointInfo>(_instance);
+        info = new InfoI<Ice::TCPEndpointInfo>(const_cast<StreamEndpointI*>(this));
+    }
+    fillEndpointInfo(info.get());
+    return info;
+}
+
+EndpointInfoPtr
+IceObjC::StreamEndpointI::getWSInfo(const string& resource) const
+{
+    IPEndpointInfoPtr info;
+    if(_instance->secure())
+    {
+        IceSSL::WSSEndpointInfoPtr i = new InfoI<IceSSL::WSSEndpointInfo>(const_cast<StreamEndpointI*>(this));
+        i->resource = resource;
+        info = i;
+    }
+    else
+    {
+        Ice::WSEndpointInfoPtr i = new InfoI<Ice::WSEndpointInfo>(const_cast<StreamEndpointI*>(this));
+        i->resource = resource;
+        info = i;
     }
     fillEndpointInfo(info.get());
     return info;

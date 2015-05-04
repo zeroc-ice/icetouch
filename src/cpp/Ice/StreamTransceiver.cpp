@@ -481,10 +481,27 @@ IceObjC::StreamTransceiver::getInfo() const
     {
         info = new Ice::TCPConnectionInfo();
     }
-    fdToAddressAndPort(_fd, info->localAddress, info->localPort, info->remoteAddress, info->remotePort);
-    info->rcvSize = getRecvBufferSize(_fd);
-    info->sndSize = getSendBufferSize(_fd);
+    fillConnectionInfo(info);
     return info;
+}
+
+Ice::ConnectionInfoPtr
+IceObjC::StreamTransceiver::getWSInfo(const Ice::HeaderDict& headers) const
+{
+    if(_instance->secure())
+    {
+        IceSSL::WSSConnectionInfoPtr info = new IceSSL::WSSConnectionInfo();
+        fillConnectionInfo(info);
+        info->headers = headers;
+        return info;
+    }
+    else
+    {
+        Ice::WSConnectionInfoPtr info = new Ice::WSConnectionInfo();
+        fillConnectionInfo(info);
+        info->headers = headers;
+        return info;
+    }
 }
 
 void
@@ -589,8 +606,7 @@ IceObjC::StreamTransceiver::checkCertificates()
         // If IceSSL.CertAuthFile is set, we use the certificate authorities from this file
         // instead of the ones from the keychain.
         //
-        if(_instance->certificateAuthorities() &&
-           (err = SecTrustSetAnchorCertificates(trust, _instance->certificateAuthorities())) != noErr)
+        if((err = SecTrustSetAnchorCertificates(trust, _instance->certificateAuthorities())) != noErr)
         {
             ostringstream os;
             os << "couldn't set root CA certificates with trust object (error = " << err << ")";
@@ -760,4 +776,12 @@ IceObjC::StreamTransceiver::checkError(CFErrorRef err, const char* file, int lin
     ex.error = CFErrorGetCode(err);
     CFRelease(err);
     throw ex;
+}
+
+void
+IceObjC::StreamTransceiver::fillConnectionInfo(const Ice::IPConnectionInfoPtr& info) const
+{
+    fdToAddressAndPort(_fd, info->localAddress, info->localPort, info->remoteAddress, info->remotePort);
+    info->rcvSize = getRecvBufferSize(_fd);
+    info->sndSize = getSendBufferSize(_fd);
 }
