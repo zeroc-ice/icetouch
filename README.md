@@ -1,10 +1,10 @@
 [![Build Status](https://magnum.travis-ci.com/zeroc-ice/icetouch.svg?token=icxd1yE9Nf6WLivZz2vF&branch=master)](https://magnum.travis-ci.com/zeroc-ice/icetouch)
 
 Ice Touch is ZeroC's implementation of Ice for iOS devices and OS X,
-with full support for developpment in the Objective-C and C++
-programming languages using the Xcode developpment environment.
+with full support for development in the Objective-C and C++
+programming languages using the Xcode development environment.
 
-With Ice Touch, you can easily build distributed applications, with
+With Ice Touch, you can easily build distributed applications with
 apps running on iOS that communicate with each other and with Ice
 servers running on OS X, Windows or Linux. You can implement these
 servers in any of the languages supported by Ice (C++, Java, C#,
