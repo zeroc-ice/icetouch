@@ -1,0 +1,227 @@
+# **********************************************************************
+#
+# Copyright (c) 2003-2014 ZeroC, Inc. All rights reserved.
+#
+# This copy of Ice is licensed to you under the terms described in the
+# ICE_TOUCH_LICENSE file included in this distribution.
+#
+# **********************************************************************
+
+# ----------------------------------------------------------------------
+# Don't change anything below this line!
+# ----------------------------------------------------------------------
+
+SHELL			= /bin/sh
+VERSION			= 1.3.3
+VERSION_MAJOR           = 1
+VERSION_MINOR           = 3
+VERSION_PATCH           = 3
+SOVERSION		= 13
+SHORT_VERSION	        = 1.3
+
+INSTALL			= cp -fp
+INSTALL_PROGRAM		= ${INSTALL}
+INSTALL_LIBRARY		= ${INSTALL}
+INSTALL_DATA		= ${INSTALL}
+
+OBJEXT			= .o
+
+UNAME			:= $(shell uname)
+MACHINE_TYPE		:= $(shell uname -m)
+
+#
+# Ensure ice_language has been set by the file that includes this one.
+#
+ifndef ice_language
+$(error ice_language must be defined)
+endif
+
+ifeq ($(USE_BIN_DIST),yes)
+ice_bin_dist = 1
+endif
+
+ifeq ($(LP64),yes)
+    libsubdir		  := lib$(lp64suffix)
+    binsubdir		  := bin$(lp64binsuffix)
+else
+    libsubdir		  := lib
+    binsubdir		  := bin
+endif
+
+#
+# First, check if we're building a source distribution. 
+#
+# If building from a source distribution, ice_dir is defined to the
+# top-level directory of the source distribution and ice_cpp_dir is
+# defined to the directory containing the C++ binaries and headers to
+# use to build the sources.
+#
+ifndef ice_bin_dist
+    ifeq ($(shell test -d $(top_srcdir)/../$(ice_language) && echo 0),0)
+        ice_dir = $(top_srcdir)/..
+        ice_src_dist = 1
+
+        #
+        # When building a source distribution, if ICE_TOUCH_HOME is specified, it takes precedence over 
+        # the source tree for building the language mappings. For example, this can be used to 
+        # build the Python language mapping using the translators from the distribution specified
+        # by ICE_TOUCH_HOME.
+        #
+	ifneq ($(ICE_TOUCH_HOME),)
+	    ifdef slice_translator
+		ifneq ($(shell test -f $(ICE_TOUCH_HOME)/$(binsubdir)/$(slice_translator) && echo 0), 0)
+$(error Unable to find $(slice_translator) in $(ICE_TOUCH_HOME)/$(binsubdir), please verify ICE_TOUCH_HOME is properly configured and Ice is correctly installed.)
+		endif
+		ifeq ($(shell test -f $(ice_dir)/cpp/bin/$(slice_translator) && echo 0), 0)
+$(warning Found $(slice_translator) in both ICE_TOUCH_HOME/bin and $(ice_dir)/cpp/bin, ICE_TOUCH_HOME/bin/$(slice_translator) will be used!)
+		endif
+		ice_cpp_dir = $(ICE_TOUCH_HOME)
+	    else
+$(warning Ignoring ICE_TOUCH_HOME environment variable to build current source tree.)
+		ice_cpp_dir = $(ice_dir)/cpp
+	    endif
+	else
+	    ice_cpp_dir = $(ice_dir)/cpp
+	endif
+    endif
+endif
+
+#
+# Then, check if we're building against a binary distribution.
+#
+ifndef ice_src_dist
+
+    ifndef slice_translator
+$(error slice_translator must be defined)
+    endif
+
+    ifneq ($(ICE_TOUCH_HOME),)
+        ifneq ($(shell test -f $(ICE_TOUCH_HOME)/$(binsubdir)/$(slice_translator) && echo 0), 0)
+$(error Unable to find $(slice_translator) in $(ICE_TOUCH_HOME)/$(binsubdir), please verify ICE_TOUCH_HOME is properly configured and Ice is correctly installed.)
+        endif
+        ice_dir = $(ICE_TOUCH_HOME)
+    else
+        ifeq ($(shell test -f $(top_srcdir)/bin/$(slice_translator) && echo 0), 0)
+            ice_dir = $(top_srcdir)
+        else 
+            ifeq ($(shell test -f /Library/Developer/IceTouch-$(VERSION)/$(binsubdir)/$(slice_translator) && echo 0), 0)
+	        ice_dir = /Library/Developer/IceTouch-$(VERSION)
+	    endif
+        endif
+    endif
+
+    ifndef ice_dir
+$(error Unable to find a valid Ice Touch distribution, please verify ICE_TOUCH_HOME is properly configured and Ice Touch is correctly installed.)
+    endif
+    ice_bin_dist = 1
+endif
+
+#
+# Set slicedir to the path of the directory containing the Slice files.
+#
+slicedir = $(ice_dir)/slice
+
+install_slicedir	= $(prefix)/slice
+
+#
+# Set environment variables for the Slice translator.
+#
+ifdef ice_src_dist
+    ifeq ($(ice_cpp_dir), $(ice_dir)/cpp)
+	ice_lib_dir = $(ice_cpp_dir)/lib
+    else
+        ice_lib_dir = $(ice_cpp_dir)/$(libsubdir)
+    endif
+else
+    ice_lib_dir = $(ice_dir)/$(libsubdir)
+endif
+
+
+export DYLD_LIBRARY_PATH := $(ice_lib_dir):$(DYLD_LIBRARY_PATH)
+
+#
+# Default functions for shared library names
+#
+
+ifeq ($(mklibfilename),)
+    mklibfilename	= $(if $(2),lib$(1).so.$(2),lib$(1).so)
+endif
+
+ifeq ($(mksoname),)
+    mksoname		= $(if $(2),lib$(1).so.$(2),lib$(1).so)
+endif
+
+ifeq ($(mklibname),)
+    ifeq ($(STATICLIBS),yes)
+	mklibname	= lib$(1).a
+    else
+	mklibname	= lib$(1).so
+    endif
+endif
+
+ifndef mklibtargets
+    ifeq ($(STATICLIBS),yes)
+	mklibtargets	= $(3)
+    else ifeq ($(COMPILE_FOR_IPHONE_SIMULATOR),yes)
+	mklibtargets	= $(3)
+    else
+	mklibtargets	= $(1) $(2) $(3)
+    endif
+endif
+
+ifeq ($(installlib),)
+    ifeq ($(STATICLIBS),yes)
+	installlib	= $(INSTALL) $(2)/$(5) $(1); \
+			  chmod a+rx $(1)/$(5) 
+    else
+	installlib	= $(INSTALL) $(2)/$(3) $(1); \
+			  rm -f $(1)/$(4); ln -s $(3) $(1)/$(4); \
+			  rm -f $(1)/$(5); ln -s $(4) $(1)/$(5); \
+			  chmod a+rx $(1)/$(3) 
+    endif
+endif
+
+ifeq ($(installdata),)
+    installdata		= $(INSTALL_DATA) $(1) $(2); \
+			  chmod a+r $(2)/$(notdir $(1))
+endif
+
+ifeq ($(installprogram),)
+    installprogram	= $(INSTALL_PROGRAM) $(1) $(2); \
+			  chmod a+rx $(2)/$(notdir $(1))
+endif
+
+ifeq ($(mkdir),)
+    mkdir		= mkdir $(1) ; \
+			  chmod a+rx $(1)
+endif
+
+all::
+
+install-common::
+	@if test ! -d $(prefix) ; \
+	then \
+	    echo "Creating $(prefix)..." ; \
+	    $(call mkdir,$(prefix)) ; \
+	fi
+
+	@if test ! -d $(install_slicedir) ; \
+	then \
+	    echo "Creating $(install_slicedir)..." ; \
+	    $(call mkdir, $(install_slicedir)) ; \
+	    for subdir in $(top_srcdir)/../slice/* ; \
+	    do \
+	        echo "Copying slice/$$subdir to $(install_slicedir)..." ; \
+	        cp -fpr $(top_srcdir)/../slice/$$subdir $(install_slicedir) ; \
+	    done ; \
+        fi
+
+	@if test ! -f $(prefix)/ICE_TOUCH_LICENSE ; \
+	then \
+	    $(call installdata,$(top_srcdir)/../ICE_TOUCH_LICENSE,$(prefix)) ; \
+	fi
+
+	@if test ! -f $(prefix)/LICENSE ; \
+	then \
+	    $(call installdata,$(top_srcdir)/../LICENSE,$(prefix)) ; \
+	fi

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CanonicalName</key>
+	<string>IceTouch 1.3.3</string>
+	<key>CustomProperties</key>
+	<dict/>
+	<key>DefaultProperties</key>
+	<dict>
+		<key>PLATFORM_NAME</key>
+		<string>iPhoneSimulator</string>
+	</dict>
+	<key>IsBaseSDK</key>
+	<string>NO</string>
+</dict>
+</plist>

@@ -1,0 +1,180 @@
+# **********************************************************************
+#
+# Copyright (c) 2003-2014 ZeroC, Inc. All rights reserved.
+#
+# This copy of Ice Touch is licensed to you under the terms described in the
+# ICE_TOUCH_LICENSE file included in this distribution.
+#
+# **********************************************************************
+
+#
+# This file is included by Make.rules when uname is Darwin.
+#
+
+ifeq ($(COMPILE_FOR_IPHONE),yes)
+    SDK_NAME = iphoneos$(IOS_SDK_VERSION)
+    ifeq ($(CXXARCHFLAGS),)
+        ifeq ($(OPTIMIZE),yes)
+            CXXARCHFLAGS = -arch armv7 -arch armv7s -arch arm64
+        else
+            CXXARCHFLAGS = -arch armv7
+        endif
+    endif
+endif
+
+ifeq ($(COMPILE_FOR_IPHONE_SIMULATOR),yes)
+    COMPILE_FOR_IPHONE = yes
+    SDK_NAME = iphonesimulator$(IOS_SDK_VERSION)
+    ifeq ($(CXXARCHFLAGS),)
+        ifeq ($(OPTIMIZE),yes)
+            CXXARCHFLAGS = -arch i386 -arch x86_64
+        else
+            CXXARCHFLAGS = -arch x86_64
+        endif
+    endif 
+endif
+
+ifneq ($(COMPILE_FOR_IPHONE),yes)
+    SDK_NAME = macosx$(OSX_SDK_VERSION)
+    ifeq ($(CXXARCHFLAGS),)
+        ifeq ($(OPTIMIZE),yes)
+            CXXARCHFLAGS = -arch i386 -arch x86_64
+        endif
+    endif 
+endif
+
+CC     = xcrun -sdk $(SDK_NAME) clang
+CXX    = xcrun -sdk $(SDK_NAME) clang++
+
+CFLAGS                  = -Wall
+CXXFLAGS		= -Wall
+
+ifeq ($(CPP11), yes)
+    CXXFLAGS += --std=c++11 --stdlib=libc++
+    libsuffix = -libc++
+endif
+
+OPT_FLAGS		=
+ifeq ($(OPTIMIZE_SPEED),yes)
+  OPT_FLAGS		= -O2
+endif
+
+ifeq ($(OPTIMIZE_SIZE),yes)
+  OPT_FLAGS		= -Oz 
+endif
+
+ifeq ($(OPTIMIZE),yes)
+     CFLAGS	:= $(OPT_FLAGS) -DNDEBUG $(CFLAGS)
+     CXXFLAGS	:= $(OPT_FLAGS) -DNDEBUG $(CXXFLAGS)
+else
+     CFLAGS	:= -g $(CFLAGS)
+     CXXFLAGS	:= -g $(CXXFLAGS)
+endif
+
+
+#
+# Enable ARC for targets in demo/ and test/ subdirectories
+# when COMPILE_WITH_ARC is defined.
+#
+ifneq ($(findstring demo/,${CURDIR}),)
+TARGET_SUPPORT_ARC 	= yes
+endif
+
+ifneq ($(findstring test/,${CURDIR}),)
+TARGET_SUPPORT_ARC 	= yes
+endif
+
+ifeq ($(TARGET_SUPPORT_ARC),yes)
+    ifeq ($(COMPILE_WITH_ARC),yes)
+	#
+	# Don't add these to OBJCFLAGS flex and bison generated files used in
+	# some demos doesn't support ARC.
+	#
+	ARCFLAGS = -fobjc-arc -fobjc-arc-exceptions
+    endif
+endif
+
+CPPPLATFORMFLAGS    = $(CXXARCHFLAGS)
+
+ifeq ($(COMPILE_FOR_IPHONE),yes)
+    ifeq ($(COMPILE_FOR_IPHONE_SIMULATOR),yes)
+        CPPPLATFORMFLAGS   += -mios-simulator-version-min=$(IOS_TARGET_MIN_SDK_VERSION)
+    else
+        CPPPLATFORMFLAGS   += -miphoneos-version-min=$(IOS_TARGET_MIN_SDK_VERSION)
+    endif
+    LDPLATFORMFLAGS     = $(CPPPLATFORMFLAGS)
+    CODESIGN            = xcrun -sdk $(SDK_NAME) codesign
+    CODESIGN_ALLOCATE   = xcrun -sdk $(SDK_NAME) codesign_allocate
+else
+    CPPPLATFORMFLAGS    += -mmacosx-version-min=$(OSX_TARGET_MIN_SDK_VERSION)
+    LDPLATFORMFLAGS     = $(CPPPLATFORMFLAGS)
+    ifeq ($(RPATH_DIR),)
+        ifdef ice_src_dist
+            RPATH_DIR = @loader_path/$(libdir)
+        else
+            RPATH_DIR = $(runpath_libdir)
+        endif
+    endif
+endif
+
+ifeq ($(STATICLIBS),yes)
+    LDPLATFORMFLAGS    := -ObjC $(LDPLATFORMFLAGS)
+else
+    LDPLATFORMFLAGS    := -Wl,-rpath,$(RPATH_DIR) $(LDPLATFORMFLAGS)
+endif
+
+LDPLATFORMLAGS          := $(LDPLATFORMLAGS) -dead_strip
+
+#
+# Enable dual mode garbage collection for MacOS builds.
+#
+ifeq ($(COMPILE_WITH_GC),yes)
+   OBJCFLAGS	:= -fobjc-gc
+   OBJCXXFLAGS	:= -fobjc-gc
+endif
+
+ifdef ice_src_dist
+    shlibldflags	:= $(CXXFLAGS) $(CPPPLATFORMFLAGS) -L$(libdir)
+else
+    shlibldflags	:= $(CXXFLAGS) $(CPPPLATFORMFLAGS) -L$(ice_dir)/$(libsubdir)
+endif
+
+mksoname           	= $(if $(2),lib$(1).$(2).dylib,lib$(1).dylib)
+
+ifeq ($(STATICLIBS),yes)
+    mklibname           = lib$(1).a
+    mklibfilename       = lib$(1).a
+else
+    mklibname           = lib$(1).dylib
+    mklibfilename       = $(if $(2),lib$(1).$(2).dylib,lib$(1).dylib)
+endif
+
+curdir			= $(shell pwd)
+
+ifneq ($(COMPILE_FOR_IPHONE),yes)
+    mkshlib             = $(CXX)  -dynamiclib $(shlibldflags) -o $(1) -install_name @rpath/$(2) $(3) $(4)
+else
+    mkshlib             = $(CXX)  -dynamiclib $(shlibldflags) -o $(1) -install_name @executable_path/$(2) $(3) $(4)
+endif
+
+mklib                   = libtool -static -o $(1) $(2)
+
+CPPPLATFORMFLAGS        += -pthread
+
+BASELIBS		= -framework Foundation
+LIBS			= -lIceObjC$(libsuffix) $(BASELIBS)
+
+ICE_OS_LIBS             = -ldl
+ifneq ($(COMPILE_FOR_IPHONE),yes)
+    ICE_OS_LIBS         := $(ICE_OS_LIBS) -framework CoreServices -framework Security -lbz2 -liconv -lssl -lcrypto
+else ifeq ($(COMPILE_FOR_IPHONE_SIMULATOR),yes)
+    ICE_OS_LIBS         := $(ICE_OS_LIBS) -framework CFNetwork
+else
+    ICE_OS_LIBS         := $(ICE_OS_LIBS) -framework CFNetwork -framework Security
+endif
+
+ifeq ($(STATICLIBS),yes)
+    LIBS := $(LIBS) $(ICE_OS_LIBS)
+endif
+
+TEST_LIBS           = -L$(top_srcdir)/lib -lTestCommon $(LIBS)

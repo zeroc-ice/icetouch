@@ -1,0 +1,322 @@
+# **********************************************************************
+#
+# Copyright (c) 2003-2014 ZeroC, Inc. All rights reserved.
+#
+# This copy of Ice is licensed to you under the terms described in the
+# ICE_LICENSE file included in this distribution.
+#
+# **********************************************************************
+
+#
+# Select an installation base directory. The directory will be created
+# if it does not exist.
+#
+prefix			?= /Library/Developer/IceTouch-$(VERSION)
+
+#
+# Xcode root directory. If you have several Xcode versions installed,
+# choose the version you want to use to build Ice Touch. The default
+# is the one returned by "xcode-select -print-path". 
+#
+#XCODE_PATH          = /Applications/Xcode.app
+
+#
+# Define OPTIMIZE_SIZE as yes if you want to build with minimal size.
+# Define OPTIMIZE_SPEED as yes if you want to build with maximum speed.
+#
+# These options are mutually exclusive. If neither is set, Ice Touch
+# is built with debug information.
+#
+#OPTIMIZE_SIZE		= yes
+#OPTIMIZE_SPEED		= yes
+
+#
+# The default is to build the slice2cpp and slice2objc translators if
+# you don't define COMPILE_FOR_IPHONE, COMPILE_FOR_IPHONE_SIMULATOR or
+# COMPILE_FOR_COCOA below.
+#
+
+#
+# Compile for the iPhone platform (an Xcode SDK).
+#
+#COMPILE_FOR_IPHONE		= yes
+
+#
+# Compile for the iPhone simulator platform (an Xcode SDK).
+#
+#COMPILE_FOR_IPHONE_SIMULATOR 	= yes
+
+#
+# Compile for Cocoa (an Xcode SDK).
+#
+#COMPILE_FOR_COCOA 	        = yes
+
+#
+# Define CPP11 as yes if you want to enable C++11 features.
+#
+#CPP11     ?= yes
+
+#
+# If Mcpp is not installed in a standard location where the  compiler 
+# can find it, set MCPP_HOME to the Mcpp installation directory.
+#
+#MCPP_HOME			?= /opt/mcpp
+
+#
+# The minimum SDK version supported by targets, the default is 5.1.1 
+# to allow using Ice Touch binaries on older iOS versions. 
+#
+#IOS_TARGET_MIN_SDK_VERSION = 5.1.1
+
+#
+# The build architectures. The default is to build fat binaries with all
+# supported architectures for release builds, and single arch binaries
+# for debug builds. The list of supported architecturs depends of the 
+# target platform.
+#
+# Cocoa / OS X: 
+#
+#CXXARCHFLAGS            = -arch i386 -arch x86_64
+#
+# iPhone:
+#
+#CXXARCHFLAGS            = -arch armv7 -arch armv7s -arch arm64
+#
+# iPhone Simulator:
+#
+#CXXARCHFLAGS            = -arch i386 -arch x86_64
+
+
+# ----------------------------------------------------------------------
+# Don't change anything below this line!
+# ----------------------------------------------------------------------
+
+#
+# Common definitions
+#
+ice_language     = cpp
+ifneq ($(shell test "$(USE_BIN_DIST)" != "yes" -a -d $(top_srcdir)/../$(ice_language) && echo 0),0)
+    slice_translator = slice2cpp
+    ice_require_cpp  = 1
+endif
+
+ifeq ($(IOS_TARGET_MIN_SDK_VERSION),)
+     IOS_TARGET_MIN_SDK_VERSION = 5.1.1
+endif
+
+ifeq ($(OSX_TARGET_MIN_SDK_VERSION),)
+    OSX_TARGET_MIN_SDK_VERSION = 10.7
+endif
+
+ifneq ($(XCODE_PATH),)
+    export DEVELOPER_DIR := $(XCODE_PATH)/Contents/Developer
+endif
+
+#
+# Set the platform name according to the build type.
+#
+ifeq ($(COMPILE_FOR_IPHONE_SIMULATOR),yes)
+    STATICLIBS = yes
+    PLATFORM_NAME = iphonesimulator
+else ifeq ($(COMPILE_FOR_IPHONE),yes)
+    STATICLIBS = yes
+    PLATFORM_NAME = iphoneos
+else ifeq ($(COMPILE_FOR_COCOA),yes)
+    STATICLIBS = yes
+    PLATFORM_NAME = macosx
+else
+    ifeq ($(STATICLIBS),)
+	STATICLIBS	= yes
+    endif
+    PLATFORM_NAME = macosx
+    COMPILE_FOR_MACOSX = yes
+endif
+
+ifeq ($(shell test -f $(top_srcdir)/config/Make.common.rules && echo 0),0)
+    include $(top_srcdir)/config/Make.common.rules
+else
+    include $(top_srcdir)/../config/Make.common.rules
+endif
+
+ifeq ($(OPTIMIZE_SPEED),yes)
+    OPTIMIZE		= yes
+else ifeq ($(OPTIMIZE_SIZE),yes)
+    OPTIMIZE		= yes
+else ifeq ($(OPTIMIZE),yes)
+    OPTIMIZE_SPEED	= yes
+endif
+
+
+ifeq ($(COMPILE_FOR_MACOSX),yes)
+    bindir	= $(top_srcdir)/bin
+    headerdir	= $(top_srcdir)/include
+    ifdef ice_src_dist
+        libdir		= $(top_srcdir)/lib
+        includedir	= $(top_srcdir)/include
+    else
+        libdir		= $(ice_dir)/$(libsubdir)
+        includedir	= $(ice_dir)/include
+    endif
+    install_includedir  := $(prefix)/include
+    install_libdir	:= $(prefix)/$(libsubdir)
+    install_bindir	:= $(prefix)/$(binsubdir)$(cpp11suffix)
+else
+    ifdef ice_src_dist
+        SDK_DIR		= $(top_srcdir)/SDKs/Cpp/$(PLATFORM_NAME).sdk
+    else
+        SDK_DIR         = $(ice_dir)/SDKs/Cpp/$(PLATFORM_NAME).sdk
+    endif
+    libdir	= $(SDK_DIR)/usr/local/lib
+    headerdir	= $(SDK_DIR)/usr/local/include
+    includedir	= $(SDK_DIR)/usr/local/include
+endif
+
+#
+# Platform specific definitions
+#
+include  $(top_srcdir)/config/Make.rules.Darwin
+
+ICECPPFLAGS		= -I$(slicedir)
+SLICE2CPPFLAGS		= $(ICECPPFLAGS)
+
+CPPFLAGS		= -I$(includedir) $(CPPPLATFORMFLAGS)
+LDFLAGS			= $(LDPLATFORMFLAGS) $(CXXFLAGS) -L$(libdir) 
+
+ifdef ice_src_dist
+    SLICEPARSERLIB = $(ice_cpp_dir)/lib/$(call mklibfilename,Slice,$(VERSION))
+    ifeq ($(ice_cpp_dir), $(ice_dir)/cpp)
+        SLICE2CPP = $(ice_cpp_dir)/bin/slice2cpp
+    else
+        SLICE2CPP = $(ice_cpp_dir)/$(binsubdir)/slice2cpp
+    endif
+else
+    SLICE2CPP = $(ice_dir)/$(binsubdir)/slice2cpp
+endif
+
+ifeq ($(SLICE_LIBS),)
+    SLICE_LIBS		= -lSlice $(BASELIBS)
+endif
+
+MCPP_LIBS              = $(if $(MCPP_HOME),-L$(MCPP_HOME)/$(libsubdir)) -lmcpp
+MCPP_RPATH_LINK        = $(if $(MCPP_HOME),$(call rpathlink,$(MCPP_HOME)/$(libsubdir)))
+
+LDFLAGS			= $(LDPLATFORMFLAGS) $(CXXFLAGS) -L$(libdir) 
+
+ifeq ($(FLEX_NOLINE),yes)
+    FLEXFLAGS	       := -L
+else
+    FLEXFLAGS	       :=
+endif
+
+ifeq ($(BISON_NOLINE),yes)
+    BISONFLAGS		:= -dvtl
+else
+    BISONFLAGS		:= -dvt
+endif
+
+ifeq ($(mktestname),)
+    mktestname	= $(1)$(EXE_EXT)
+endif
+
+ifeq ($(mktest),)
+    mktest 	  = $(CXX) $(LDFLAGS) -o $(@) $(2) $(3)
+endif
+
+EVERYTHING		= all depend clean install 
+EVERYTHING_EXCEPT_ALL   = depend clean install
+
+.SUFFIXES:
+.SUFFIXES:		.cpp .c .o
+
+.cpp.o:
+	$(CXX) -c $(CPPFLAGS) $(CXXFLAGS) $<
+
+.c.o:
+	$(CC) -c $(CPPFLAGS) $(CFLAGS) $<
+
+
+%.h %.cpp: %.y
+	rm -f $(*F).h $(*F).cpp
+	bison $(BISONFLAGS) $<
+	mv $(*F).tab.c $(*F).cpp
+	mv $(*F).tab.h $(*F).h
+	rm -f $(*F).output
+
+%.cpp: %.l
+	flex $(FLEXFLAGS) $<
+	rm -f $@
+	echo '#include <IceUtil/Config.h>' > $@
+	cat lex.yy.c >> $@
+	rm -f lex.yy.c
+
+%.h %.cpp: %.ice $(SLICE2CPP)
+	rm -f $(*F).h $(*F).cpp
+	$(SLICE2CPP) $(SLICE2CPPFLAGS) $<
+
+$(HDIR)/%F.h: $(SDIR)/%F.ice $(SLICE2CPP) $(SLICEPARSERLIB)
+	rm -f $(HDIR)/$(*F)F.h $(*F)F.cpp
+	$(SLICE2CPP) $(SLICE2CPPFLAGS) $<
+	mv $(*F)F.h $(HDIR)
+	rm -f $(*F)F.cpp
+
+%.cpp $(HDIR)/%.h: $(SDIR)/%.ice $(SLICE2CPP) $(SLICEPARSERLIB)
+	rm -f $(HDIR)/$(*F).h $(*F).cpp
+	$(SLICE2CPP) $(SLICE2CPPFLAGS) $<
+	mv $(*F).h $(HDIR)
+
+%.h %.cpp: %.ice $(SLICE2CPP) $(SLICEPARSERLIB)
+	rm -f $(*F).h $(*F).cpp
+	$(SLICE2CPP) $(SLICE2CPPFLAGS) $(*F).ice
+
+$(OBJDIR)/%.o: %.cpp
+	@mkdir -p $(dir $@)
+	$(CXX) -c $(CPPFLAGS) $(CXXFLAGS) $< -o $@
+
+$(OBJDIR)/%.o: ../%.cpp
+	@mkdir -p $(dir $@)
+	$(CXX) -c $(CPPFLAGS) $(CXXFLAGS) $< -o $@
+
+all:: $(SRCS) $(TARGETS)
+
+depend:: $(SRCS) $(patsubst $(SDIR)/%.ice,$(HDIR)/%.h,$(wildcard $(SDIR)/*F.ice)) $(SLICE_SRCS)
+	-rm -f .depend .depend.mak
+	if test -n "$(SRCS)" ; then \
+	    $(CXX) -DMAKEDEPEND -M $(CXXFLAGS) $(CPPFLAGS) $(SRCS) | $(ice_dir)/config/makedepend.py; \
+	fi
+	if test -n "$(SLICE_SRCS)" ; then \
+	    if test -n "$(HDIR)"; then \
+		$(SLICE2CPP) --depend $(SLICE2CPPFLAGS) $(SLICE_SRCS) | $(ice_dir)/config/makedepend.py "\$$(HDIR)"; \
+	    else \
+		$(SLICE2CPP) --depend $(SLICE2CPPFLAGS) $(SLICE_SRCS) | $(ice_dir)/config/makedepend.py; \
+	    fi \
+	fi
+
+clean::
+	-rm -f $(TARGETS)
+	-rm -f core *.o *.bak
+
+ifneq ($(SLICE_SRCS),)
+clean::
+	rm -f $(addsuffix .cpp, $(basename $(notdir $(SLICE_SRCS))))
+	rm -f $(addsuffix .h, $(basename $(notdir $(SLICE_SRCS))))
+endif
+
+ifneq ($(HEADERS_DIR),)
+
+$(HDIR)/%.h: $(HEADERS_DIR)/%.h
+	@mkdir -p $(dir $@)
+	cp $< $@
+	chmod a+r $@
+
+$(OBJS): $(patsubst $(HEADERS_DIR)/%.h,$(HDIR)/%.h,$(wildcard $(HEADERS_DIR)/*.h))
+
+depend:: $(patsubst $(HEADERS_DIR)/%.h,$(HDIR)/%.h,$(wildcard $(HEADERS_DIR)/*.h))
+
+clean::
+	rm -rf $(patsubst $(HEADERS_DIR)/%.h,$(HDIR)/%.h,$(wildcard $(HEADERS_DIR)/*.h))
+
+endif
+
+install::
+
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadCertificateFileName</key>
+			<string>cacert.der</string>
+			<key>PayloadContent</key>
+			<data>
+			MIIDrjCCAxegAwIBAgIJAO0HRc29fSnwMA0GCSqGSIb3DQEBBAUA
+			MIGXMQswCQYDVQQGEwJVUzEQMA4GA1UECBMHRmxvcmlkYTEbMBkG
+			A1UEBxMSUGFsbSBCZWFjaCBHYXJkZW5zMRQwEgYDVQQKEwtaZXJv
+			QywgSW5jLjEMMAoGA1UECxMDSWNlMRYwFAYDVQQDEw1aZXJvQyBU
+			ZXN0IENBMR0wGwYJKoZIhvcNAQkBFg5pbmZvQHplcm9jLmNvbTAe
+			Fw0wODAzMDgwMDE0NThaFw0xMzAzMDcwMDE0NThaMIGXMQswCQYD
+			VQQGEwJVUzEQMA4GA1UECBMHRmxvcmlkYTEbMBkGA1UEBxMSUGFs
+			bSBCZWFjaCBHYXJkZW5zMRQwEgYDVQQKEwtaZXJvQywgSW5jLjEM
+			MAoGA1UECxMDSWNlMRYwFAYDVQQDEw1aZXJvQyBUZXN0IENBMR0w
+			GwYJKoZIhvcNAQkBFg5pbmZvQHplcm9jLmNvbTCBnzANBgkqhkiG
+			9w0BAQEFAAOBjQAwgYkCgYEAqPR7kypYI4vtXrZnDkWNEng+WPrt
+			rRXZMP5bORomRQ4o/wborZstUZGfXAv9tlJERBTfD/o6AsWW1Ip+
+			qPQObFTHkjL9i1xTRp6uxuT/y/X2wleSdNqIeLUueoggL5DJPwk+
+			AtvHItiwgEAA/cBCrg/wZKPuaav3ZIvIGuHIOpMCAwEAAaOB/zCB
+			/DAMBgNVHRMEBTADAQH/MB0GA1UdDgQWBBSYR/EIPFU/tqe8YsYC
+			EoWPvZYZujCBzAYDVR0jBIHEMIHBgBSYR/EIPFU/tqe8YsYCEoWP
+			vZYZuqGBnaSBmjCBlzELMAkGA1UEBhMCVVMxEDAOBgNVBAgTB0Zs
+			b3JpZGExGzAZBgNVBAcTElBhbG0gQmVhY2ggR2FyZGVuczEUMBIG
+			A1UEChMLWmVyb0MsIEluYy4xDDAKBgNVBAsTA0ljZTEWMBQGA1UE
+			AxMNWmVyb0MgVGVzdCBDQTEdMBsGCSqGSIb3DQEJARYOaW5mb0B6
+			ZXJvYy5jb22CCQDtB0XNvX0p8DANBgkqhkiG9w0BAQQFAAOBgQAi
+			YJPZabe7v2LwocBgROUipgaGBrN226Sp8Kr0W1G0IbNnCJkyS15F
+			0h9aIMyG7WiZTPelrzh5I0HcnM0YWzzPaYq53Q75RQU89ZPVsCXT
+			M4PFHy4wDqCsiwuSCKlC6kZi8N3mT95tQGyiSlMPi2cpcp9C+hB0
+			MA5TL3j8ej2yXQ==
+			</data>
+			<key>PayloadDescription</key>
+			<string>Provides device authentication (certificate or identity).</string>
+			<key>PayloadDisplayName</key>
+			<string>ZeroC Test CA</string>
+			<key>PayloadIdentifier</key>
+			<string>com.zeroc.testca.credential</string>
+			<key>PayloadOrganization</key>
+			<string>ZeroC, Inc.</string>
+			<key>PayloadType</key>
+			<string>com.apple.security.root</string>
+			<key>PayloadUUID</key>
+			<string>80D1AD5C-336F-49B4-9651-21EA031B9706</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Configuration profile to install ZeroC Test Root CA.</string>
+	<key>PayloadDisplayName</key>
+	<string>ZeroC Test CA</string>
+	<key>PayloadIdentifier</key>
+	<string>com.zeroc.testca</string>
+	<key>PayloadOrganization</key>
+	<string>ZeroC, Inc.</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>8BEC9A12-60A1-42F1-8F51-FD47D10E0FA0</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>

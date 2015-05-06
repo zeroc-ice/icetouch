@@ -1,0 +1,1176 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		14060BD7161D5F290077BEE0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14060BD6161D5F290077BEE0 /* Default-568h@2x.png */; };
+		1449086E19CC37A30032FF23 /* test_Ice_adapterDeactivation_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2101757C1A700EEACF3 /* test_Ice_adapterDeactivation_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449086F19CC37A30032FF23 /* test_Ice_adapterDeactivation_collocated.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2111757C1A700EEACF3 /* test_Ice_adapterDeactivation_collocated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449087019CC37A30032FF23 /* test_Ice_adapterDeactivation_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2121757C1A700EEACF3 /* test_Ice_adapterDeactivation_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449087119CC37A30032FF23 /* test_Ice_admin_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2131757C1A700EEACF3 /* test_Ice_admin_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449087219CC37A30032FF23 /* test_Ice_admin_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2141757C1A700EEACF3 /* test_Ice_admin_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449087319CC37A30032FF23 /* test_Ice_ami_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2151757C1A700EEACF3 /* test_Ice_ami_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449087419CC37A30032FF23 /* test_Ice_ami_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2161757C1A700EEACF3 /* test_Ice_ami_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449087519CC37A30032FF23 /* test_Ice_binding_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2171757C1A700EEACF3 /* test_Ice_binding_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449087619CC37A30032FF23 /* test_Ice_binding_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2181757C1A700EEACF3 /* test_Ice_binding_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449087719CC37A30032FF23 /* test_Ice_checksum_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2191757C1A700EEACF3 /* test_Ice_checksum_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449087819CC37A30032FF23 /* test_Ice_checksum_server_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A21A1757C1A700EEACF3 /* test_Ice_checksum_server_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449087919CC37A30032FF23 /* test_Ice_custom_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A21B1757C1A700EEACF3 /* test_Ice_custom_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449087A19CC37A30032FF23 /* test_Ice_custom_collocated.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A21C1757C1A700EEACF3 /* test_Ice_custom_collocated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449087B19CC37A30032FF23 /* test_Ice_custom_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A21D1757C1A700EEACF3 /* test_Ice_custom_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449087C19CC37A30032FF23 /* test_Ice_custom_serveramd.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A21E1757C1A700EEACF3 /* test_Ice_custom_serveramd.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449087D19CC37A30032FF23 /* test_Ice_defaultServant_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A21F1757C1A700EEACF3 /* test_Ice_defaultServant_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449087E19CC37A30032FF23 /* test_Ice_defaultValue_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2201757C1A700EEACF3 /* test_Ice_defaultValue_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449087F19CC37A30032FF23 /* test_Ice_dispatcher_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2211757C1A700EEACF3 /* test_Ice_dispatcher_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449088019CC37A30032FF23 /* test_Ice_dispatcher_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2221757C1A700EEACF3 /* test_Ice_dispatcher_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449088119CC37A30032FF23 /* test_Ice_enums_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2231757C1A700EEACF3 /* test_Ice_enums_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449088219CC37A30032FF23 /* test_Ice_enums_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2241757C1A700EEACF3 /* test_Ice_enums_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449088319CC37A30032FF23 /* test_Ice_exceptions_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2251757C1A700EEACF3 /* test_Ice_exceptions_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449088419CC37A30032FF23 /* test_Ice_exceptions_collocated.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2261757C1A700EEACF3 /* test_Ice_exceptions_collocated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449088519CC37A30032FF23 /* test_Ice_exceptions_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2271757C1A700EEACF3 /* test_Ice_exceptions_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449088619CC37A30032FF23 /* test_Ice_exceptions_serveramd.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2281757C1A700EEACF3 /* test_Ice_exceptions_serveramd.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449088719CC37A30032FF23 /* test_Ice_facets_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2291757C1A700EEACF3 /* test_Ice_facets_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449088819CC37A30032FF23 /* test_Ice_facets_collocated.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A22A1757C1A700EEACF3 /* test_Ice_facets_collocated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449088919CC37A40032FF23 /* test_Ice_facets_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A22B1757C1A700EEACF3 /* test_Ice_facets_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449088A19CC37A40032FF23 /* test_Ice_hash_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A22C1757C1A700EEACF3 /* test_Ice_hash_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449088B19CC37A40032FF23 /* test_Ice_hold_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A22D1757C1A700EEACF3 /* test_Ice_hold_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449088C19CC37A40032FF23 /* test_Ice_hold_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A22E1757C1A800EEACF3 /* test_Ice_hold_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449088D19CC37A40032FF23 /* test_Ice_info_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A22F1757C1A800EEACF3 /* test_Ice_info_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449088E19CC37A40032FF23 /* test_Ice_info_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2301757C1A800EEACF3 /* test_Ice_info_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449088F19CC37A40032FF23 /* test_Ice_inheritance_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2311757C1A800EEACF3 /* test_Ice_inheritance_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449089019CC37A40032FF23 /* test_Ice_inheritance_collocated.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2321757C1A800EEACF3 /* test_Ice_inheritance_collocated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449089119CC37A40032FF23 /* test_Ice_inheritance_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2331757C1A800EEACF3 /* test_Ice_inheritance_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449089219CC37A40032FF23 /* test_Ice_interceptor_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2341757C1A800EEACF3 /* test_Ice_interceptor_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449089319CC37A40032FF23 /* test_Ice_invoke_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2351757C1A800EEACF3 /* test_Ice_invoke_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449089419CC37A40032FF23 /* test_Ice_invoke_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2361757C1A800EEACF3 /* test_Ice_invoke_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449089519CC37A40032FF23 /* test_Ice_location_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2371757C1A800EEACF3 /* test_Ice_location_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449089619CC37A40032FF23 /* test_Ice_location_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2381757C1A800EEACF3 /* test_Ice_location_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449089719CC37A40032FF23 /* test_Ice_metrics_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2391757C1A800EEACF3 /* test_Ice_metrics_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449089819CC37A40032FF23 /* test_Ice_metrics_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A23A1757C1A800EEACF3 /* test_Ice_metrics_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449089919CC37A40032FF23 /* test_Ice_metrics_serveramd.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A23B1757C1A800EEACF3 /* test_Ice_metrics_serveramd.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449089A19CC37A40032FF23 /* test_Ice_objects_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A23C1757C1A800EEACF3 /* test_Ice_objects_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449089B19CC37A40032FF23 /* test_Ice_objects_collocated.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A23D1757C1A800EEACF3 /* test_Ice_objects_collocated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449089C19CC37A40032FF23 /* test_Ice_objects_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A23E1757C1A800EEACF3 /* test_Ice_objects_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449089D19CC37A40032FF23 /* test_Ice_operations_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A23F1757C1A800EEACF3 /* test_Ice_operations_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449089E19CC37A40032FF23 /* test_Ice_operations_collocated.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2401757C1A800EEACF3 /* test_Ice_operations_collocated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1449089F19CC37A40032FF23 /* test_Ice_operations_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2411757C1A800EEACF3 /* test_Ice_operations_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908A019CC37A40032FF23 /* test_Ice_operations_serveramd.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2421757C1A800EEACF3 /* test_Ice_operations_serveramd.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908A119CC37A40032FF23 /* test_Ice_optional_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2431757C1A800EEACF3 /* test_Ice_optional_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908A219CC37A40032FF23 /* test_Ice_optional_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2441757C1A800EEACF3 /* test_Ice_optional_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908A319CC37A40032FF23 /* test_Ice_proxy_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2451757C1A800EEACF3 /* test_Ice_proxy_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908A419CC37A40032FF23 /* test_Ice_proxy_collocated.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2461757C1A800EEACF3 /* test_Ice_proxy_collocated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908A519CC37A40032FF23 /* test_Ice_proxy_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2471757C1A800EEACF3 /* test_Ice_proxy_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908A619CC37A40032FF23 /* test_Ice_proxy_serveramd.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2481757C1A800EEACF3 /* test_Ice_proxy_serveramd.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908A719CC37A40032FF23 /* test_Ice_retry_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2491757C1A800EEACF3 /* test_Ice_retry_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908A819CC37A40032FF23 /* test_Ice_retry_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A24A1757C1A800EEACF3 /* test_Ice_retry_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908A919CC37A50032FF23 /* test_Ice_servantLocator_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 148831571760C818007DF8F1 /* test_Ice_servantLocator_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908AA19CC37A50032FF23 /* test_Ice_servantLocator_collocated.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 148831541760C818007DF8F1 /* test_Ice_servantLocator_collocated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908AB19CC37A50032FF23 /* test_Ice_servantLocator_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 148831561760C818007DF8F1 /* test_Ice_servantLocator_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908AC19CC37A50032FF23 /* test_Ice_servantLocator_serveramd.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 148831551760C818007DF8F1 /* test_Ice_servantLocator_serveramd.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908AD19CC37A50032FF23 /* test_Ice_services_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A24B1757C1A800EEACF3 /* test_Ice_services_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908AE19CC37A50032FF23 /* test_Ice_slicing_exceptions_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A24C1757C1A800EEACF3 /* test_Ice_slicing_exceptions_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908AF19CC37A50032FF23 /* test_Ice_slicing_exceptions_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A24D1757C1A800EEACF3 /* test_Ice_slicing_exceptions_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908B019CC37A50032FF23 /* test_Ice_slicing_exceptions_serveramd.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A24E1757C1A800EEACF3 /* test_Ice_slicing_exceptions_serveramd.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908B119CC37A50032FF23 /* test_Ice_slicing_objects_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A24F1757C1A800EEACF3 /* test_Ice_slicing_objects_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908B219CC37A50032FF23 /* test_Ice_slicing_objects_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2501757C1A800EEACF3 /* test_Ice_slicing_objects_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908B319CC37A50032FF23 /* test_Ice_slicing_objects_serveramd.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2511757C1A800EEACF3 /* test_Ice_slicing_objects_serveramd.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908B419CC37A50032FF23 /* test_Ice_stream_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2521757C1A800EEACF3 /* test_Ice_stream_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908B519CC37A50032FF23 /* test_Ice_timeout_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2531757C1A800EEACF3 /* test_Ice_timeout_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908B619CC37A50032FF23 /* test_Ice_timeout_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2541757C1A800EEACF3 /* test_Ice_timeout_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908B719CC37A50032FF23 /* test_Ice_udp_client.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2551757C1A800EEACF3 /* test_Ice_udp_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		144908B819CC37A50032FF23 /* test_Ice_udp_server.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8234A2561757C1A800EEACF3 /* test_Ice_udp_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		148831581760C818007DF8F1 /* test_Ice_servantLocator_collocated.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 148831541760C818007DF8F1 /* test_Ice_servantLocator_collocated.bundle */; };
+		148831591760C818007DF8F1 /* test_Ice_servantLocator_serveramd.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 148831551760C818007DF8F1 /* test_Ice_servantLocator_serveramd.bundle */; };
+		1488315A1760C818007DF8F1 /* test_Ice_servantLocator_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 148831561760C818007DF8F1 /* test_Ice_servantLocator_server.bundle */; };
+		1488315B1760C818007DF8F1 /* test_Ice_servantLocator_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 148831571760C818007DF8F1 /* test_Ice_servantLocator_client.bundle */; };
+		14C0039019CC212000872844 /* test_Ice_adapterDeactivation_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2101757C1A700EEACF3 /* test_Ice_adapterDeactivation_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C0039119CC212000872844 /* test_Ice_adapterDeactivation_collocated.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2111757C1A700EEACF3 /* test_Ice_adapterDeactivation_collocated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C0039219CC212000872844 /* test_Ice_adapterDeactivation_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2121757C1A700EEACF3 /* test_Ice_adapterDeactivation_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C0039319CC212000872844 /* test_Ice_admin_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2131757C1A700EEACF3 /* test_Ice_admin_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C0039419CC212000872844 /* test_Ice_admin_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2141757C1A700EEACF3 /* test_Ice_admin_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C0039519CC212000872844 /* test_Ice_ami_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2151757C1A700EEACF3 /* test_Ice_ami_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C0039619CC212000872844 /* test_Ice_ami_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2161757C1A700EEACF3 /* test_Ice_ami_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C0039719CC212000872844 /* test_Ice_binding_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2171757C1A700EEACF3 /* test_Ice_binding_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C0039819CC212000872844 /* test_Ice_binding_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2181757C1A700EEACF3 /* test_Ice_binding_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C0039919CC212000872844 /* test_Ice_checksum_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2191757C1A700EEACF3 /* test_Ice_checksum_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C0039A19CC212000872844 /* test_Ice_checksum_server_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A21A1757C1A700EEACF3 /* test_Ice_checksum_server_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C0039B19CC212000872844 /* test_Ice_custom_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A21B1757C1A700EEACF3 /* test_Ice_custom_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C0039C19CC212000872844 /* test_Ice_custom_collocated.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A21C1757C1A700EEACF3 /* test_Ice_custom_collocated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C0039D19CC212000872844 /* test_Ice_custom_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A21D1757C1A700EEACF3 /* test_Ice_custom_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C0039E19CC212000872844 /* test_Ice_custom_serveramd.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A21E1757C1A700EEACF3 /* test_Ice_custom_serveramd.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C0039F19CC212000872844 /* test_Ice_defaultServant_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A21F1757C1A700EEACF3 /* test_Ice_defaultServant_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003A019CC212000872844 /* test_Ice_defaultValue_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2201757C1A700EEACF3 /* test_Ice_defaultValue_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003A119CC212000872844 /* test_Ice_dispatcher_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2211757C1A700EEACF3 /* test_Ice_dispatcher_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003A219CC212000872844 /* test_Ice_dispatcher_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2221757C1A700EEACF3 /* test_Ice_dispatcher_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003A319CC212000872844 /* test_Ice_enums_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2231757C1A700EEACF3 /* test_Ice_enums_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003A419CC212000872844 /* test_Ice_enums_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2241757C1A700EEACF3 /* test_Ice_enums_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003A519CC212000872844 /* test_Ice_exceptions_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2251757C1A700EEACF3 /* test_Ice_exceptions_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003A619CC212000872844 /* test_Ice_exceptions_collocated.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2261757C1A700EEACF3 /* test_Ice_exceptions_collocated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003A719CC212000872844 /* test_Ice_exceptions_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2271757C1A700EEACF3 /* test_Ice_exceptions_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003A819CC212000872844 /* test_Ice_exceptions_serveramd.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2281757C1A700EEACF3 /* test_Ice_exceptions_serveramd.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003A919CC212000872844 /* test_Ice_facets_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2291757C1A700EEACF3 /* test_Ice_facets_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003AA19CC212100872844 /* test_Ice_facets_collocated.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A22A1757C1A700EEACF3 /* test_Ice_facets_collocated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003AB19CC212100872844 /* test_Ice_facets_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A22B1757C1A700EEACF3 /* test_Ice_facets_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003AC19CC212100872844 /* test_Ice_hash_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A22C1757C1A700EEACF3 /* test_Ice_hash_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003AD19CC212100872844 /* test_Ice_hold_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A22D1757C1A700EEACF3 /* test_Ice_hold_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003AE19CC212100872844 /* test_Ice_hold_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A22E1757C1A800EEACF3 /* test_Ice_hold_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003AF19CC212100872844 /* test_Ice_info_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A22F1757C1A800EEACF3 /* test_Ice_info_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003B019CC212100872844 /* test_Ice_info_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2301757C1A800EEACF3 /* test_Ice_info_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003B119CC212100872844 /* test_Ice_inheritance_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2311757C1A800EEACF3 /* test_Ice_inheritance_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003B219CC212100872844 /* test_Ice_inheritance_collocated.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2321757C1A800EEACF3 /* test_Ice_inheritance_collocated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003B319CC212100872844 /* test_Ice_inheritance_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2331757C1A800EEACF3 /* test_Ice_inheritance_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003B419CC212100872844 /* test_Ice_interceptor_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2341757C1A800EEACF3 /* test_Ice_interceptor_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003B519CC212100872844 /* test_Ice_invoke_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2351757C1A800EEACF3 /* test_Ice_invoke_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003B619CC212100872844 /* test_Ice_invoke_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2361757C1A800EEACF3 /* test_Ice_invoke_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003B719CC212100872844 /* test_Ice_location_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2371757C1A800EEACF3 /* test_Ice_location_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003B819CC212100872844 /* test_Ice_location_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2381757C1A800EEACF3 /* test_Ice_location_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003B919CC212100872844 /* test_Ice_metrics_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2391757C1A800EEACF3 /* test_Ice_metrics_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003BA19CC212100872844 /* test_Ice_metrics_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A23A1757C1A800EEACF3 /* test_Ice_metrics_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003BB19CC212100872844 /* test_Ice_metrics_serveramd.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A23B1757C1A800EEACF3 /* test_Ice_metrics_serveramd.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003BC19CC212100872844 /* test_Ice_objects_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A23C1757C1A800EEACF3 /* test_Ice_objects_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003BD19CC212100872844 /* test_Ice_objects_collocated.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A23D1757C1A800EEACF3 /* test_Ice_objects_collocated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003BE19CC212100872844 /* test_Ice_objects_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A23E1757C1A800EEACF3 /* test_Ice_objects_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003BF19CC212100872844 /* test_Ice_operations_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A23F1757C1A800EEACF3 /* test_Ice_operations_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003C019CC212100872844 /* test_Ice_operations_collocated.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2401757C1A800EEACF3 /* test_Ice_operations_collocated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003C119CC212100872844 /* test_Ice_operations_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2411757C1A800EEACF3 /* test_Ice_operations_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003C219CC212100872844 /* test_Ice_operations_serveramd.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2421757C1A800EEACF3 /* test_Ice_operations_serveramd.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003C319CC212100872844 /* test_Ice_optional_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2431757C1A800EEACF3 /* test_Ice_optional_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003C419CC212100872844 /* test_Ice_optional_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2441757C1A800EEACF3 /* test_Ice_optional_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003C519CC212100872844 /* test_Ice_proxy_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2451757C1A800EEACF3 /* test_Ice_proxy_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003C619CC212100872844 /* test_Ice_proxy_collocated.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2461757C1A800EEACF3 /* test_Ice_proxy_collocated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003C719CC212100872844 /* test_Ice_proxy_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2471757C1A800EEACF3 /* test_Ice_proxy_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003C819CC212100872844 /* test_Ice_proxy_serveramd.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2481757C1A800EEACF3 /* test_Ice_proxy_serveramd.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003C919CC212100872844 /* test_Ice_retry_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2491757C1A800EEACF3 /* test_Ice_retry_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003CA19CC212100872844 /* test_Ice_retry_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A24A1757C1A800EEACF3 /* test_Ice_retry_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003CB19CC212200872844 /* test_Ice_servantLocator_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 148831571760C818007DF8F1 /* test_Ice_servantLocator_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003CC19CC212200872844 /* test_Ice_servantLocator_collocated.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 148831541760C818007DF8F1 /* test_Ice_servantLocator_collocated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003CD19CC212200872844 /* test_Ice_servantLocator_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 148831561760C818007DF8F1 /* test_Ice_servantLocator_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003CE19CC212200872844 /* test_Ice_servantLocator_serveramd.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 148831551760C818007DF8F1 /* test_Ice_servantLocator_serveramd.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003CF19CC212200872844 /* test_Ice_services_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A24B1757C1A800EEACF3 /* test_Ice_services_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003D019CC212200872844 /* test_Ice_slicing_exceptions_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A24C1757C1A800EEACF3 /* test_Ice_slicing_exceptions_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003D119CC212200872844 /* test_Ice_slicing_exceptions_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A24D1757C1A800EEACF3 /* test_Ice_slicing_exceptions_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003D219CC212200872844 /* test_Ice_slicing_exceptions_serveramd.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A24E1757C1A800EEACF3 /* test_Ice_slicing_exceptions_serveramd.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003D319CC212200872844 /* test_Ice_slicing_objects_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A24F1757C1A800EEACF3 /* test_Ice_slicing_objects_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003D419CC212200872844 /* test_Ice_slicing_objects_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2501757C1A800EEACF3 /* test_Ice_slicing_objects_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003D519CC212200872844 /* test_Ice_slicing_objects_serveramd.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2511757C1A800EEACF3 /* test_Ice_slicing_objects_serveramd.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003D619CC212200872844 /* test_Ice_stream_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2521757C1A800EEACF3 /* test_Ice_stream_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003D719CC212200872844 /* test_Ice_timeout_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2531757C1A800EEACF3 /* test_Ice_timeout_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003D819CC212200872844 /* test_Ice_timeout_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2541757C1A800EEACF3 /* test_Ice_timeout_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003D919CC212200872844 /* test_Ice_udp_client.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2551757C1A800EEACF3 /* test_Ice_udp_client.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C003DA19CC212200872844 /* test_Ice_udp_server.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 8234A2561757C1A800EEACF3 /* test_Ice_udp_server.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14C079271765B98C009290BA /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		14C079281765B98C009290BA /* TestSelect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B7662B0E8D55FE00CE4701 /* TestSelect.xib */; };
+		14C079291765B98C009290BA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 342EB9ED0E9261A3000051FA /* icon.png */; };
+		14C0792A1765B98C009290BA /* c_rsa1024.pfx in Resources */ = {isa = PBXBuildFile; fileRef = 342EBA860E926E98000051FA /* c_rsa1024.pfx */; };
+		14C0792B1765B98C009290BA /* s_rsa1024.pfx in Resources */ = {isa = PBXBuildFile; fileRef = 342EBA880E926E9F000051FA /* s_rsa1024.pfx */; };
+		14C0792C1765B98C009290BA /* cacert.der in Resources */ = {isa = PBXBuildFile; fileRef = 342EBA8A0E926F90000051FA /* cacert.der */; };
+		14C0792D1765B98C009290BA /* TestSelect-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34730A10122BF6C300D293CC /* TestSelect-iPad.xib */; };
+		14C0792E1765B98C009290BA /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34C618AE122C035000F60A28 /* MainWindow-iPad.xib */; };
+		14C0792F1765B98C009290BA /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82CD7277145795AA008B9128 /* TestView.xib */; };
+		14C079301765B98C009290BA /* TestView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82F883221461D37000FC801E /* TestView-iPad.xib */; };
+		14C079311765B98C009290BA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14060BD6161D5F290077BEE0 /* Default-568h@2x.png */; };
+		14C0797E1765B98C009290BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 820C84641455AC460091443F /* main.m */; };
+		14C0797F1765B98C009290BA /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 82601FF314564F5500B09B8F /* AppDelegate.mm */; };
+		14C079801765B98C009290BA /* TestViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 827BCF99145778A5003AD3FA /* TestViewController.mm */; };
+		14C079811765B98C009290BA /* TestSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8214397917024FDF0016E162 /* TestSelectController.m */; };
+		14C079821765B98C009290BA /* TestUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 821439B61704E6960016E162 /* TestUtil.mm */; };
+		14C079841765B98C009290BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		14C079851765B98C009290BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		14C079861765B98C009290BA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344126360FD8E8EA00C8D69C /* Security.framework */; };
+		14C079871765B98C009290BA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344126370FD8E8EA00C8D69C /* CFNetwork.framework */; };
+		14C079881765B98C009290BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E396620FF1D71400FBACD6 /* CoreGraphics.framework */; };
+		14C079891765B98C009290BA /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34885BE11227F66E0060DE41 /* ExternalAccessory.framework */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		342EB9EE0E9261A3000051FA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 342EB9ED0E9261A3000051FA /* icon.png */; };
+		342EBA870E926E98000051FA /* c_rsa1024.pfx in Resources */ = {isa = PBXBuildFile; fileRef = 342EBA860E926E98000051FA /* c_rsa1024.pfx */; };
+		342EBA890E926E9F000051FA /* s_rsa1024.pfx in Resources */ = {isa = PBXBuildFile; fileRef = 342EBA880E926E9F000051FA /* s_rsa1024.pfx */; };
+		342EBA8B0E926F90000051FA /* cacert.der in Resources */ = {isa = PBXBuildFile; fileRef = 342EBA8A0E926F90000051FA /* cacert.der */; };
+		344126380FD8E8EA00C8D69C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344126360FD8E8EA00C8D69C /* Security.framework */; };
+		344126390FD8E8EA00C8D69C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344126370FD8E8EA00C8D69C /* CFNetwork.framework */; };
+		34730A11122BF6C300D293CC /* TestSelect-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34730A10122BF6C300D293CC /* TestSelect-iPad.xib */; };
+		34885BE21227F66E0060DE41 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34885BE11227F66E0060DE41 /* ExternalAccessory.framework */; };
+		34B7662C0E8D55FE00CE4701 /* TestSelect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B7662B0E8D55FE00CE4701 /* TestSelect.xib */; };
+		34C618AF122C035000F60A28 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34C618AE122C035000F60A28 /* MainWindow-iPad.xib */; };
+		34E396630FF1D71400FBACD6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E396620FF1D71400FBACD6 /* CoreGraphics.framework */; };
+		820C84651455AC460091443F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 820C84641455AC460091443F /* main.m */; };
+		8214397B17024FE00016E162 /* TestSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8214397917024FDF0016E162 /* TestSelectController.m */; };
+		821439B81704E6970016E162 /* TestUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 821439B61704E6960016E162 /* TestUtil.mm */; };
+		8234A2571757C1A800EEACF3 /* test_Ice_adapterDeactivation_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2101757C1A700EEACF3 /* test_Ice_adapterDeactivation_client.bundle */; };
+		8234A2581757C1A800EEACF3 /* test_Ice_adapterDeactivation_collocated.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2111757C1A700EEACF3 /* test_Ice_adapterDeactivation_collocated.bundle */; };
+		8234A2591757C1A800EEACF3 /* test_Ice_adapterDeactivation_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2121757C1A700EEACF3 /* test_Ice_adapterDeactivation_server.bundle */; };
+		8234A25A1757C1A800EEACF3 /* test_Ice_admin_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2131757C1A700EEACF3 /* test_Ice_admin_client.bundle */; };
+		8234A25B1757C1A800EEACF3 /* test_Ice_admin_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2141757C1A700EEACF3 /* test_Ice_admin_server.bundle */; };
+		8234A25C1757C1A800EEACF3 /* test_Ice_ami_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2151757C1A700EEACF3 /* test_Ice_ami_client.bundle */; };
+		8234A25D1757C1A800EEACF3 /* test_Ice_ami_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2161757C1A700EEACF3 /* test_Ice_ami_server.bundle */; };
+		8234A25E1757C1A800EEACF3 /* test_Ice_binding_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2171757C1A700EEACF3 /* test_Ice_binding_client.bundle */; };
+		8234A25F1757C1A800EEACF3 /* test_Ice_binding_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2181757C1A700EEACF3 /* test_Ice_binding_server.bundle */; };
+		8234A2601757C1A800EEACF3 /* test_Ice_checksum_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2191757C1A700EEACF3 /* test_Ice_checksum_client.bundle */; };
+		8234A2611757C1A800EEACF3 /* test_Ice_checksum_server_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A21A1757C1A700EEACF3 /* test_Ice_checksum_server_server.bundle */; };
+		8234A2621757C1A800EEACF3 /* test_Ice_custom_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A21B1757C1A700EEACF3 /* test_Ice_custom_client.bundle */; };
+		8234A2631757C1A900EEACF3 /* test_Ice_custom_collocated.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A21C1757C1A700EEACF3 /* test_Ice_custom_collocated.bundle */; };
+		8234A2641757C1A900EEACF3 /* test_Ice_custom_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A21D1757C1A700EEACF3 /* test_Ice_custom_server.bundle */; };
+		8234A2651757C1A900EEACF3 /* test_Ice_custom_serveramd.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A21E1757C1A700EEACF3 /* test_Ice_custom_serveramd.bundle */; };
+		8234A2661757C1A900EEACF3 /* test_Ice_defaultServant_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A21F1757C1A700EEACF3 /* test_Ice_defaultServant_client.bundle */; };
+		8234A2671757C1A900EEACF3 /* test_Ice_defaultValue_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2201757C1A700EEACF3 /* test_Ice_defaultValue_client.bundle */; };
+		8234A2681757C1A900EEACF3 /* test_Ice_dispatcher_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2211757C1A700EEACF3 /* test_Ice_dispatcher_client.bundle */; };
+		8234A2691757C1A900EEACF3 /* test_Ice_dispatcher_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2221757C1A700EEACF3 /* test_Ice_dispatcher_server.bundle */; };
+		8234A26A1757C1A900EEACF3 /* test_Ice_enums_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2231757C1A700EEACF3 /* test_Ice_enums_client.bundle */; };
+		8234A26B1757C1A900EEACF3 /* test_Ice_enums_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2241757C1A700EEACF3 /* test_Ice_enums_server.bundle */; };
+		8234A26C1757C1A900EEACF3 /* test_Ice_exceptions_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2251757C1A700EEACF3 /* test_Ice_exceptions_client.bundle */; };
+		8234A26D1757C1A900EEACF3 /* test_Ice_exceptions_collocated.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2261757C1A700EEACF3 /* test_Ice_exceptions_collocated.bundle */; };
+		8234A26E1757C1A900EEACF3 /* test_Ice_exceptions_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2271757C1A700EEACF3 /* test_Ice_exceptions_server.bundle */; };
+		8234A26F1757C1A900EEACF3 /* test_Ice_exceptions_serveramd.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2281757C1A700EEACF3 /* test_Ice_exceptions_serveramd.bundle */; };
+		8234A2701757C1A900EEACF3 /* test_Ice_facets_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2291757C1A700EEACF3 /* test_Ice_facets_client.bundle */; };
+		8234A2711757C1A900EEACF3 /* test_Ice_facets_collocated.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A22A1757C1A700EEACF3 /* test_Ice_facets_collocated.bundle */; };
+		8234A2721757C1A900EEACF3 /* test_Ice_facets_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A22B1757C1A700EEACF3 /* test_Ice_facets_server.bundle */; };
+		8234A2731757C1A900EEACF3 /* test_Ice_hash_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A22C1757C1A700EEACF3 /* test_Ice_hash_client.bundle */; };
+		8234A2741757C1A900EEACF3 /* test_Ice_hold_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A22D1757C1A700EEACF3 /* test_Ice_hold_client.bundle */; };
+		8234A2751757C1A900EEACF3 /* test_Ice_hold_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A22E1757C1A800EEACF3 /* test_Ice_hold_server.bundle */; };
+		8234A2761757C1A900EEACF3 /* test_Ice_info_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A22F1757C1A800EEACF3 /* test_Ice_info_client.bundle */; };
+		8234A2771757C1A900EEACF3 /* test_Ice_info_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2301757C1A800EEACF3 /* test_Ice_info_server.bundle */; };
+		8234A2781757C1A900EEACF3 /* test_Ice_inheritance_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2311757C1A800EEACF3 /* test_Ice_inheritance_client.bundle */; };
+		8234A2791757C1A900EEACF3 /* test_Ice_inheritance_collocated.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2321757C1A800EEACF3 /* test_Ice_inheritance_collocated.bundle */; };
+		8234A27A1757C1A900EEACF3 /* test_Ice_inheritance_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2331757C1A800EEACF3 /* test_Ice_inheritance_server.bundle */; };
+		8234A27B1757C1A900EEACF3 /* test_Ice_interceptor_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2341757C1A800EEACF3 /* test_Ice_interceptor_client.bundle */; };
+		8234A27C1757C1A900EEACF3 /* test_Ice_invoke_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2351757C1A800EEACF3 /* test_Ice_invoke_client.bundle */; };
+		8234A27D1757C1A900EEACF3 /* test_Ice_invoke_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2361757C1A800EEACF3 /* test_Ice_invoke_server.bundle */; };
+		8234A27E1757C1A900EEACF3 /* test_Ice_location_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2371757C1A800EEACF3 /* test_Ice_location_client.bundle */; };
+		8234A27F1757C1A900EEACF3 /* test_Ice_location_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2381757C1A800EEACF3 /* test_Ice_location_server.bundle */; };
+		8234A2801757C1A900EEACF3 /* test_Ice_metrics_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2391757C1A800EEACF3 /* test_Ice_metrics_client.bundle */; };
+		8234A2811757C1A900EEACF3 /* test_Ice_metrics_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A23A1757C1A800EEACF3 /* test_Ice_metrics_server.bundle */; };
+		8234A2821757C1A900EEACF3 /* test_Ice_metrics_serveramd.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A23B1757C1A800EEACF3 /* test_Ice_metrics_serveramd.bundle */; };
+		8234A2831757C1A900EEACF3 /* test_Ice_objects_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A23C1757C1A800EEACF3 /* test_Ice_objects_client.bundle */; };
+		8234A2841757C1A900EEACF3 /* test_Ice_objects_collocated.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A23D1757C1A800EEACF3 /* test_Ice_objects_collocated.bundle */; };
+		8234A2851757C1A900EEACF3 /* test_Ice_objects_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A23E1757C1A800EEACF3 /* test_Ice_objects_server.bundle */; };
+		8234A2861757C1A900EEACF3 /* test_Ice_operations_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A23F1757C1A800EEACF3 /* test_Ice_operations_client.bundle */; };
+		8234A2871757C1A900EEACF3 /* test_Ice_operations_collocated.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2401757C1A800EEACF3 /* test_Ice_operations_collocated.bundle */; };
+		8234A2881757C1A900EEACF3 /* test_Ice_operations_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2411757C1A800EEACF3 /* test_Ice_operations_server.bundle */; };
+		8234A2891757C1A900EEACF3 /* test_Ice_operations_serveramd.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2421757C1A800EEACF3 /* test_Ice_operations_serveramd.bundle */; };
+		8234A28A1757C1A900EEACF3 /* test_Ice_optional_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2431757C1A800EEACF3 /* test_Ice_optional_client.bundle */; };
+		8234A28B1757C1A900EEACF3 /* test_Ice_optional_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2441757C1A800EEACF3 /* test_Ice_optional_server.bundle */; };
+		8234A28C1757C1A900EEACF3 /* test_Ice_proxy_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2451757C1A800EEACF3 /* test_Ice_proxy_client.bundle */; };
+		8234A28D1757C1A900EEACF3 /* test_Ice_proxy_collocated.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2461757C1A800EEACF3 /* test_Ice_proxy_collocated.bundle */; };
+		8234A28E1757C1A900EEACF3 /* test_Ice_proxy_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2471757C1A800EEACF3 /* test_Ice_proxy_server.bundle */; };
+		8234A28F1757C1A900EEACF3 /* test_Ice_proxy_serveramd.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2481757C1A800EEACF3 /* test_Ice_proxy_serveramd.bundle */; };
+		8234A2901757C1A900EEACF3 /* test_Ice_retry_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2491757C1A800EEACF3 /* test_Ice_retry_client.bundle */; };
+		8234A2911757C1A900EEACF3 /* test_Ice_retry_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A24A1757C1A800EEACF3 /* test_Ice_retry_server.bundle */; };
+		8234A2921757C1A900EEACF3 /* test_Ice_services_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A24B1757C1A800EEACF3 /* test_Ice_services_client.bundle */; };
+		8234A2931757C1A900EEACF3 /* test_Ice_slicing_exceptions_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A24C1757C1A800EEACF3 /* test_Ice_slicing_exceptions_client.bundle */; };
+		8234A2941757C1A900EEACF3 /* test_Ice_slicing_exceptions_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A24D1757C1A800EEACF3 /* test_Ice_slicing_exceptions_server.bundle */; };
+		8234A2951757C1A900EEACF3 /* test_Ice_slicing_exceptions_serveramd.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A24E1757C1A800EEACF3 /* test_Ice_slicing_exceptions_serveramd.bundle */; };
+		8234A2961757C1A900EEACF3 /* test_Ice_slicing_objects_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A24F1757C1A800EEACF3 /* test_Ice_slicing_objects_client.bundle */; };
+		8234A2971757C1A900EEACF3 /* test_Ice_slicing_objects_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2501757C1A800EEACF3 /* test_Ice_slicing_objects_server.bundle */; };
+		8234A2981757C1A900EEACF3 /* test_Ice_slicing_objects_serveramd.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2511757C1A800EEACF3 /* test_Ice_slicing_objects_serveramd.bundle */; };
+		8234A2991757C1A900EEACF3 /* test_Ice_stream_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2521757C1A800EEACF3 /* test_Ice_stream_client.bundle */; };
+		8234A29A1757C1A900EEACF3 /* test_Ice_timeout_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2531757C1A800EEACF3 /* test_Ice_timeout_client.bundle */; };
+		8234A29B1757C1A900EEACF3 /* test_Ice_timeout_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2541757C1A800EEACF3 /* test_Ice_timeout_server.bundle */; };
+		8234A29C1757C1A900EEACF3 /* test_Ice_udp_client.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2551757C1A800EEACF3 /* test_Ice_udp_client.bundle */; };
+		8234A29D1757C1A900EEACF3 /* test_Ice_udp_server.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8234A2561757C1A800EEACF3 /* test_Ice_udp_server.bundle */; };
+		82601FF414564F5500B09B8F /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 82601FF314564F5500B09B8F /* AppDelegate.mm */; };
+		827BCF9A145778A5003AD3FA /* TestViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 827BCF99145778A5003AD3FA /* TestViewController.mm */; };
+		82CD7278145795AA008B9128 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82CD7277145795AA008B9128 /* TestView.xib */; };
+		82D53AA91823269B00703264 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82D53AA81823269B00703264 /* Images.xcassets */; };
+		82F883231461D37000FC801E /* TestView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82F883221461D37000FC801E /* TestView-iPad.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1449086D19CC37930032FF23 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1449086E19CC37A30032FF23 /* test_Ice_adapterDeactivation_client.bundle in CopyFiles */,
+				1449086F19CC37A30032FF23 /* test_Ice_adapterDeactivation_collocated.bundle in CopyFiles */,
+				1449087019CC37A30032FF23 /* test_Ice_adapterDeactivation_server.bundle in CopyFiles */,
+				1449087119CC37A30032FF23 /* test_Ice_admin_client.bundle in CopyFiles */,
+				1449087219CC37A30032FF23 /* test_Ice_admin_server.bundle in CopyFiles */,
+				1449087319CC37A30032FF23 /* test_Ice_ami_client.bundle in CopyFiles */,
+				1449087419CC37A30032FF23 /* test_Ice_ami_server.bundle in CopyFiles */,
+				1449087519CC37A30032FF23 /* test_Ice_binding_client.bundle in CopyFiles */,
+				1449087619CC37A30032FF23 /* test_Ice_binding_server.bundle in CopyFiles */,
+				1449087719CC37A30032FF23 /* test_Ice_checksum_client.bundle in CopyFiles */,
+				1449087819CC37A30032FF23 /* test_Ice_checksum_server_server.bundle in CopyFiles */,
+				1449087919CC37A30032FF23 /* test_Ice_custom_client.bundle in CopyFiles */,
+				1449087A19CC37A30032FF23 /* test_Ice_custom_collocated.bundle in CopyFiles */,
+				1449087B19CC37A30032FF23 /* test_Ice_custom_server.bundle in CopyFiles */,
+				1449087C19CC37A30032FF23 /* test_Ice_custom_serveramd.bundle in CopyFiles */,
+				1449087D19CC37A30032FF23 /* test_Ice_defaultServant_client.bundle in CopyFiles */,
+				1449087E19CC37A30032FF23 /* test_Ice_defaultValue_client.bundle in CopyFiles */,
+				1449087F19CC37A30032FF23 /* test_Ice_dispatcher_client.bundle in CopyFiles */,
+				1449088019CC37A30032FF23 /* test_Ice_dispatcher_server.bundle in CopyFiles */,
+				1449088119CC37A30032FF23 /* test_Ice_enums_client.bundle in CopyFiles */,
+				1449088219CC37A30032FF23 /* test_Ice_enums_server.bundle in CopyFiles */,
+				1449088319CC37A30032FF23 /* test_Ice_exceptions_client.bundle in CopyFiles */,
+				1449088419CC37A30032FF23 /* test_Ice_exceptions_collocated.bundle in CopyFiles */,
+				1449088519CC37A30032FF23 /* test_Ice_exceptions_server.bundle in CopyFiles */,
+				1449088619CC37A30032FF23 /* test_Ice_exceptions_serveramd.bundle in CopyFiles */,
+				1449088719CC37A30032FF23 /* test_Ice_facets_client.bundle in CopyFiles */,
+				1449088819CC37A30032FF23 /* test_Ice_facets_collocated.bundle in CopyFiles */,
+				1449088919CC37A40032FF23 /* test_Ice_facets_server.bundle in CopyFiles */,
+				1449088A19CC37A40032FF23 /* test_Ice_hash_client.bundle in CopyFiles */,
+				1449088B19CC37A40032FF23 /* test_Ice_hold_client.bundle in CopyFiles */,
+				1449088C19CC37A40032FF23 /* test_Ice_hold_server.bundle in CopyFiles */,
+				1449088D19CC37A40032FF23 /* test_Ice_info_client.bundle in CopyFiles */,
+				1449088E19CC37A40032FF23 /* test_Ice_info_server.bundle in CopyFiles */,
+				1449088F19CC37A40032FF23 /* test_Ice_inheritance_client.bundle in CopyFiles */,
+				1449089019CC37A40032FF23 /* test_Ice_inheritance_collocated.bundle in CopyFiles */,
+				1449089119CC37A40032FF23 /* test_Ice_inheritance_server.bundle in CopyFiles */,
+				1449089219CC37A40032FF23 /* test_Ice_interceptor_client.bundle in CopyFiles */,
+				1449089319CC37A40032FF23 /* test_Ice_invoke_client.bundle in CopyFiles */,
+				1449089419CC37A40032FF23 /* test_Ice_invoke_server.bundle in CopyFiles */,
+				1449089519CC37A40032FF23 /* test_Ice_location_client.bundle in CopyFiles */,
+				1449089619CC37A40032FF23 /* test_Ice_location_server.bundle in CopyFiles */,
+				1449089719CC37A40032FF23 /* test_Ice_metrics_client.bundle in CopyFiles */,
+				1449089819CC37A40032FF23 /* test_Ice_metrics_server.bundle in CopyFiles */,
+				1449089919CC37A40032FF23 /* test_Ice_metrics_serveramd.bundle in CopyFiles */,
+				1449089A19CC37A40032FF23 /* test_Ice_objects_client.bundle in CopyFiles */,
+				1449089B19CC37A40032FF23 /* test_Ice_objects_collocated.bundle in CopyFiles */,
+				1449089C19CC37A40032FF23 /* test_Ice_objects_server.bundle in CopyFiles */,
+				1449089D19CC37A40032FF23 /* test_Ice_operations_client.bundle in CopyFiles */,
+				1449089E19CC37A40032FF23 /* test_Ice_operations_collocated.bundle in CopyFiles */,
+				1449089F19CC37A40032FF23 /* test_Ice_operations_server.bundle in CopyFiles */,
+				144908A019CC37A40032FF23 /* test_Ice_operations_serveramd.bundle in CopyFiles */,
+				144908A119CC37A40032FF23 /* test_Ice_optional_client.bundle in CopyFiles */,
+				144908A219CC37A40032FF23 /* test_Ice_optional_server.bundle in CopyFiles */,
+				144908A319CC37A40032FF23 /* test_Ice_proxy_client.bundle in CopyFiles */,
+				144908A419CC37A40032FF23 /* test_Ice_proxy_collocated.bundle in CopyFiles */,
+				144908A519CC37A40032FF23 /* test_Ice_proxy_server.bundle in CopyFiles */,
+				144908A619CC37A40032FF23 /* test_Ice_proxy_serveramd.bundle in CopyFiles */,
+				144908A719CC37A40032FF23 /* test_Ice_retry_client.bundle in CopyFiles */,
+				144908A819CC37A40032FF23 /* test_Ice_retry_server.bundle in CopyFiles */,
+				144908A919CC37A50032FF23 /* test_Ice_servantLocator_client.bundle in CopyFiles */,
+				144908AA19CC37A50032FF23 /* test_Ice_servantLocator_collocated.bundle in CopyFiles */,
+				144908AB19CC37A50032FF23 /* test_Ice_servantLocator_server.bundle in CopyFiles */,
+				144908AC19CC37A50032FF23 /* test_Ice_servantLocator_serveramd.bundle in CopyFiles */,
+				144908AD19CC37A50032FF23 /* test_Ice_services_client.bundle in CopyFiles */,
+				144908AE19CC37A50032FF23 /* test_Ice_slicing_exceptions_client.bundle in CopyFiles */,
+				144908AF19CC37A50032FF23 /* test_Ice_slicing_exceptions_server.bundle in CopyFiles */,
+				144908B019CC37A50032FF23 /* test_Ice_slicing_exceptions_serveramd.bundle in CopyFiles */,
+				144908B119CC37A50032FF23 /* test_Ice_slicing_objects_client.bundle in CopyFiles */,
+				144908B219CC37A50032FF23 /* test_Ice_slicing_objects_server.bundle in CopyFiles */,
+				144908B319CC37A50032FF23 /* test_Ice_slicing_objects_serveramd.bundle in CopyFiles */,
+				144908B419CC37A50032FF23 /* test_Ice_stream_client.bundle in CopyFiles */,
+				144908B519CC37A50032FF23 /* test_Ice_timeout_client.bundle in CopyFiles */,
+				144908B619CC37A50032FF23 /* test_Ice_timeout_server.bundle in CopyFiles */,
+				144908B719CC37A50032FF23 /* test_Ice_udp_client.bundle in CopyFiles */,
+				144908B819CC37A50032FF23 /* test_Ice_udp_server.bundle in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14C0034319CC206900872844 /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				14C0039019CC212000872844 /* test_Ice_adapterDeactivation_client.bundle in Copy Files */,
+				14C0039119CC212000872844 /* test_Ice_adapterDeactivation_collocated.bundle in Copy Files */,
+				14C0039219CC212000872844 /* test_Ice_adapterDeactivation_server.bundle in Copy Files */,
+				14C0039319CC212000872844 /* test_Ice_admin_client.bundle in Copy Files */,
+				14C0039419CC212000872844 /* test_Ice_admin_server.bundle in Copy Files */,
+				14C0039519CC212000872844 /* test_Ice_ami_client.bundle in Copy Files */,
+				14C0039619CC212000872844 /* test_Ice_ami_server.bundle in Copy Files */,
+				14C0039719CC212000872844 /* test_Ice_binding_client.bundle in Copy Files */,
+				14C0039819CC212000872844 /* test_Ice_binding_server.bundle in Copy Files */,
+				14C0039919CC212000872844 /* test_Ice_checksum_client.bundle in Copy Files */,
+				14C0039A19CC212000872844 /* test_Ice_checksum_server_server.bundle in Copy Files */,
+				14C0039B19CC212000872844 /* test_Ice_custom_client.bundle in Copy Files */,
+				14C0039C19CC212000872844 /* test_Ice_custom_collocated.bundle in Copy Files */,
+				14C0039D19CC212000872844 /* test_Ice_custom_server.bundle in Copy Files */,
+				14C0039E19CC212000872844 /* test_Ice_custom_serveramd.bundle in Copy Files */,
+				14C0039F19CC212000872844 /* test_Ice_defaultServant_client.bundle in Copy Files */,
+				14C003A019CC212000872844 /* test_Ice_defaultValue_client.bundle in Copy Files */,
+				14C003A119CC212000872844 /* test_Ice_dispatcher_client.bundle in Copy Files */,
+				14C003A219CC212000872844 /* test_Ice_dispatcher_server.bundle in Copy Files */,
+				14C003A319CC212000872844 /* test_Ice_enums_client.bundle in Copy Files */,
+				14C003A419CC212000872844 /* test_Ice_enums_server.bundle in Copy Files */,
+				14C003A519CC212000872844 /* test_Ice_exceptions_client.bundle in Copy Files */,
+				14C003A619CC212000872844 /* test_Ice_exceptions_collocated.bundle in Copy Files */,
+				14C003A719CC212000872844 /* test_Ice_exceptions_server.bundle in Copy Files */,
+				14C003A819CC212000872844 /* test_Ice_exceptions_serveramd.bundle in Copy Files */,
+				14C003A919CC212000872844 /* test_Ice_facets_client.bundle in Copy Files */,
+				14C003AA19CC212100872844 /* test_Ice_facets_collocated.bundle in Copy Files */,
+				14C003AB19CC212100872844 /* test_Ice_facets_server.bundle in Copy Files */,
+				14C003AC19CC212100872844 /* test_Ice_hash_client.bundle in Copy Files */,
+				14C003AD19CC212100872844 /* test_Ice_hold_client.bundle in Copy Files */,
+				14C003AE19CC212100872844 /* test_Ice_hold_server.bundle in Copy Files */,
+				14C003AF19CC212100872844 /* test_Ice_info_client.bundle in Copy Files */,
+				14C003B019CC212100872844 /* test_Ice_info_server.bundle in Copy Files */,
+				14C003B119CC212100872844 /* test_Ice_inheritance_client.bundle in Copy Files */,
+				14C003B219CC212100872844 /* test_Ice_inheritance_collocated.bundle in Copy Files */,
+				14C003B319CC212100872844 /* test_Ice_inheritance_server.bundle in Copy Files */,
+				14C003B419CC212100872844 /* test_Ice_interceptor_client.bundle in Copy Files */,
+				14C003B519CC212100872844 /* test_Ice_invoke_client.bundle in Copy Files */,
+				14C003B619CC212100872844 /* test_Ice_invoke_server.bundle in Copy Files */,
+				14C003B719CC212100872844 /* test_Ice_location_client.bundle in Copy Files */,
+				14C003B819CC212100872844 /* test_Ice_location_server.bundle in Copy Files */,
+				14C003B919CC212100872844 /* test_Ice_metrics_client.bundle in Copy Files */,
+				14C003BA19CC212100872844 /* test_Ice_metrics_server.bundle in Copy Files */,
+				14C003BB19CC212100872844 /* test_Ice_metrics_serveramd.bundle in Copy Files */,
+				14C003BC19CC212100872844 /* test_Ice_objects_client.bundle in Copy Files */,
+				14C003BD19CC212100872844 /* test_Ice_objects_collocated.bundle in Copy Files */,
+				14C003BE19CC212100872844 /* test_Ice_objects_server.bundle in Copy Files */,
+				14C003BF19CC212100872844 /* test_Ice_operations_client.bundle in Copy Files */,
+				14C003C019CC212100872844 /* test_Ice_operations_collocated.bundle in Copy Files */,
+				14C003C119CC212100872844 /* test_Ice_operations_server.bundle in Copy Files */,
+				14C003C219CC212100872844 /* test_Ice_operations_serveramd.bundle in Copy Files */,
+				14C003C319CC212100872844 /* test_Ice_optional_client.bundle in Copy Files */,
+				14C003C419CC212100872844 /* test_Ice_optional_server.bundle in Copy Files */,
+				14C003C519CC212100872844 /* test_Ice_proxy_client.bundle in Copy Files */,
+				14C003C619CC212100872844 /* test_Ice_proxy_collocated.bundle in Copy Files */,
+				14C003C719CC212100872844 /* test_Ice_proxy_server.bundle in Copy Files */,
+				14C003C819CC212100872844 /* test_Ice_proxy_serveramd.bundle in Copy Files */,
+				14C003C919CC212100872844 /* test_Ice_retry_client.bundle in Copy Files */,
+				14C003CA19CC212100872844 /* test_Ice_retry_server.bundle in Copy Files */,
+				14C003CB19CC212200872844 /* test_Ice_servantLocator_client.bundle in Copy Files */,
+				14C003CC19CC212200872844 /* test_Ice_servantLocator_collocated.bundle in Copy Files */,
+				14C003CD19CC212200872844 /* test_Ice_servantLocator_server.bundle in Copy Files */,
+				14C003CE19CC212200872844 /* test_Ice_servantLocator_serveramd.bundle in Copy Files */,
+				14C003CF19CC212200872844 /* test_Ice_services_client.bundle in Copy Files */,
+				14C003D019CC212200872844 /* test_Ice_slicing_exceptions_client.bundle in Copy Files */,
+				14C003D119CC212200872844 /* test_Ice_slicing_exceptions_server.bundle in Copy Files */,
+				14C003D219CC212200872844 /* test_Ice_slicing_exceptions_serveramd.bundle in Copy Files */,
+				14C003D319CC212200872844 /* test_Ice_slicing_objects_client.bundle in Copy Files */,
+				14C003D419CC212200872844 /* test_Ice_slicing_objects_server.bundle in Copy Files */,
+				14C003D519CC212200872844 /* test_Ice_slicing_objects_serveramd.bundle in Copy Files */,
+				14C003D619CC212200872844 /* test_Ice_stream_client.bundle in Copy Files */,
+				14C003D719CC212200872844 /* test_Ice_timeout_client.bundle in Copy Files */,
+				14C003D819CC212200872844 /* test_Ice_timeout_server.bundle in Copy Files */,
+				14C003D919CC212200872844 /* test_Ice_udp_client.bundle in Copy Files */,
+				14C003DA19CC212200872844 /* test_Ice_udp_server.bundle in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		14060BD6161D5F290077BEE0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		148831541760C818007DF8F1 /* test_Ice_servantLocator_collocated.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_servantLocator_collocated.bundle; path = ../test_Ice_servantLocator_collocated.bundle; sourceTree = "<group>"; };
+		148831551760C818007DF8F1 /* test_Ice_servantLocator_serveramd.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_servantLocator_serveramd.bundle; path = ../test_Ice_servantLocator_serveramd.bundle; sourceTree = "<group>"; };
+		148831561760C818007DF8F1 /* test_Ice_servantLocator_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_servantLocator_server.bundle; path = ../test_Ice_servantLocator_server.bundle; sourceTree = "<group>"; };
+		148831571760C818007DF8F1 /* test_Ice_servantLocator_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_servantLocator_client.bundle; path = ../test_Ice_servantLocator_client.bundle; sourceTree = "<group>"; };
+		14C0798E1765B98C009290BA /* containerCPP11.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = containerCPP11.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		14C0798F1765B98D009290BA /* Info-C++11.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-C++11.plist"; path = "/Users/benoit/Devel/git/iceobj/cpp/test/iPhone/container/Info-C++11.plist"; sourceTree = "<absolute>"; };
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D6058910D05DD3D006BFB54 /* container.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = container.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		342EB9ED0E9261A3000051FA /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Images/icon.png; sourceTree = "<group>"; };
+		342EBA860E926E98000051FA /* c_rsa1024.pfx */ = {isa = PBXFileReference; lastKnownFileType = file; name = c_rsa1024.pfx; path = ../../../../certs/c_rsa1024.pfx; sourceTree = SOURCE_ROOT; };
+		342EBA880E926E9F000051FA /* s_rsa1024.pfx */ = {isa = PBXFileReference; lastKnownFileType = file; name = s_rsa1024.pfx; path = ../../../../certs/s_rsa1024.pfx; sourceTree = SOURCE_ROOT; };
+		342EBA8A0E926F90000051FA /* cacert.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = cacert.der; path = ../../../../certs/cacert.der; sourceTree = SOURCE_ROOT; };
+		344126360FD8E8EA00C8D69C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		344126370FD8E8EA00C8D69C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		34730A10122BF6C300D293CC /* TestSelect-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "TestSelect-iPad.xib"; sourceTree = "<group>"; };
+		34885BE11227F66E0060DE41 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		34B7662B0E8D55FE00CE4701 /* TestSelect.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestSelect.xib; sourceTree = "<group>"; };
+		34C618AE122C035000F60A28 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		34E396620FF1D71400FBACD6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		820C84641455AC460091443F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8214397917024FDF0016E162 /* TestSelectController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = TestSelectController.m; sourceTree = "<group>"; };
+		821439B51704E6950016E162 /* TestUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestUtil.h; sourceTree = "<group>"; };
+		821439B61704E6960016E162 /* TestUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestUtil.mm; sourceTree = "<group>"; };
+		8234A2101757C1A700EEACF3 /* test_Ice_adapterDeactivation_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_adapterDeactivation_client.bundle; path = ../test_Ice_adapterDeactivation_client.bundle; sourceTree = "<group>"; };
+		8234A2111757C1A700EEACF3 /* test_Ice_adapterDeactivation_collocated.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_adapterDeactivation_collocated.bundle; path = ../test_Ice_adapterDeactivation_collocated.bundle; sourceTree = "<group>"; };
+		8234A2121757C1A700EEACF3 /* test_Ice_adapterDeactivation_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_adapterDeactivation_server.bundle; path = ../test_Ice_adapterDeactivation_server.bundle; sourceTree = "<group>"; };
+		8234A2131757C1A700EEACF3 /* test_Ice_admin_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_admin_client.bundle; path = ../test_Ice_admin_client.bundle; sourceTree = "<group>"; };
+		8234A2141757C1A700EEACF3 /* test_Ice_admin_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_admin_server.bundle; path = ../test_Ice_admin_server.bundle; sourceTree = "<group>"; };
+		8234A2151757C1A700EEACF3 /* test_Ice_ami_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_ami_client.bundle; path = ../test_Ice_ami_client.bundle; sourceTree = "<group>"; };
+		8234A2161757C1A700EEACF3 /* test_Ice_ami_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_ami_server.bundle; path = ../test_Ice_ami_server.bundle; sourceTree = "<group>"; };
+		8234A2171757C1A700EEACF3 /* test_Ice_binding_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_binding_client.bundle; path = ../test_Ice_binding_client.bundle; sourceTree = "<group>"; };
+		8234A2181757C1A700EEACF3 /* test_Ice_binding_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_binding_server.bundle; path = ../test_Ice_binding_server.bundle; sourceTree = "<group>"; };
+		8234A2191757C1A700EEACF3 /* test_Ice_checksum_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_checksum_client.bundle; path = ../test_Ice_checksum_client.bundle; sourceTree = "<group>"; };
+		8234A21A1757C1A700EEACF3 /* test_Ice_checksum_server_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_checksum_server_server.bundle; path = ../test_Ice_checksum_server_server.bundle; sourceTree = "<group>"; };
+		8234A21B1757C1A700EEACF3 /* test_Ice_custom_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_custom_client.bundle; path = ../test_Ice_custom_client.bundle; sourceTree = "<group>"; };
+		8234A21C1757C1A700EEACF3 /* test_Ice_custom_collocated.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_custom_collocated.bundle; path = ../test_Ice_custom_collocated.bundle; sourceTree = "<group>"; };
+		8234A21D1757C1A700EEACF3 /* test_Ice_custom_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_custom_server.bundle; path = ../test_Ice_custom_server.bundle; sourceTree = "<group>"; };
+		8234A21E1757C1A700EEACF3 /* test_Ice_custom_serveramd.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_custom_serveramd.bundle; path = ../test_Ice_custom_serveramd.bundle; sourceTree = "<group>"; };
+		8234A21F1757C1A700EEACF3 /* test_Ice_defaultServant_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_defaultServant_client.bundle; path = ../test_Ice_defaultServant_client.bundle; sourceTree = "<group>"; };
+		8234A2201757C1A700EEACF3 /* test_Ice_defaultValue_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_defaultValue_client.bundle; path = ../test_Ice_defaultValue_client.bundle; sourceTree = "<group>"; };
+		8234A2211757C1A700EEACF3 /* test_Ice_dispatcher_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_dispatcher_client.bundle; path = ../test_Ice_dispatcher_client.bundle; sourceTree = "<group>"; };
+		8234A2221757C1A700EEACF3 /* test_Ice_dispatcher_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_dispatcher_server.bundle; path = ../test_Ice_dispatcher_server.bundle; sourceTree = "<group>"; };
+		8234A2231757C1A700EEACF3 /* test_Ice_enums_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_enums_client.bundle; path = ../test_Ice_enums_client.bundle; sourceTree = "<group>"; };
+		8234A2241757C1A700EEACF3 /* test_Ice_enums_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_enums_server.bundle; path = ../test_Ice_enums_server.bundle; sourceTree = "<group>"; };
+		8234A2251757C1A700EEACF3 /* test_Ice_exceptions_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_exceptions_client.bundle; path = ../test_Ice_exceptions_client.bundle; sourceTree = "<group>"; };
+		8234A2261757C1A700EEACF3 /* test_Ice_exceptions_collocated.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_exceptions_collocated.bundle; path = ../test_Ice_exceptions_collocated.bundle; sourceTree = "<group>"; };
+		8234A2271757C1A700EEACF3 /* test_Ice_exceptions_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_exceptions_server.bundle; path = ../test_Ice_exceptions_server.bundle; sourceTree = "<group>"; };
+		8234A2281757C1A700EEACF3 /* test_Ice_exceptions_serveramd.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_exceptions_serveramd.bundle; path = ../test_Ice_exceptions_serveramd.bundle; sourceTree = "<group>"; };
+		8234A2291757C1A700EEACF3 /* test_Ice_facets_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_facets_client.bundle; path = ../test_Ice_facets_client.bundle; sourceTree = "<group>"; };
+		8234A22A1757C1A700EEACF3 /* test_Ice_facets_collocated.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_facets_collocated.bundle; path = ../test_Ice_facets_collocated.bundle; sourceTree = "<group>"; };
+		8234A22B1757C1A700EEACF3 /* test_Ice_facets_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_facets_server.bundle; path = ../test_Ice_facets_server.bundle; sourceTree = "<group>"; };
+		8234A22C1757C1A700EEACF3 /* test_Ice_hash_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_hash_client.bundle; path = ../test_Ice_hash_client.bundle; sourceTree = "<group>"; };
+		8234A22D1757C1A700EEACF3 /* test_Ice_hold_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_hold_client.bundle; path = ../test_Ice_hold_client.bundle; sourceTree = "<group>"; };
+		8234A22E1757C1A800EEACF3 /* test_Ice_hold_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_hold_server.bundle; path = ../test_Ice_hold_server.bundle; sourceTree = "<group>"; };
+		8234A22F1757C1A800EEACF3 /* test_Ice_info_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_info_client.bundle; path = ../test_Ice_info_client.bundle; sourceTree = "<group>"; };
+		8234A2301757C1A800EEACF3 /* test_Ice_info_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_info_server.bundle; path = ../test_Ice_info_server.bundle; sourceTree = "<group>"; };
+		8234A2311757C1A800EEACF3 /* test_Ice_inheritance_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_inheritance_client.bundle; path = ../test_Ice_inheritance_client.bundle; sourceTree = "<group>"; };
+		8234A2321757C1A800EEACF3 /* test_Ice_inheritance_collocated.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_inheritance_collocated.bundle; path = ../test_Ice_inheritance_collocated.bundle; sourceTree = "<group>"; };
+		8234A2331757C1A800EEACF3 /* test_Ice_inheritance_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_inheritance_server.bundle; path = ../test_Ice_inheritance_server.bundle; sourceTree = "<group>"; };
+		8234A2341757C1A800EEACF3 /* test_Ice_interceptor_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_interceptor_client.bundle; path = ../test_Ice_interceptor_client.bundle; sourceTree = "<group>"; };
+		8234A2351757C1A800EEACF3 /* test_Ice_invoke_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_invoke_client.bundle; path = ../test_Ice_invoke_client.bundle; sourceTree = "<group>"; };
+		8234A2361757C1A800EEACF3 /* test_Ice_invoke_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_invoke_server.bundle; path = ../test_Ice_invoke_server.bundle; sourceTree = "<group>"; };
+		8234A2371757C1A800EEACF3 /* test_Ice_location_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_location_client.bundle; path = ../test_Ice_location_client.bundle; sourceTree = "<group>"; };
+		8234A2381757C1A800EEACF3 /* test_Ice_location_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_location_server.bundle; path = ../test_Ice_location_server.bundle; sourceTree = "<group>"; };
+		8234A2391757C1A800EEACF3 /* test_Ice_metrics_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_metrics_client.bundle; path = ../test_Ice_metrics_client.bundle; sourceTree = "<group>"; };
+		8234A23A1757C1A800EEACF3 /* test_Ice_metrics_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_metrics_server.bundle; path = ../test_Ice_metrics_server.bundle; sourceTree = "<group>"; };
+		8234A23B1757C1A800EEACF3 /* test_Ice_metrics_serveramd.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_metrics_serveramd.bundle; path = ../test_Ice_metrics_serveramd.bundle; sourceTree = "<group>"; };
+		8234A23C1757C1A800EEACF3 /* test_Ice_objects_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_objects_client.bundle; path = ../test_Ice_objects_client.bundle; sourceTree = "<group>"; };
+		8234A23D1757C1A800EEACF3 /* test_Ice_objects_collocated.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_objects_collocated.bundle; path = ../test_Ice_objects_collocated.bundle; sourceTree = "<group>"; };
+		8234A23E1757C1A800EEACF3 /* test_Ice_objects_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_objects_server.bundle; path = ../test_Ice_objects_server.bundle; sourceTree = "<group>"; };
+		8234A23F1757C1A800EEACF3 /* test_Ice_operations_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_operations_client.bundle; path = ../test_Ice_operations_client.bundle; sourceTree = "<group>"; };
+		8234A2401757C1A800EEACF3 /* test_Ice_operations_collocated.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_operations_collocated.bundle; path = ../test_Ice_operations_collocated.bundle; sourceTree = "<group>"; };
+		8234A2411757C1A800EEACF3 /* test_Ice_operations_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_operations_server.bundle; path = ../test_Ice_operations_server.bundle; sourceTree = "<group>"; };
+		8234A2421757C1A800EEACF3 /* test_Ice_operations_serveramd.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_operations_serveramd.bundle; path = ../test_Ice_operations_serveramd.bundle; sourceTree = "<group>"; };
+		8234A2431757C1A800EEACF3 /* test_Ice_optional_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_optional_client.bundle; path = ../test_Ice_optional_client.bundle; sourceTree = "<group>"; };
+		8234A2441757C1A800EEACF3 /* test_Ice_optional_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_optional_server.bundle; path = ../test_Ice_optional_server.bundle; sourceTree = "<group>"; };
+		8234A2451757C1A800EEACF3 /* test_Ice_proxy_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_proxy_client.bundle; path = ../test_Ice_proxy_client.bundle; sourceTree = "<group>"; };
+		8234A2461757C1A800EEACF3 /* test_Ice_proxy_collocated.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_proxy_collocated.bundle; path = ../test_Ice_proxy_collocated.bundle; sourceTree = "<group>"; };
+		8234A2471757C1A800EEACF3 /* test_Ice_proxy_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_proxy_server.bundle; path = ../test_Ice_proxy_server.bundle; sourceTree = "<group>"; };
+		8234A2481757C1A800EEACF3 /* test_Ice_proxy_serveramd.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_proxy_serveramd.bundle; path = ../test_Ice_proxy_serveramd.bundle; sourceTree = "<group>"; };
+		8234A2491757C1A800EEACF3 /* test_Ice_retry_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_retry_client.bundle; path = ../test_Ice_retry_client.bundle; sourceTree = "<group>"; };
+		8234A24A1757C1A800EEACF3 /* test_Ice_retry_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_retry_server.bundle; path = ../test_Ice_retry_server.bundle; sourceTree = "<group>"; };
+		8234A24B1757C1A800EEACF3 /* test_Ice_services_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_services_client.bundle; path = ../test_Ice_services_client.bundle; sourceTree = "<group>"; };
+		8234A24C1757C1A800EEACF3 /* test_Ice_slicing_exceptions_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_slicing_exceptions_client.bundle; path = ../test_Ice_slicing_exceptions_client.bundle; sourceTree = "<group>"; };
+		8234A24D1757C1A800EEACF3 /* test_Ice_slicing_exceptions_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_slicing_exceptions_server.bundle; path = ../test_Ice_slicing_exceptions_server.bundle; sourceTree = "<group>"; };
+		8234A24E1757C1A800EEACF3 /* test_Ice_slicing_exceptions_serveramd.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_slicing_exceptions_serveramd.bundle; path = ../test_Ice_slicing_exceptions_serveramd.bundle; sourceTree = "<group>"; };
+		8234A24F1757C1A800EEACF3 /* test_Ice_slicing_objects_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_slicing_objects_client.bundle; path = ../test_Ice_slicing_objects_client.bundle; sourceTree = "<group>"; };
+		8234A2501757C1A800EEACF3 /* test_Ice_slicing_objects_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_slicing_objects_server.bundle; path = ../test_Ice_slicing_objects_server.bundle; sourceTree = "<group>"; };
+		8234A2511757C1A800EEACF3 /* test_Ice_slicing_objects_serveramd.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_slicing_objects_serveramd.bundle; path = ../test_Ice_slicing_objects_serveramd.bundle; sourceTree = "<group>"; };
+		8234A2521757C1A800EEACF3 /* test_Ice_stream_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_stream_client.bundle; path = ../test_Ice_stream_client.bundle; sourceTree = "<group>"; };
+		8234A2531757C1A800EEACF3 /* test_Ice_timeout_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_timeout_client.bundle; path = ../test_Ice_timeout_client.bundle; sourceTree = "<group>"; };
+		8234A2541757C1A800EEACF3 /* test_Ice_timeout_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_timeout_server.bundle; path = ../test_Ice_timeout_server.bundle; sourceTree = "<group>"; };
+		8234A2551757C1A800EEACF3 /* test_Ice_udp_client.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_udp_client.bundle; path = ../test_Ice_udp_client.bundle; sourceTree = "<group>"; };
+		8234A2561757C1A800EEACF3 /* test_Ice_udp_server.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = test_Ice_udp_server.bundle; path = ../test_Ice_udp_server.bundle; sourceTree = "<group>"; };
+		82601FE71456320100B09B8F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		82601FEA14563AFE00B09B8F /* TestSelectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSelectController.h; sourceTree = "<group>"; };
+		82601FEC14563AFF00B09B8F /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		82601FF314564F5500B09B8F /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		827BCF99145778A5003AD3FA /* TestViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestViewController.mm; sourceTree = "<group>"; };
+		82CD7277145795AA008B9128 /* TestView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
+		82D53AA81823269B00703264 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = container/Images.xcassets; sourceTree = "<group>"; };
+		82F883221461D37000FC801E /* TestView-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "TestView-iPad.xib"; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		14C079831765B98C009290BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14C079841765B98C009290BA /* Foundation.framework in Frameworks */,
+				14C079851765B98C009290BA /* UIKit.framework in Frameworks */,
+				14C079861765B98C009290BA /* Security.framework in Frameworks */,
+				14C079871765B98C009290BA /* CFNetwork.framework in Frameworks */,
+				14C079881765B98C009290BA /* CoreGraphics.framework in Frameworks */,
+				14C079891765B98C009290BA /* ExternalAccessory.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				344126380FD8E8EA00C8D69C /* Security.framework in Frameworks */,
+				344126390FD8E8EA00C8D69C /* CFNetwork.framework in Frameworks */,
+				34E396630FF1D71400FBACD6 /* CoreGraphics.framework in Frameworks */,
+				34885BE21227F66E0060DE41 /* ExternalAccessory.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				821439B51704E6950016E162 /* TestUtil.h */,
+				821439B61704E6960016E162 /* TestUtil.mm */,
+				8214397917024FDF0016E162 /* TestSelectController.m */,
+				827BCF99145778A5003AD3FA /* TestViewController.mm */,
+				82601FF314564F5500B09B8F /* AppDelegate.mm */,
+				82601FEA14563AFE00B09B8F /* TestSelectController.h */,
+				82601FEC14563AFF00B09B8F /* TestViewController.h */,
+				82601FE71456320100B09B8F /* AppDelegate.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		14C0038F19CC20EE00872844 /* Bundles */ = {
+			isa = PBXGroup;
+			children = (
+				8234A2101757C1A700EEACF3 /* test_Ice_adapterDeactivation_client.bundle */,
+				8234A2111757C1A700EEACF3 /* test_Ice_adapterDeactivation_collocated.bundle */,
+				8234A2121757C1A700EEACF3 /* test_Ice_adapterDeactivation_server.bundle */,
+				8234A2131757C1A700EEACF3 /* test_Ice_admin_client.bundle */,
+				8234A2141757C1A700EEACF3 /* test_Ice_admin_server.bundle */,
+				8234A2151757C1A700EEACF3 /* test_Ice_ami_client.bundle */,
+				8234A2161757C1A700EEACF3 /* test_Ice_ami_server.bundle */,
+				8234A2171757C1A700EEACF3 /* test_Ice_binding_client.bundle */,
+				8234A2181757C1A700EEACF3 /* test_Ice_binding_server.bundle */,
+				8234A2191757C1A700EEACF3 /* test_Ice_checksum_client.bundle */,
+				8234A21A1757C1A700EEACF3 /* test_Ice_checksum_server_server.bundle */,
+				8234A21B1757C1A700EEACF3 /* test_Ice_custom_client.bundle */,
+				8234A21C1757C1A700EEACF3 /* test_Ice_custom_collocated.bundle */,
+				8234A21D1757C1A700EEACF3 /* test_Ice_custom_server.bundle */,
+				8234A21E1757C1A700EEACF3 /* test_Ice_custom_serveramd.bundle */,
+				8234A21F1757C1A700EEACF3 /* test_Ice_defaultServant_client.bundle */,
+				8234A2201757C1A700EEACF3 /* test_Ice_defaultValue_client.bundle */,
+				8234A2211757C1A700EEACF3 /* test_Ice_dispatcher_client.bundle */,
+				8234A2221757C1A700EEACF3 /* test_Ice_dispatcher_server.bundle */,
+				8234A2231757C1A700EEACF3 /* test_Ice_enums_client.bundle */,
+				8234A2241757C1A700EEACF3 /* test_Ice_enums_server.bundle */,
+				8234A2251757C1A700EEACF3 /* test_Ice_exceptions_client.bundle */,
+				8234A2261757C1A700EEACF3 /* test_Ice_exceptions_collocated.bundle */,
+				8234A2271757C1A700EEACF3 /* test_Ice_exceptions_server.bundle */,
+				8234A2281757C1A700EEACF3 /* test_Ice_exceptions_serveramd.bundle */,
+				8234A2291757C1A700EEACF3 /* test_Ice_facets_client.bundle */,
+				8234A22A1757C1A700EEACF3 /* test_Ice_facets_collocated.bundle */,
+				8234A22B1757C1A700EEACF3 /* test_Ice_facets_server.bundle */,
+				8234A22C1757C1A700EEACF3 /* test_Ice_hash_client.bundle */,
+				8234A22D1757C1A700EEACF3 /* test_Ice_hold_client.bundle */,
+				8234A22E1757C1A800EEACF3 /* test_Ice_hold_server.bundle */,
+				8234A22F1757C1A800EEACF3 /* test_Ice_info_client.bundle */,
+				8234A2301757C1A800EEACF3 /* test_Ice_info_server.bundle */,
+				8234A2311757C1A800EEACF3 /* test_Ice_inheritance_client.bundle */,
+				8234A2321757C1A800EEACF3 /* test_Ice_inheritance_collocated.bundle */,
+				8234A2331757C1A800EEACF3 /* test_Ice_inheritance_server.bundle */,
+				8234A2341757C1A800EEACF3 /* test_Ice_interceptor_client.bundle */,
+				8234A2351757C1A800EEACF3 /* test_Ice_invoke_client.bundle */,
+				8234A2361757C1A800EEACF3 /* test_Ice_invoke_server.bundle */,
+				8234A2371757C1A800EEACF3 /* test_Ice_location_client.bundle */,
+				8234A2381757C1A800EEACF3 /* test_Ice_location_server.bundle */,
+				8234A2391757C1A800EEACF3 /* test_Ice_metrics_client.bundle */,
+				8234A23A1757C1A800EEACF3 /* test_Ice_metrics_server.bundle */,
+				8234A23B1757C1A800EEACF3 /* test_Ice_metrics_serveramd.bundle */,
+				8234A23C1757C1A800EEACF3 /* test_Ice_objects_client.bundle */,
+				8234A23D1757C1A800EEACF3 /* test_Ice_objects_collocated.bundle */,
+				8234A23E1757C1A800EEACF3 /* test_Ice_objects_server.bundle */,
+				8234A23F1757C1A800EEACF3 /* test_Ice_operations_client.bundle */,
+				8234A2401757C1A800EEACF3 /* test_Ice_operations_collocated.bundle */,
+				8234A2411757C1A800EEACF3 /* test_Ice_operations_server.bundle */,
+				8234A2421757C1A800EEACF3 /* test_Ice_operations_serveramd.bundle */,
+				8234A2431757C1A800EEACF3 /* test_Ice_optional_client.bundle */,
+				8234A2441757C1A800EEACF3 /* test_Ice_optional_server.bundle */,
+				8234A2451757C1A800EEACF3 /* test_Ice_proxy_client.bundle */,
+				8234A2461757C1A800EEACF3 /* test_Ice_proxy_collocated.bundle */,
+				8234A2471757C1A800EEACF3 /* test_Ice_proxy_server.bundle */,
+				8234A2481757C1A800EEACF3 /* test_Ice_proxy_serveramd.bundle */,
+				8234A2491757C1A800EEACF3 /* test_Ice_retry_client.bundle */,
+				8234A24A1757C1A800EEACF3 /* test_Ice_retry_server.bundle */,
+				148831571760C818007DF8F1 /* test_Ice_servantLocator_client.bundle */,
+				148831541760C818007DF8F1 /* test_Ice_servantLocator_collocated.bundle */,
+				148831561760C818007DF8F1 /* test_Ice_servantLocator_server.bundle */,
+				148831551760C818007DF8F1 /* test_Ice_servantLocator_serveramd.bundle */,
+				8234A24B1757C1A800EEACF3 /* test_Ice_services_client.bundle */,
+				8234A24C1757C1A800EEACF3 /* test_Ice_slicing_exceptions_client.bundle */,
+				8234A24D1757C1A800EEACF3 /* test_Ice_slicing_exceptions_server.bundle */,
+				8234A24E1757C1A800EEACF3 /* test_Ice_slicing_exceptions_serveramd.bundle */,
+				8234A24F1757C1A800EEACF3 /* test_Ice_slicing_objects_client.bundle */,
+				8234A2501757C1A800EEACF3 /* test_Ice_slicing_objects_server.bundle */,
+				8234A2511757C1A800EEACF3 /* test_Ice_slicing_objects_serveramd.bundle */,
+				8234A2521757C1A800EEACF3 /* test_Ice_stream_client.bundle */,
+				8234A2531757C1A800EEACF3 /* test_Ice_timeout_client.bundle */,
+				8234A2541757C1A800EEACF3 /* test_Ice_timeout_server.bundle */,
+				8234A2551757C1A800EEACF3 /* test_Ice_udp_client.bundle */,
+				8234A2561757C1A800EEACF3 /* test_Ice_udp_server.bundle */,
+			);
+			name = Bundles;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* container.app */,
+				14C0798E1765B98C009290BA /* containerCPP11.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				14C0038F19CC20EE00872844 /* Bundles */,
+				342EB9E60E92600E000051FA /* Images */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				34730A09122BF68100D293CC /* Resources-iPad */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				820C84641455AC460091443F /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				82D53AA81823269B00703264 /* Images.xcassets */,
+				342EBA860E926E98000051FA /* c_rsa1024.pfx */,
+				342EBA8A0E926F90000051FA /* cacert.der */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				14C0798F1765B98D009290BA /* Info-C++11.plist */,
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+				342EBA880E926E9F000051FA /* s_rsa1024.pfx */,
+				34B7662B0E8D55FE00CE4701 /* TestSelect.xib */,
+				82CD7277145795AA008B9128 /* TestView.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				34885BE11227F66E0060DE41 /* ExternalAccessory.framework */,
+				34E396620FF1D71400FBACD6 /* CoreGraphics.framework */,
+				344126360FD8E8EA00C8D69C /* Security.framework */,
+				344126370FD8E8EA00C8D69C /* CFNetwork.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		342EB9E60E92600E000051FA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				342EB9ED0E9261A3000051FA /* icon.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		34730A09122BF68100D293CC /* Resources-iPad */ = {
+			isa = PBXGroup;
+			children = (
+				14060BD6161D5F290077BEE0 /* Default-568h@2x.png */,
+				82F883221461D37000FC801E /* TestView-iPad.xib */,
+				34C618AE122C035000F60A28 /* MainWindow-iPad.xib */,
+				34730A10122BF6C300D293CC /* TestSelect-iPad.xib */,
+			);
+			name = "Resources-iPad";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		14C079251765B98C009290BA /* container c++11 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14C0798B1765B98C009290BA /* Build configuration list for PBXNativeTarget "container c++11" */;
+			buildPhases = (
+				14C079261765B98C009290BA /* Resources */,
+				14C0797D1765B98C009290BA /* Sources */,
+				14C0034319CC206900872844 /* Copy Files */,
+				14C079831765B98C009290BA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "container c++11";
+			productName = container;
+			productReference = 14C0798E1765B98C009290BA /* containerCPP11.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1D6058900D05DD3D006BFB54 /* container */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "container" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1449086D19CC37930032FF23 /* CopyFiles */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = container;
+			productName = container;
+			productReference = 1D6058910D05DD3D006BFB54 /* container.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				TargetAttributes = {
+					14C079251765B98C009290BA = {
+						DevelopmentTeam = U4TBVKNQ7F;
+					};
+				};
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "container" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* container */,
+				14C079251765B98C009290BA /* container c++11 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		14C079261765B98C009290BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14C079271765B98C009290BA /* MainWindow.xib in Resources */,
+				14C079281765B98C009290BA /* TestSelect.xib in Resources */,
+				14C079291765B98C009290BA /* icon.png in Resources */,
+				14C0792A1765B98C009290BA /* c_rsa1024.pfx in Resources */,
+				14C0792B1765B98C009290BA /* s_rsa1024.pfx in Resources */,
+				14C0792C1765B98C009290BA /* cacert.der in Resources */,
+				14C0792D1765B98C009290BA /* TestSelect-iPad.xib in Resources */,
+				14C0792E1765B98C009290BA /* MainWindow-iPad.xib in Resources */,
+				14C0792F1765B98C009290BA /* TestView.xib in Resources */,
+				14C079301765B98C009290BA /* TestView-iPad.xib in Resources */,
+				14C079311765B98C009290BA /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+				34B7662C0E8D55FE00CE4701 /* TestSelect.xib in Resources */,
+				342EB9EE0E9261A3000051FA /* icon.png in Resources */,
+				342EBA870E926E98000051FA /* c_rsa1024.pfx in Resources */,
+				342EBA890E926E9F000051FA /* s_rsa1024.pfx in Resources */,
+				342EBA8B0E926F90000051FA /* cacert.der in Resources */,
+				34730A11122BF6C300D293CC /* TestSelect-iPad.xib in Resources */,
+				34C618AF122C035000F60A28 /* MainWindow-iPad.xib in Resources */,
+				82CD7278145795AA008B9128 /* TestView.xib in Resources */,
+				82F883231461D37000FC801E /* TestView-iPad.xib in Resources */,
+				14060BD7161D5F290077BEE0 /* Default-568h@2x.png in Resources */,
+				8234A2571757C1A800EEACF3 /* test_Ice_adapterDeactivation_client.bundle in Resources */,
+				8234A2581757C1A800EEACF3 /* test_Ice_adapterDeactivation_collocated.bundle in Resources */,
+				8234A2591757C1A800EEACF3 /* test_Ice_adapterDeactivation_server.bundle in Resources */,
+				8234A25A1757C1A800EEACF3 /* test_Ice_admin_client.bundle in Resources */,
+				8234A25B1757C1A800EEACF3 /* test_Ice_admin_server.bundle in Resources */,
+				8234A25C1757C1A800EEACF3 /* test_Ice_ami_client.bundle in Resources */,
+				8234A25D1757C1A800EEACF3 /* test_Ice_ami_server.bundle in Resources */,
+				8234A25E1757C1A800EEACF3 /* test_Ice_binding_client.bundle in Resources */,
+				8234A25F1757C1A800EEACF3 /* test_Ice_binding_server.bundle in Resources */,
+				8234A2601757C1A800EEACF3 /* test_Ice_checksum_client.bundle in Resources */,
+				8234A2611757C1A800EEACF3 /* test_Ice_checksum_server_server.bundle in Resources */,
+				8234A2621757C1A800EEACF3 /* test_Ice_custom_client.bundle in Resources */,
+				8234A2631757C1A900EEACF3 /* test_Ice_custom_collocated.bundle in Resources */,
+				8234A2641757C1A900EEACF3 /* test_Ice_custom_server.bundle in Resources */,
+				8234A2651757C1A900EEACF3 /* test_Ice_custom_serveramd.bundle in Resources */,
+				8234A2661757C1A900EEACF3 /* test_Ice_defaultServant_client.bundle in Resources */,
+				8234A2671757C1A900EEACF3 /* test_Ice_defaultValue_client.bundle in Resources */,
+				8234A2681757C1A900EEACF3 /* test_Ice_dispatcher_client.bundle in Resources */,
+				8234A2691757C1A900EEACF3 /* test_Ice_dispatcher_server.bundle in Resources */,
+				8234A26A1757C1A900EEACF3 /* test_Ice_enums_client.bundle in Resources */,
+				8234A26B1757C1A900EEACF3 /* test_Ice_enums_server.bundle in Resources */,
+				8234A26C1757C1A900EEACF3 /* test_Ice_exceptions_client.bundle in Resources */,
+				8234A26D1757C1A900EEACF3 /* test_Ice_exceptions_collocated.bundle in Resources */,
+				8234A26E1757C1A900EEACF3 /* test_Ice_exceptions_server.bundle in Resources */,
+				8234A26F1757C1A900EEACF3 /* test_Ice_exceptions_serveramd.bundle in Resources */,
+				8234A2701757C1A900EEACF3 /* test_Ice_facets_client.bundle in Resources */,
+				8234A2711757C1A900EEACF3 /* test_Ice_facets_collocated.bundle in Resources */,
+				8234A2721757C1A900EEACF3 /* test_Ice_facets_server.bundle in Resources */,
+				8234A2731757C1A900EEACF3 /* test_Ice_hash_client.bundle in Resources */,
+				8234A2741757C1A900EEACF3 /* test_Ice_hold_client.bundle in Resources */,
+				8234A2751757C1A900EEACF3 /* test_Ice_hold_server.bundle in Resources */,
+				8234A2761757C1A900EEACF3 /* test_Ice_info_client.bundle in Resources */,
+				8234A2771757C1A900EEACF3 /* test_Ice_info_server.bundle in Resources */,
+				8234A2781757C1A900EEACF3 /* test_Ice_inheritance_client.bundle in Resources */,
+				8234A2791757C1A900EEACF3 /* test_Ice_inheritance_collocated.bundle in Resources */,
+				8234A27A1757C1A900EEACF3 /* test_Ice_inheritance_server.bundle in Resources */,
+				8234A27B1757C1A900EEACF3 /* test_Ice_interceptor_client.bundle in Resources */,
+				8234A27C1757C1A900EEACF3 /* test_Ice_invoke_client.bundle in Resources */,
+				8234A27D1757C1A900EEACF3 /* test_Ice_invoke_server.bundle in Resources */,
+				8234A27E1757C1A900EEACF3 /* test_Ice_location_client.bundle in Resources */,
+				8234A27F1757C1A900EEACF3 /* test_Ice_location_server.bundle in Resources */,
+				8234A2801757C1A900EEACF3 /* test_Ice_metrics_client.bundle in Resources */,
+				8234A2811757C1A900EEACF3 /* test_Ice_metrics_server.bundle in Resources */,
+				8234A2821757C1A900EEACF3 /* test_Ice_metrics_serveramd.bundle in Resources */,
+				8234A2831757C1A900EEACF3 /* test_Ice_objects_client.bundle in Resources */,
+				8234A2841757C1A900EEACF3 /* test_Ice_objects_collocated.bundle in Resources */,
+				8234A2851757C1A900EEACF3 /* test_Ice_objects_server.bundle in Resources */,
+				8234A2861757C1A900EEACF3 /* test_Ice_operations_client.bundle in Resources */,
+				8234A2871757C1A900EEACF3 /* test_Ice_operations_collocated.bundle in Resources */,
+				8234A2881757C1A900EEACF3 /* test_Ice_operations_server.bundle in Resources */,
+				8234A2891757C1A900EEACF3 /* test_Ice_operations_serveramd.bundle in Resources */,
+				8234A28A1757C1A900EEACF3 /* test_Ice_optional_client.bundle in Resources */,
+				8234A28B1757C1A900EEACF3 /* test_Ice_optional_server.bundle in Resources */,
+				8234A28C1757C1A900EEACF3 /* test_Ice_proxy_client.bundle in Resources */,
+				8234A28D1757C1A900EEACF3 /* test_Ice_proxy_collocated.bundle in Resources */,
+				8234A28E1757C1A900EEACF3 /* test_Ice_proxy_server.bundle in Resources */,
+				8234A28F1757C1A900EEACF3 /* test_Ice_proxy_serveramd.bundle in Resources */,
+				8234A2901757C1A900EEACF3 /* test_Ice_retry_client.bundle in Resources */,
+				8234A2911757C1A900EEACF3 /* test_Ice_retry_server.bundle in Resources */,
+				8234A2921757C1A900EEACF3 /* test_Ice_services_client.bundle in Resources */,
+				8234A2931757C1A900EEACF3 /* test_Ice_slicing_exceptions_client.bundle in Resources */,
+				8234A2941757C1A900EEACF3 /* test_Ice_slicing_exceptions_server.bundle in Resources */,
+				8234A2951757C1A900EEACF3 /* test_Ice_slicing_exceptions_serveramd.bundle in Resources */,
+				8234A2961757C1A900EEACF3 /* test_Ice_slicing_objects_client.bundle in Resources */,
+				8234A2971757C1A900EEACF3 /* test_Ice_slicing_objects_server.bundle in Resources */,
+				8234A2981757C1A900EEACF3 /* test_Ice_slicing_objects_serveramd.bundle in Resources */,
+				8234A2991757C1A900EEACF3 /* test_Ice_stream_client.bundle in Resources */,
+				8234A29A1757C1A900EEACF3 /* test_Ice_timeout_client.bundle in Resources */,
+				8234A29B1757C1A900EEACF3 /* test_Ice_timeout_server.bundle in Resources */,
+				8234A29C1757C1A900EEACF3 /* test_Ice_udp_client.bundle in Resources */,
+				8234A29D1757C1A900EEACF3 /* test_Ice_udp_server.bundle in Resources */,
+				148831581760C818007DF8F1 /* test_Ice_servantLocator_collocated.bundle in Resources */,
+				148831591760C818007DF8F1 /* test_Ice_servantLocator_serveramd.bundle in Resources */,
+				82D53AA91823269B00703264 /* Images.xcassets in Resources */,
+				1488315A1760C818007DF8F1 /* test_Ice_servantLocator_server.bundle in Resources */,
+				1488315B1760C818007DF8F1 /* test_Ice_servantLocator_client.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		14C0797D1765B98C009290BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14C0797E1765B98C009290BA /* main.m in Sources */,
+				14C0797F1765B98C009290BA /* AppDelegate.mm in Sources */,
+				14C079801765B98C009290BA /* TestViewController.mm in Sources */,
+				14C079811765B98C009290BA /* TestSelectController.m in Sources */,
+				14C079821765B98C009290BA /* TestUtil.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				820C84651455AC460091443F /* main.m in Sources */,
+				82601FF414564F5500B09B8F /* AppDelegate.mm in Sources */,
+				827BCF9A145778A5003AD3FA /* TestViewController.mm in Sources */,
+				8214397B17024FE00016E162 /* TestSelectController.m in Sources */,
+				821439B81704E6970016E162 /* TestUtil.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		14C0798C1765B98C009290BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = container_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					..,
+					Classes,
+					../../include/,
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Info-C++11.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = containerCPP11;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				STRIP_STYLE = debugging;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		14C0798D1765B98C009290BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = container_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					..,
+					Classes,
+					../../include/,
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Info-C++11.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = containerCPP11;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				STRIP_STYLE = debugging;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = container_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					..,
+					Classes,
+					../../include/,
+				);
+				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = container;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				SLICE_CPP_FLAG = "";
+				SLICE_INCLUDE_PATH = "";
+				STRIP_STYLE = debugging;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = container_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					..,
+					Classes,
+					../../include/,
+				);
+				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = container;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				SLICE_CPP_FLAG = "";
+				SLICE_INCLUDE_PATH = "";
+				STRIP_STYLE = debugging;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(IDENTIFIER)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		14C0798B1765B98C009290BA /* Build configuration list for PBXNativeTarget "container c++11" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14C0798C1765B98C009290BA /* Debug */,
+				14C0798D1765B98C009290BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "container" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "container" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
