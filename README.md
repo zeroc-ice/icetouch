@@ -1,5 +1,7 @@
 [![Build Status](https://magnum.travis-ci.com/zeroc-ice/icetouch.svg?token=icxd1yE9Nf6WLivZz2vF&branch=master)](https://magnum.travis-ci.com/zeroc-ice/icetouch)
 
+# Ice Touch
+
 Ice Touch brings [Ice](https://github.com/zeroc-ice/ice) to iOS devices,
 with support for Objective-C and C++ development.
 
