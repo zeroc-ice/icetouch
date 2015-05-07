@@ -1,4 +1,4 @@
-[![Build Status](https://magnum.travis-ci.com/zeroc-ice/icetouch.svg?token=icxd1yE9Nf6WLivZz2vF&branch=master)](https://magnum.travis-ci.com/zeroc-ice/icetouch)
+[![Build Status](https://travis-ci.org/zeroc-ice/icetouch.svg)](https://travis-ci.org/zeroc-ice/icetouch)
 
 # Ice Touch
 
