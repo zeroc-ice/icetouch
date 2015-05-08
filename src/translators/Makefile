@@ -9,7 +9,7 @@
 
 top_srcdir	= ../..
 
-TARGETS		= $(top_srcdir)/SDKs/Cpp/bin/slice2cpp $(top_srcdir)/SDKs/ObjC/bin/slice2objc
+TARGETS		= $(top_srcdir)/lib/IceTouch/Cpp/bin/slice2cpp $(top_srcdir)/lib/IceTouch/ObjC/bin/slice2objc
 
 # Compile sources from the the IceUtil, Slice directories
 SRC_DIRS	:= IceUtil Slice
@@ -45,10 +45,10 @@ include $(top_srcdir)/config/Make.rules
 SLICE2CPP_OBJS  = $(filter-out $(OBJDIR)/slice2objc/%,$(OBJS)) $(OBJDIR)/Grammar.o $(OBJDIR)/Scanner.o
 SLICE2OBJC_OBJS = $(filter-out $(OBJDIR)/slice2cpp/%,$(OBJS)) $(OBJDIR)/Grammar.o $(OBJDIR)/Scanner.o
 
-$(top_srcdir)/SDKs/Cpp/bin/slice2cpp: $(SLICE2CPP_OBJS)
+$(top_srcdir)/lib/IceTouch/Cpp/bin/slice2cpp: $(SLICE2CPP_OBJS)
 	$(CXX) $(LDFLAGS) $(LDEXEFLAGS) -o $@ $(SLICE2CPP_OBJS) $(MCPP_LIBS)
 
-$(top_srcdir)/SDKs/ObjC/bin/slice2objc: $(SLICE2OBJC_OBJS)
+$(top_srcdir)/lib/IceTouch/ObjC/bin/slice2objc: $(SLICE2OBJC_OBJS)
 	$(CXX) $(LDFLAGS) $(LDEXEFLAGS) -o $@ $(SLICE2OBJC_OBJS) $(MCPP_LIBS)
 
 %.o: %.cpp

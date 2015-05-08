@@ -11,7 +11,7 @@
 # Select an installation base directory. The directory will be created
 # if it does not exist.
 #
-prefix		?= /Library/Developer/IceTouch-$(VERSION)
+prefix		?= /opt/IceTouch-$(VERSION)
 
 #
 # Xcode root directory. If you have several Xcode versions installed,
@@ -138,8 +138,8 @@ else
 endif
 
 slicedir 	= $(ice_dir)/slice
-bindir		= $(top_srcdir)/SDKs/$(sdksubdir)/bin
-sdkdir		= $(top_srcdir)/SDKs/$(sdksubdir)/$(PLATFORM_NAME).sdk
+bindir		= $(top_srcdir)/lib/IceTouch/$(sdksubdir)/bin
+sdkdir		= $(top_srcdir)/lib/IceTouch/$(sdksubdir)/$(PLATFORM_NAME).sdk
 sdksubdir 	= $(if $(ice_language:cpp=),ObjC,Cpp)
 libdir		= $(sdkdir)/usr/lib
 ifeq ($(COMPILE_TRANSLATORS),yes)

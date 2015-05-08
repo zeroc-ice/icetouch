@@ -46,10 +46,11 @@ endif
 install all:: sdks
 
 sdks:
-	if [ ! -d SDKs ]; \
+	if [ ! -d lib ] || [ ! -d lib/IceTouch ]; \
 	then \
-	    $(call mkdir,SDKs) ; \
-	    for sdk in SDKs/Cpp SDKs/ObjC; \
+	    $(call mkdir,lib) ; \
+	    $(call mkdir,lib/IceTouch) ; \
+	    for sdk in lib/IceTouch/Cpp lib/IceTouch/ObjC; \
 	    do \
 	        $(call mkdir,$$sdk) ;\
 	        $(call mkdir,$$sdk/bin) ;\
@@ -78,12 +79,12 @@ sdks:
 	        done ;\
 	    done; \
     else \
-		touch SDKs; \
+		touch lib/IceTouch; \
 	fi
 
 ifeq ($(PLATFORMS),)
 clean::
-	rm -rf SDKs
+	rm -rf lib
 endif
 
 $(EVERYTHING)::
@@ -126,17 +127,17 @@ install::
 	then \
 	    $(call installdata,$(ice_dir)/LICENSE,$(prefix)) ; \
 	fi
-	@if test ! -d $(prefix)/SDKs ; \
+	@if test ! -d $(prefix)/lib/IceTouch ; \
 	then \
-		$(call mkdir,$(prefix)/SDKs); \
+		$(call mkdir,$(prefix)/lib/IceTouch); \
 	fi
-	if [ -d $(prefix)/SDKs/Cpp ]; \
+	if [ -d $(prefix)/lib/IceTouch/Cpp ]; \
 	then \
-		rm -rf $(prefix)/SDKs/Cpp; \
+		rm -rf $(prefix)/lib/IceTouch/Cpp; \
 	fi
-	cp -fpr $(top_srcdir)/SDKs/Cpp $(prefix)/SDKs/Cpp
-	if [ -d $(prefix)/SDKs/ObjC ]; \
+	cp -fpr $(top_srcdir)/lib/IceTouch/Cpp $(prefix)/lib/IceTouch/Cpp
+	if [ -d $(prefix)/lib/IceTouch/ObjC ]; \
 	then \
-		rm -rf $(prefix)/SDKs/ObjC; \
+		rm -rf $(prefix)/lib/IceTouch/ObjC; \
 	fi
-	cp -fpr $(top_srcdir)/SDKs/ObjC $(prefix)/SDKs/ObjC
+	cp -fpr $(top_srcdir)/lib/IceTouch/ObjC $(prefix)/lib/IceTouch/ObjC

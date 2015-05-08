@@ -1423,7 +1423,7 @@
 					../../include,
 					../../Ice,
 					Classes,
-					"../../../SDKs/$(PLATFORM_NAME).sdk/usr/local/include",
+					"../../../lib/IceTouch/$(PLATFORM_NAME).sdk/usr/local/include",
 					generated,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info-ARC.plist";
@@ -1459,7 +1459,7 @@
 					../../include,
 					../../Ice,
 					Classes,
-					"../../../SDKs/$(PLATFORM_NAME).sdk/usr/local/include",
+					"../../../lib/IceTouch/$(PLATFORM_NAME).sdk/usr/local/include",
 					generated,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info-ARC.plist";
@@ -1492,7 +1492,7 @@
 					../../include,
 					../../Ice,
 					Classes,
-					"../../../SDKs/$(PLATFORM_NAME).sdk/usr/local/include",
+					"../../../lib/IceTouch/$(PLATFORM_NAME).sdk/usr/local/include",
 					generated,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info-ARC.plist";
@@ -1525,7 +1525,7 @@
 					../../include,
 					../../Ice,
 					Classes,
-					"../../../SDKs/$(PLATFORM_NAME).sdk/usr/local/include",
+					"../../../lib/IceTouch/$(PLATFORM_NAME).sdk/usr/local/include",
 					generated,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info-ARC.plist";
@@ -1543,7 +1543,7 @@
 		1488315C1761CC02007DF8F1 /* Debug ARC */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ADDITIONAL_SDKS = "../../../../SDKs/ObjC/$(PLATFORM_NAME).sdk";
+				ADDITIONAL_SDKS = "../../../../lib/IceTouch/ObjC/$(PLATFORM_NAME).sdk";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(IDENTIFIER)";
 				GCC_C_LANGUAGE_STANDARD = c99;
@@ -1576,7 +1576,7 @@
 					"../../../../ice/objective-c/test/include",
 					"../../../../ice/objective-c/test/Ice",
 					Classes,
-					"../../../../SDKs/$(PLATFORM_NAME).sdk/usr/local/include",
+					"../../../../lib/IceTouch/$(PLATFORM_NAME).sdk/usr/local/include",
 					generated,
 				);
 				INFOPLIST_FILE = Info.plist;
@@ -1594,7 +1594,7 @@
 		1488315E1761CC2B007DF8F1 /* Release ARC */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ADDITIONAL_SDKS = "../../../../SDKs/ObjC/$(PLATFORM_NAME).sdk";
+				ADDITIONAL_SDKS = "../../../../lib/IceTouch/ObjC/$(PLATFORM_NAME).sdk";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
@@ -1623,7 +1623,7 @@
 					"../../../../ice/objective-c/test/include",
 					"../../../../ice/objective-c/test/Ice",
 					Classes,
-					"../../../../SDKs/$(PLATFORM_NAME).sdk/usr/local/include",
+					"../../../../lib/IceTouch/$(PLATFORM_NAME).sdk/usr/local/include",
 					generated,
 				);
 				INFOPLIST_FILE = Info.plist;
@@ -1659,7 +1659,7 @@
 					"../../../../ice/objective-c/test/include",
 					"../../../../ice/objective-c/test/Ice",
 					Classes,
-					"../../../../SDKs/$(PLATFORM_NAME).sdk/usr/local/include",
+					"../../../../lib/IceTouch/$(PLATFORM_NAME).sdk/usr/local/include",
 					generated,
 				);
 				INFOPLIST_FILE = Info.plist;
@@ -1692,7 +1692,7 @@
 					"../../../../ice/objective-c/test/include",
 					"../../../../ice/objective-c/test/Ice",
 					Classes,
-					"../../../../SDKs/$(PLATFORM_NAME).sdk/usr/local/include",
+					"../../../../lib/IceTouch/$(PLATFORM_NAME).sdk/usr/local/include",
 					generated,
 				);
 				INFOPLIST_FILE = Info.plist;
@@ -1710,7 +1710,7 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ADDITIONAL_SDKS = "../../../../SDKs/ObjC/$(PLATFORM_NAME).sdk";
+				ADDITIONAL_SDKS = "../../../../lib/IceTouch/ObjC/$(PLATFORM_NAME).sdk";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "$(IDENTIFIER)";
 				GCC_C_LANGUAGE_STANDARD = c99;
@@ -1725,7 +1725,7 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ADDITIONAL_SDKS = "../../../../SDKs/ObjC/$(PLATFORM_NAME).sdk";
+				ADDITIONAL_SDKS = "../../../../lib/IceTouch/ObjC/$(PLATFORM_NAME).sdk";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
