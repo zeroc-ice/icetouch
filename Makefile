@@ -127,6 +127,10 @@ install::
 	then \
 	    $(call installdata,$(ice_dir)/LICENSE,$(prefix)) ; \
 	fi
+	@if test ! -d $(prefix)/lib ; \
+	then \
+		$(call mkdir,$(prefix)/lib); \
+	fi
 	@if test ! -d $(prefix)/lib/IceTouch ; \
 	then \
 		$(call mkdir,$(prefix)/lib/IceTouch); \
