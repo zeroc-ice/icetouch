@@ -268,7 +268,8 @@ mkslice = echo "$6 $5 $(if $4,--output-dir $4,) $1"; \
 	  if [ ! -d $(dependdir) ]; then mkdir -p $(dependdir); fi; \
 	  if [ -n "$3" ]; \
 	  then \
-	      $6 $5 --depend $1 | $(ice_dir)/config/makedepend.py "$3/" > $(dependdir)/$2.ice.d; \
+	      echo $3; \
+	      $6 $5 --depend $1 | sed 's|\(.*: \\\)|'$3'/\1|' > $(dependdir)/$2.ice.d; \
 	  else \
 	      $6 $5 --depend $1 > $(dependdir)/$2.ice.d; \
           fi
