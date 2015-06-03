@@ -183,7 +183,7 @@ MainHelperI::run()
     args.push_back("--Ice.Default.Protocol=" + _config.protocol);
     if(_config.protocol == "ssl" || _config.protocol == "wss")
     {
-        args.push_back("--IceSSL.CertAuthFile=cacert.der");
+        args.push_back("--IceSSL.CAs=cacert.der");
         args.push_back("--IceSSL.CheckCertName=0");
         if(_config.type == TestConfigTypeServer)
         {

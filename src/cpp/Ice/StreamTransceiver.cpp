@@ -472,17 +472,19 @@ IceObjC::StreamTransceiver::toDetailedString() const
 Ice::ConnectionInfoPtr
 IceObjC::StreamTransceiver::getInfo() const
 {
-    Ice::IPConnectionInfoPtr info;
     if(_instance->secure())
     {
-        info = new IceSSL::ConnectionInfo();
+        IceSSL::ConnectionInfoPtr info = new IceSSL::ConnectionInfo();
+        fillConnectionInfo(info);
+        info->verified = _state == StateConnected;
+        return info;
     }
     else
     {
-        info = new Ice::TCPConnectionInfo();
+        Ice::TCPConnectionInfoPtr info = new Ice::TCPConnectionInfo();
+        fillConnectionInfo(info);
+        return info;
     }
-    fillConnectionInfo(info);
-    return info;
 }
 
 Ice::ConnectionInfoPtr
@@ -492,6 +494,7 @@ IceObjC::StreamTransceiver::getWSInfo(const Ice::HeaderDict& headers) const
     {
         IceSSL::WSSConnectionInfoPtr info = new IceSSL::WSSConnectionInfo();
         fillConnectionInfo(info);
+        info->verified = _state == StateConnected;
         info->headers = headers;
         return info;
     }
