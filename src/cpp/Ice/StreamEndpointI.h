@@ -74,7 +74,7 @@ typedef IceUtil::Handle<StreamEndpointI> StreamEndpointIPtr;
 class StreamAcceptor;
 typedef IceUtil::Handle<StreamAcceptor> StreamAcceptorPtr;
 
-class StreamEndpointI : public IceInternal::IPEndpointI, IceInternal::WSEndpointDelegate
+class StreamEndpointI : public IceInternal::IPEndpointI, public IceInternal::WSEndpointDelegate
 {
 public:
 
