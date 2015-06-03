@@ -138,8 +138,16 @@ else
 endif
 
 slicedir 	= $(ice_dir)/slice
-bindir		= $(top_srcdir)/lib/IceTouch/$(sdksubdir)/bin
-sdkdir		= $(top_srcdir)/lib/IceTouch/$(sdksubdir)/$(PLATFORM_NAME).sdk
+ifeq ($(USE_BIN_DIST),yes)
+    ifeq ($(ICE_TOUCH_HOME),)
+        ICE_TOUCH_HOME = /usr/local
+    endif
+    bindir	= $(ICE_TOUCH_HOME)/lib/IceTouch/$(sdksubdir)/bin
+    sdkdir	= $(ICE_TOUCH_HOME)/lib/IceTouch/$(sdksubdir)/$(PLATFORM_NAME).sdk
+else
+    bindir	= $(top_srcdir)/lib/IceTouch/$(sdksubdir)/bin
+    sdkdir	= $(top_srcdir)/lib/IceTouch/$(sdksubdir)/$(PLATFORM_NAME).sdk
+endif
 sdksubdir 	= $(if $(ice_language:cpp=),ObjC,Cpp)
 libdir		= $(sdkdir)/usr/lib
 ifeq ($(COMPILE_TRANSLATORS),yes)

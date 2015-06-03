@@ -16,7 +16,11 @@ PLATFORMS := $(strip $(foreach f,IPHONE IPHONE_SIMULATOR OSX,$(if $(findstring y
 
 include $(top_srcdir)/config/Make.rules
 
+ifeq ($(USE_BIN_DIST),yes)
+SUBDIRS		= test
+else
 SUBDIRS		= src test
+endif
 
 INSTALL_SUBDIRS	=
 
@@ -43,7 +47,9 @@ ifeq ($(create_runpath_symlink),yes)
 	fi
 endif
 
+ifneq ($(USE_BIN_DIST),yes)
 install all:: sdks
+endif
 
 sdks:
 	if [ ! -d lib ] || [ ! -d lib/IceTouch ]; \
