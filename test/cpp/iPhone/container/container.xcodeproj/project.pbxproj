@@ -181,7 +181,7 @@
 				144B48251A78F71F00C0E06B /* Resources */,
 				144B48321A78F71F00C0E06B /* Sources */,
 				144B48381A78F71F00C0E06B /* Frameworks */,
-				144B488F1A78F71F00C0E06B /* ShellScript */,
+				144B488F1A78F71F00C0E06B /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -239,18 +239,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		144B488F1A78F71F00C0E06B /* ShellScript */ = {
+		144B488F1A78F71F00C0E06B /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#\n# We don't use a CopyFile build phase here to copy the test bundles because the test\n# bundles are located in different location depending on the platform. This script\n# copies the bundles if updated and sign them.\n#\necho \"Identity: ${EXPANDED_CODE_SIGN_IDENTITY_NAME}\"\nFRAMEWORKS_PATH=\"${TARGET_BUILD_DIR}\"/\"${FRAMEWORKS_FOLDER_PATH}\"\ncd \"Bundles-${PLATFORM_NAME}\"\nfor i in `ls -d *.bundle`;\ndo\n    if [ ! -d $FRAMEWORKS_PATH/$i -o $i -nt $FRAMEWORKS_PATH/$i ];\n    then\n        echo \"Copying $i\";\n        cp -rf $i $FRAMEWORKS_PATH/;\n        if [ -n \"${EXPANDED_CODE_SIGN_IDENTITY_NAME}\" ];\n        then\n            codesign --force --sign \"${EXPANDED_CODE_SIGN_IDENTITY}\" --preserve-metadata=identifier,entitlements \"${FRAMEWORKS_PATH}/$i\";\n        fi;\n    fi;\ndone\n";
+			shellScript = "#\n# We don't use a CopyFile build phase here to copy the test bundles because the test\n# bundles are located in different location depending on the platform. This script\n# copies the bundles if updated and sign them.\n#\nFRAMEWORKS_PATH=\"${TARGET_BUILD_DIR}\"/\"${FRAMEWORKS_FOLDER_PATH}\"\ncd \"Bundles-${PLATFORM_NAME}\"\nif [ ! -d $FRAMEWORKS_PATH ];\nthen\n    mkdir -p $FRAMEWORKS_PATH;\nfi;\nfor i in `ls -d *.bundle`;\ndo\n    if [ ! -d $FRAMEWORKS_PATH/$i -o $i -nt $FRAMEWORKS_PATH/$i ];\n    then\n        echo \"Copying $i\";\n        cp -rf $i $FRAMEWORKS_PATH/;\n    fi;\ndone\n\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -276,6 +278,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -311,6 +314,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
