@@ -1420,10 +1420,9 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
-					../../include,
-					../../Ice,
+					"../../../../ice/objective-c/test/include",
+					"../../../../ice/objective-c/test/Ice",
 					Classes,
-					"../../../lib/IceTouch/$(PLATFORM_NAME).sdk/usr/local/include",
 					generated,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info-ARC.plist";
@@ -1456,10 +1455,9 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
-					../../include,
-					../../Ice,
+					"../../../../ice/objective-c/test/include",
+					"../../../../ice/objective-c/test/Ice",
 					Classes,
-					"../../../lib/IceTouch/$(PLATFORM_NAME).sdk/usr/local/include",
 					generated,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info-ARC.plist";
@@ -1489,10 +1487,9 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
-					../../include,
-					../../Ice,
+					"../../../../ice/objective-c/test/include",
+					"../../../../ice/objective-c/test/Ice",
 					Classes,
-					"../../../lib/IceTouch/$(PLATFORM_NAME).sdk/usr/local/include",
 					generated,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info-ARC.plist";
@@ -1522,10 +1519,9 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
-					../../include,
-					../../Ice,
+					"../../../../ice/objective-c/test/include",
+					"../../../../ice/objective-c/test/Ice",
 					Classes,
-					"../../../lib/IceTouch/$(PLATFORM_NAME).sdk/usr/local/include",
 					generated,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info-ARC.plist";
@@ -1578,7 +1574,6 @@
 					"../../../../ice/objective-c/test/include",
 					"../../../../ice/objective-c/test/Ice",
 					Classes,
-					"../../../../lib/IceTouch/$(PLATFORM_NAME).sdk/usr/local/include",
 					generated,
 				);
 				INFOPLIST_FILE = Info.plist;
@@ -1628,7 +1623,6 @@
 					"../../../../ice/objective-c/test/include",
 					"../../../../ice/objective-c/test/Ice",
 					Classes,
-					"../../../../lib/IceTouch/$(PLATFORM_NAME).sdk/usr/local/include",
 					generated,
 				);
 				INFOPLIST_FILE = Info.plist;
@@ -1667,7 +1661,6 @@
 					"../../../../ice/objective-c/test/include",
 					"../../../../ice/objective-c/test/Ice",
 					Classes,
-					"../../../../lib/IceTouch/$(PLATFORM_NAME).sdk/usr/local/include",
 					generated,
 				);
 				INFOPLIST_FILE = Info.plist;
@@ -1703,7 +1696,6 @@
 					"../../../../ice/objective-c/test/include",
 					"../../../../ice/objective-c/test/Ice",
 					Classes,
-					"../../../../lib/IceTouch/$(PLATFORM_NAME).sdk/usr/local/include",
 					generated,
 				);
 				INFOPLIST_FILE = Info.plist;
