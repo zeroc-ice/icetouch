@@ -456,6 +456,7 @@ $(libdir)/$(LIBNAME): $(OBJS)
 $(OBJDIR):
 	@mkdir -p $(OBJDIR)
 
+ifneq ($(USE_BIN_DIST),yes)
 # Generated C++ source
 $(call mkobjtargetpattern,$(OBJDIR)/%_cpp.o): $(OBJDIR)/%.cpp
 	@$(call mkobj,$<,$@,-I$(OBJDIR)/include $(CXX_CPPFLAGS))
@@ -492,6 +493,7 @@ $(includedir)/objc/%.h $(OBJDIR)/%.m: $(slicedir)/%.ice $(SLICE2OBJC)
 ifneq ($(includedir),$(langdir)/include)
 $(includedir)/%.h: $(langdir)/include/%.h
 	@$(call mkheader,$<,$@)
+endif
 endif
 
 #
