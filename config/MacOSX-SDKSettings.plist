@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CanonicalName</key>
-	<string>IceTouch 1.4.0</string>
+	<string>IceTouch 3.6.0</string>
 	<key>DefaultProperties</key>
 	<dict>
 		<key>MACOSX_DEPLOYMENT_TARGET</key>
@@ -12,7 +12,7 @@
 		<string>macosx</string>
 	</dict>
 	<key>DisplayName</key>
-	<string>IceTouch 1.4.0</string>
+	<string>IceTouch 3.6.0</string>
 	<key>FamilyIdentifier</key>
 	<string>macosx</string>
 	<key>FamilyName</key>
@@ -22,7 +22,7 @@
 	<key>MinimumSupportedToolsVersion</key>
 	<string>6.1</string>
 	<key>Version</key>
-	<string>1.4.0</string>
+	<string>3.6.0</string>
 	<key>IsBaseSDK</key>
 	<string>NO</string>
 </dict>

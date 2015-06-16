@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>AlternateSDK</key>
-	<string>IceTouch 1.4.0</string>
+	<string>IceTouch 3.6.0</string>
 	<key>CanonicalName</key>
-	<string>IceTouch 1.4.0</string>
+	<string>IceTouch 3.6.0</string>
 	<key>CustomProperties</key>
 	<dict/>
 	<key>DefaultProperties</key>
@@ -14,12 +14,12 @@
 		<string>iPhoneSimulator</string>
 	</dict>
 	<key>DisplayName</key>
-	<string>Ice Touch 1.4.0</string>
+	<string>Ice Touch 3.6.0</string>
 	<key>IsBaseSDK</key>
 	<string>NO</string>
 	<key>MinimumSupportedToolsVersion</key>
 	<string>6.0</string>
 	<key>Version</key>
-	<string>1.4.0</string>
+	<string>3.6.0</string>
 </dict>
 </plist>
