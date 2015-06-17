@@ -251,8 +251,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#\n# We don't use a CopyFile build phase here to copy the test bundles because the test\n# bundles are located in different location depending on the platform. This script\n# copies the bundles if updated and sign them.\n#\nFRAMEWORKS_PATH=\"${TARGET_BUILD_DIR}\"/\"${FRAMEWORKS_FOLDER_PATH}\"\ncd \"Bundles-${PLATFORM_NAME}\"\nif [ ! -d $FRAMEWORKS_PATH ];\nthen\n    mkdir -p $FRAMEWORKS_PATH;\nfi;\nfor i in `ls -d *.bundle`;\ndo\n    if [ ! -d $FRAMEWORKS_PATH/$i -o $i -nt $FRAMEWORKS_PATH/$i ];\n    then\n        echo \"Copying $i\";\n        cp -rf $i $FRAMEWORKS_PATH/;\n    fi;\ndone\n\n";
-			showEnvVarsInLog = 0;
+			shellScript = "#\n# We don't use a CopyFile build phase here to copy the test bundles because the test\n# bundles are located in different location depending on the platform. This script\n# copies the bundles if updated and sign them.\n#\nFRAMEWORKS_PATH=\"${TARGET_BUILD_DIR}\"/\"${FRAMEWORKS_FOLDER_PATH}\"\ncd \"Bundles-${PLATFORM_NAME}\"\nif [ ! -d $FRAMEWORKS_PATH ];\nthen\n    mkdir -p $FRAMEWORKS_PATH;\nfi;\nfor i in `ls -d *.bundle`;\ndo\n    if [ ! -d $FRAMEWORKS_PATH/$i -o $i -nt $FRAMEWORKS_PATH/$i ];\n    then\n        echo \"Copying $i\";\n        cp -rf $i $FRAMEWORKS_PATH/;\n        if [ -n \"${EXPANDED_CODE_SIGN_IDENTITY_NAME}\" ];\n        then\n            codesign --force --sign \"${EXPANDED_CODE_SIGN_IDENTITY}\" --preserve-metadata=identifier,entitlements \"${FRAMEWORKS_PATH}/$i\";\n        fi;\n    fi;\ndone\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
