@@ -17,6 +17,8 @@ SLICE_DIRS	= Ice IceSSL
 HEADER_DIRS	= objc/Ice objc/IceSSL
 SRC_DIRS	= Ice IceSSL
 
+EXCLUDE_SLICE_SRCS = Ice/ObjectFactory.ice
+
 HEADERS		= objc/Ice.h objc/IceSSL.h
 
 include $(top_srcdir)/config/Make.rules
@@ -39,3 +41,6 @@ install:: all
 # Objective-C++ source
 $(call mkobjtargetpattern,$(OBJDIR)/%_mm.o): $(objcdir)/src/%.mm
 	@$(call mkobj,$<,$@,-I$(subst ObjC,Cpp,$(includedir)) -I$(objcdir)/src -I$(cppdir)/src $(OBJCXX_CPPFLAGS))
+
+$(includedir)/objc/Ice/ObjectFactory.h $(OBJDIR)/Ice/ObjectFactory.m: $(slicedir)/Ice/ObjectFactory.ice
+	@$(call mkheader,$(langdir)/include/objc/Ice/ObjectFactory.h,$(includedir)/objc/Ice/ObjectFactory.h)

@@ -342,7 +342,9 @@ endif
 # add them to SRCS.
 #
 ifneq ($(SLICE_DIRS),)
-SLICE_SRCS += $(foreach sdir,$(SLICE_DIRS),$(wildcard $(slicedir)/$(sdir)/*.ice))
+excludeslice = $(EXCLUDE_SLICE_SRCS)
+excludeslice := $(addprefix %/,$(excludeslice))
+SLICE_SRCS += $(foreach sdir,$(SLICE_DIRS),$(filter-out $(excludeslice),$(wildcard $(slicedir)/$(sdir)/*.ice)))
 SRCS += $(patsubst $(slicedir)/%.ice,$(OBJDIR)/%.$(langext),$(SLICE_SRCS))
 endif
 
