@@ -165,8 +165,6 @@ ifeq ($(PLATFORM_NAME),iphoneos)
             ARCHFLAGS = -arch armv7 -arch arm64
         endif
     endif
-    # Set the achitecture to ARM for dependencies
-    CPPPLATFORMFLAGS = -arch armv7
 else ifeq ($(PLATFORM_NAME),iphonesimulator)
     SDK_NAME = iphonesimulator$(IOS_SDK_VERSION)
     ifeq ($(ARCHFLAGS),)
@@ -203,7 +201,6 @@ ifeq ($(OPTIMIZE),yes)
 else
     COMPFLAGS	:= -g $(COMPFLAGS)
 endif
-
 COMPFLAGS += $(ARCHFLAGS)
 
 OBJDIR = $(PLATFORM_NAME)
@@ -263,7 +260,8 @@ mkobj = echo "$(if $4,$4,$(CXX)) $(if $3,$3,$(CPPFLAGS)) $(if $5,$5,$(COMPFLAGS)
 	if [ -n "$(dir $2)" -a ! -d "$(dir $2)" ]; then mkdir -p $(dir $2); fi; \
 	$(if $4,$4,$(CXX)) -c $1 -o $2 $(if $3,$3,$(CPPFLAGS)) $(if $5,$5,$(COMPFLAGS)) || exit 1; \
 	mkdir -p $(dependdir); \
-	$(CXX) -DMAKEDEPEND -MM -MT $2 $(if $3,$3,$(CPPFLAGS)) -c $1 > $(dependdir)/$(notdir $(2:.o=.d)) \
+	$(CXX) -DMAKEDEPEND -MM -MT $2 $(if $3,$3,$(CPPFLAGS)) $(if $(PLATFORM_NAME:iphoneos=),,-arch armv7) \
+	-c $1 > $(dependdir)/$(notdir $(2:.o=.d)) \
 
 #
 # mkslice FILE.ice,STEM,[HEADERDIR,OUTPUTDIR,FLAGS,TRANSLATOR]
