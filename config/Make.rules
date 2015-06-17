@@ -254,11 +254,11 @@ mkheader = echo "cp $1 $2"; \
 	   chmod a+r $2; \
 
 #
-# mkobj FILE.[cpp|m|mm],FILE.o,CPPFLAGS,COMPILER,COMPFLAGS
+# mkobj FILE.[cpp|m|mm],FILE.o,CPPFLAGS,COMPILER
 #
-mkobj = echo "$(if $4,$4,$(CXX)) $(if $3,$3,$(CPPFLAGS)) $(if $5,$5,$(COMPFLAGS)) -c $1 -o $2"; \
+mkobj = echo "$(if $4,$4,$(CXX)) $(if $3,$3,$(CPPFLAGS)) $(COMPFLAGS) -c $1 -o $2"; \
 	if [ -n "$(dir $2)" -a ! -d "$(dir $2)" ]; then mkdir -p $(dir $2); fi; \
-	$(if $4,$4,$(CXX)) -c $1 -o $2 $(if $3,$3,$(CPPFLAGS)) $(if $5,$5,$(COMPFLAGS)) || exit 1; \
+	$(if $4,$4,$(CXX)) -c $1 -o $2 $(if $3,$3,$(CPPFLAGS)) $(COMPFLAGS) || exit 1; \
 	mkdir -p $(dependdir); \
 	$(CXX) -DMAKEDEPEND -MM -MT $2 $(if $3,$3,$(CPPFLAGS)) $(if $(PLATFORM_NAME:iphoneos=),,-arch armv7) \
 	-c $1 > $(dependdir)/$(notdir $(2:.o=.d)) \
@@ -512,7 +512,7 @@ mktest 	   	= bundledir=$(dir $(1)); libname=$(notdir $(basename $(1))); \
 		     sed "s/NAME/$$libname/" $(top_srcdir)/test/cpp/iPhone/container/BundleInfo.plist > \
 					     $$bundledir/Info.plist ; \
 		  fi ;\
-	          $(CXX) -bundle $(LDPLATFORMFLAGS) $(CXXFLAGS) -L$(libdir) -o $(1) $(2) $(3)
+	          $(CXX) -bundle $(LDFLAGS) $(ARCHFLAGS) -L$(libdir) -o $(1) $(2) $(3)
 else
 
 mktestname	= $(1)
