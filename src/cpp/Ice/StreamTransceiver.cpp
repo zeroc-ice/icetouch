@@ -559,7 +559,7 @@ IceObjC::StreamTransceiver::StreamTransceiver(const InstancePtr& instance,
     _readStreamRegistered(false),
     _writeStreamRegistered(false),
     _opening(false),
-    _checkCertificates(false),
+    _checkCertificates(instance->secure()),
     _error(false),
     _state(StateNeedConnect),
     _desc(fdToString(fd))
