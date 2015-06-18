@@ -39,7 +39,7 @@ In a command window, run `make` to build Ice Touch.
 
 This will build:
 
-- the Slice-to-C++ and Slice-to-Objective-C compilers,
+- the Slice-to-C++ and Slice-to-Objective-C compilers
 - the C++ Xcode SDK
 - the Objective-C Xcode SDK
 - the C++ tests
@@ -78,7 +78,7 @@ application named `Test Suite`. You can run it from the Xcode project located in
 the `test/cpp/iPhone/container` or `test/objective-c/iPhone/container`
 directories.
 
-[1]: https://doc.zeroc.com/display/Ice36/Using+the+OS+X+Binary+Distribution
+[1]: https://doc.zeroc.com/display/Ice36/Using+the+Ice+Touch+Binary+Distribution
 [2]: https://zeroc.com/platforms_3_6_0.html
 [3]: https://github.com/zeroc-ice/mcpp
 [4]: http://brew.sh
