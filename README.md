@@ -26,5 +26,5 @@ The Ice Touch software itself remains the same: the only difference between an o
 
 ## Documentation
 
-- [Ice Touch Release Notes](https://doc.zeroc.com/display/IceeTocuh/Release+Notes+3.6.0)
+- [Ice Touch Release Notes](https://doc.zeroc.com/display/Ice36/Ice+Touch+Release+Notes)
 - [Ice Manual](https://doc.zeroc.com/display/Ice36/Home)
