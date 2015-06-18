@@ -37,9 +37,8 @@ prefix		?= /opt/IceTouch-$(VERSION)
 #OPTIMIZE_SPEED	= yes
 
 #
-# The default is to build the slice2cpp and slice2objc translators if
-# you don't define COMPILE_FOR_IPHONE, COMPILE_FOR_IPHONE_SIMULATOR or
-# COMPILE_FOR_OSX below.
+# If you don't define COMPILE_FOR_IPHONE, COMPILE_FOR_IPHONE_SIMULATOR or
+# COMPILE_FOR_OSX below, the default is to build for all the platforms.
 #
 
 #
@@ -58,9 +57,10 @@ prefix		?= /opt/IceTouch-$(VERSION)
 #COMPILE_FOR_OSX 	        = yes
 
 #
-# The minimum SDK version supported by targets, the default is 7.1
-# to allow using Ice Touch binaries on older iOS versions.
+# The minimum SDK version supported by targets, the default is 7.1 for iOS and
+# 10.9 for OS X.
 #
+#OSX_TARGET_MIN_SDK_VERSION 	= 10.9
 #IOS_TARGET_MIN_SDK_VERSION 	= 7.1
 
 #
@@ -69,7 +69,7 @@ prefix		?= /opt/IceTouch-$(VERSION)
 # for debug builds. The list of supported architecturs depends of the
 # target platform.
 #
-# Cocoa / OS X:
+# OS X:
 #
 #ARCHFLAGS            = -arch x86_64
 #
