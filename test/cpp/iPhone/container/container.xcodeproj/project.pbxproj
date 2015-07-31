@@ -7,6 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142B83841B6BA7A600E28347 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		142B83851B6BA7A600E28347 /* TestSelect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B7662B0E8D55FE00CE4701 /* TestSelect.xib */; };
+		142B83861B6BA7A600E28347 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 342EB9ED0E9261A3000051FA /* icon.png */; };
+		142B83871B6BA7A600E28347 /* server.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 342EBA880E926E9F000051FA /* server.p12 */; };
+		142B83881B6BA7A600E28347 /* client.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 1450A10B1ABC5E9C00A71895 /* client.p12 */; };
+		142B83891B6BA7A600E28347 /* cacert.der in Resources */ = {isa = PBXBuildFile; fileRef = 342EBA8A0E926F90000051FA /* cacert.der */; };
+		142B838A1B6BA7A600E28347 /* TestSelect-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34730A10122BF6C300D293CC /* TestSelect-iPad.xib */; };
+		142B838B1B6BA7A600E28347 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34C618AE122C035000F60A28 /* MainWindow-iPad.xib */; };
+		142B838C1B6BA7A600E28347 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82CD7277145795AA008B9128 /* TestView.xib */; };
+		142B838D1B6BA7A600E28347 /* TestView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82F883221461D37000FC801E /* TestView-iPad.xib */; };
+		142B838E1B6BA7A600E28347 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14060BD6161D5F290077BEE0 /* Default-568h@2x.png */; };
+		142B838F1B6BA7A600E28347 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82D53AA81823269B00703264 /* Images.xcassets */; };
+		142B83911B6BA7A600E28347 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 820C84641455AC460091443F /* main.m */; };
+		142B83921B6BA7A600E28347 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 82601FF314564F5500B09B8F /* AppDelegate.mm */; };
+		142B83931B6BA7A600E28347 /* TestViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 827BCF99145778A5003AD3FA /* TestViewController.mm */; };
+		142B83941B6BA7A600E28347 /* TestSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8214397917024FDF0016E162 /* TestSelectController.m */; };
+		142B83951B6BA7A600E28347 /* TestUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 821439B61704E6960016E162 /* TestUtil.mm */; };
+		142B83971B6BA7A600E28347 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		142B83981B6BA7A600E28347 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		142B83991B6BA7A600E28347 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344126360FD8E8EA00C8D69C /* Security.framework */; };
+		142B839A1B6BA7A600E28347 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344126370FD8E8EA00C8D69C /* CFNetwork.framework */; };
+		142B839B1B6BA7A600E28347 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E396620FF1D71400FBACD6 /* CoreGraphics.framework */; };
 		144B48261A78F71F00C0E06B /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		144B48271A78F71F00C0E06B /* TestSelect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B7662B0E8D55FE00CE4701 /* TestSelect.xib */; };
 		144B48281A78F71F00C0E06B /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 342EB9ED0E9261A3000051FA /* icon.png */; };
@@ -29,13 +51,16 @@
 		144B483C1A78F71F00C0E06B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344126370FD8E8EA00C8D69C /* CFNetwork.framework */; };
 		144B483D1A78F71F00C0E06B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E396620FF1D71400FBACD6 /* CoreGraphics.framework */; };
 		1450A10C1ABC5E9C00A71895 /* client.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 1450A10B1ABC5E9C00A71895 /* client.p12 */; };
+		148668D41B6BAFD300234C12 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 148668D31B6BAFD300234C12 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		14060BD6161D5F290077BEE0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		142B83A01B6BA7A600E28347 /* container.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = container.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		144B48931A78F71F00C0E06B /* container.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = container.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1450A10B1ABC5E9C00A71895 /* client.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; name = client.p12; path = ../../../../ice/certs/client.p12; sourceTree = "<group>"; };
 		1477FACD1A652B7E00BC2890 /* container-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "container-Info.plist"; sourceTree = SOURCE_ROOT; };
+		148668D31B6BAFD300234C12 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -64,6 +89,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		142B83961B6BA7A600E28347 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				142B83971B6BA7A600E28347 /* Foundation.framework in Frameworks */,
+				142B83981B6BA7A600E28347 /* UIKit.framework in Frameworks */,
+				142B83991B6BA7A600E28347 /* Security.framework in Frameworks */,
+				142B839A1B6BA7A600E28347 /* CFNetwork.framework in Frameworks */,
+				142B839B1B6BA7A600E28347 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		144B48381A78F71F00C0E06B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -98,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				144B48931A78F71F00C0E06B /* container.app */,
+				142B83A01B6BA7A600E28347 /* container.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,6 +143,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				148668D31B6BAFD300234C12 /* README.md */,
 				342EB9E60E92600E000051FA /* Images */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -174,6 +213,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		142B83821B6BA7A600E28347 /* container iOS 7 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 142B839D1B6BA7A600E28347 /* Build configuration list for PBXNativeTarget "container iOS 7" */;
+			buildPhases = (
+				142B83831B6BA7A600E28347 /* Resources */,
+				142B83901B6BA7A600E28347 /* Sources */,
+				142B83961B6BA7A600E28347 /* Frameworks */,
+				142B839C1B6BA7A600E28347 /* Run Script */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "container iOS 7";
+			productName = container;
+			productReference = 142B83A01B6BA7A600E28347 /* container.app */;
+			productType = "com.apple.product-type.application";
+		};
 		144B48241A78F71F00C0E06B /* container */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 144B48901A78F71F00C0E06B /* Build configuration list for PBXNativeTarget "container" */;
@@ -212,11 +269,31 @@
 			projectRoot = "";
 			targets = (
 				144B48241A78F71F00C0E06B /* container */,
+				142B83821B6BA7A600E28347 /* container iOS 7 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		142B83831B6BA7A600E28347 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				142B83841B6BA7A600E28347 /* MainWindow.xib in Resources */,
+				142B83851B6BA7A600E28347 /* TestSelect.xib in Resources */,
+				142B83861B6BA7A600E28347 /* icon.png in Resources */,
+				142B83871B6BA7A600E28347 /* server.p12 in Resources */,
+				142B83881B6BA7A600E28347 /* client.p12 in Resources */,
+				142B83891B6BA7A600E28347 /* cacert.der in Resources */,
+				142B838A1B6BA7A600E28347 /* TestSelect-iPad.xib in Resources */,
+				142B838B1B6BA7A600E28347 /* MainWindow-iPad.xib in Resources */,
+				142B838C1B6BA7A600E28347 /* TestView.xib in Resources */,
+				142B838D1B6BA7A600E28347 /* TestView-iPad.xib in Resources */,
+				142B838E1B6BA7A600E28347 /* Default-568h@2x.png in Resources */,
+				142B838F1B6BA7A600E28347 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		144B48251A78F71F00C0E06B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -239,6 +316,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		142B839C1B6BA7A600E28347 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#\n# We don't use a CopyFile build phase here to copy the test bundles because the test\n# bundles are located in different location depending on the platform. This script\n# copies the bundles if updated and sign them.\n#\nFRAMEWORKS_PATH=\"${TARGET_BUILD_DIR}\"/\"${FRAMEWORKS_FOLDER_PATH}\"\ncd \"Bundles-${PLATFORM_NAME}\"\nif [ ! -d $FRAMEWORKS_PATH ];\nthen\n    mkdir -p $FRAMEWORKS_PATH;\nfi;\nfor i in `ls -d *.bundle`;\ndo\n    if [ ! -d $FRAMEWORKS_PATH/$i -o $i -nt $FRAMEWORKS_PATH/$i ];\n    then\n        echo \"Copying $i\";\n        cp -rf $i $FRAMEWORKS_PATH/;\n    fi;\ndone\n\n";
+		};
 		144B488F1A78F71F00C0E06B /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
@@ -256,10 +347,23 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		142B83901B6BA7A600E28347 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				142B83911B6BA7A600E28347 /* main.m in Sources */,
+				142B83921B6BA7A600E28347 /* AppDelegate.mm in Sources */,
+				142B83931B6BA7A600E28347 /* TestViewController.mm in Sources */,
+				142B83941B6BA7A600E28347 /* TestSelectController.m in Sources */,
+				142B83951B6BA7A600E28347 /* TestUtil.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		144B48321A78F71F00C0E06B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				148668D41B6BAFD300234C12 /* README.md in Sources */,
 				144B48331A78F71F00C0E06B /* main.m in Sources */,
 				144B48341A78F71F00C0E06B /* AppDelegate.mm in Sources */,
 				144B48351A78F71F00C0E06B /* TestViewController.mm in Sources */,
@@ -271,6 +375,75 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		142B839E1B6BA7A600E28347 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = container_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					..,
+					Classes,
+					../../../../ice/cpp/test/include/,
+				);
+				INFOPLIST_FILE = "container-Info.plist";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = container;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				SLICE_CPP_FLAG = "";
+				SLICE_INCLUDE_PATH = "";
+				STRIP_STYLE = debugging;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		142B839F1B6BA7A600E28347 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = container_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					..,
+					Classes,
+					../../../../ice/cpp/test/include/,
+				);
+				INFOPLIST_FILE = "container-Info.plist";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = container;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				SLICE_CPP_FLAG = "";
+				SLICE_INCLUDE_PATH = "";
+				STRIP_STYLE = debugging;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		144B48911A78F71F00C0E06B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -368,6 +541,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		142B839D1B6BA7A600E28347 /* Build configuration list for PBXNativeTarget "container iOS 7" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				142B839E1B6BA7A600E28347 /* Debug */,
+				142B839F1B6BA7A600E28347 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		144B48901A78F71F00C0E06B /* Build configuration list for PBXNativeTarget "container" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
