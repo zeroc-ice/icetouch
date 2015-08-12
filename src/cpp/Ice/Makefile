@@ -22,12 +22,12 @@ HEADER_DIRS	  	= IceUtil Ice IceSSL
 SRC_DIRS		= IceUtil Ice IceDiscovery IceLocatorDiscovery
 
 LOCAL_SRCS		= Notifications.mm
-EXCLUDE_SRCS 		= Ice/DLLMain.cpp Ice/RegisterPlugins.cpp
+EXCLUDE_SRCS 		= Ice/DLLMain.cpp Ice/RegisterPluginsInit.cpp
 
 ifeq ($(COMPILE_FOR_OSX),yes)
 
 SRC_DIRS 		+= IceSSL
-LOCAL_SRCS		+= RegisterPlugins.cpp
+LOCAL_SRCS		+= RegisterPluginsInit.cpp
 
 else
 

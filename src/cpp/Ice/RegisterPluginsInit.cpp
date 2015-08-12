@@ -8,7 +8,7 @@
 // **********************************************************************
 
 #include <Ice/Initialize.h>
-#include <Ice/RegisterPlugins.h>
+#include <Ice/RegisterPluginsInit.h>
 
 using namespace std;
 using namespace Ice;
@@ -23,6 +23,19 @@ Plugin* createStringConverter(const CommunicatorPtr&, const string&, const Strin
 Plugin* createIceSSL(const CommunicatorPtr&, const string&, const StringSeq&);
 Plugin* createIceDiscovery(const CommunicatorPtr&, const string&, const StringSeq&);
 Plugin* createIceLocatorDiscovery(const CommunicatorPtr&, const string&, const StringSeq&);
+
+}
+
+namespace Ice
+{
+
+#if TARGET_OS_IPHONE > 0
+void
+registerIceSSL(bool)
+{
+    // Nothing to do, IceSSL is always registered by the static initializer.
+}
+#endif
 
 }
 
