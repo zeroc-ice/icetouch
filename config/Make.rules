@@ -216,6 +216,12 @@ endif
 LDPLATFORMFLAGS	 := $(CPPPLATFORMFLAGS)
 CPPPLATFORMFLAGS += -pthread -fvisibility=hidden
 
+ifneq ($(shell $(CXX) --help | grep fembed-bitcode),)
+ifneq ($(PLATFORM_NAME),macosx)
+    CPPPLATFORMFLAGS   += -fembed-bitcode
+endif
+endif
+
 ICECPPFLAGS	= -I$(slicedir)
 SLICE2OBJCFLAGS	= $(ICECPPFLAGS)
 SLICE2CPPFLAGS	= $(ICECPPFLAGS)
