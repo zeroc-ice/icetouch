@@ -46,12 +46,12 @@ static Observer* observer = nil;
     observer->background = NO;
 
     [[NSNotificationCenter defaultCenter] addObserver:observer
-                                             selector:@selector(didEnterBackground) 
+                                             selector:@selector(didEnterBackground)
                                                  name:UIApplicationDidEnterBackgroundNotification
-                                               object:nil]; 
+                                               object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:observer
-                                             selector:@selector(willEnterForeground) 
+                                             selector:@selector(willEnterForeground)
                                                  name:UIApplicationWillEnterForegroundNotification
                                                object:nil];
 }
@@ -64,6 +64,7 @@ static Observer* observer = nil;
     @synchronized(self)
     {
         factories.insert(factory);
+        factory->__incRef();
         if(background)
         {
             factory->stopAcceptor();
@@ -80,6 +81,7 @@ static Observer* observer = nil;
     @synchronized(self)
     {
         factories.erase(factory);
+        factory->__decRef();
     }
 }
 -(void)didEnterBackground
@@ -89,7 +91,7 @@ static Observer* observer = nil;
         //
         // Notify all the incoming connection factories that we are
         // entering the background mode.
-        // 
+        //
         for(set<IncomingConnectionFactory*>::const_iterator p = factories.begin(); p != factories.end(); ++p)
         {
             (*p)->stopAcceptor();
@@ -104,7 +106,7 @@ static Observer* observer = nil;
         //
         // Notify all the incoming connection factories that we are
         // entering the foreground mode.
-        // 
+        //
         background = NO;
         for(set<IncomingConnectionFactory*>::const_iterator p = factories.begin(); p != factories.end(); ++p)
         {

@@ -33,9 +33,11 @@ IceObjC::StreamAcceptor::getNativeInfo()
 void
 IceObjC::StreamAcceptor::close()
 {
-    SOCKET fd = _fd;
-    _fd = INVALID_SOCKET;
-    closeSocket(fd);
+    if(_fd != INVALID_SOCKET)
+    {
+        closeSocketNoThrow(_fd);
+        _fd = INVALID_SOCKET;
+    }
 }
 
 IceInternal::EndpointIPtr

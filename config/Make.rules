@@ -462,7 +462,7 @@ $(libdir)/$(LIBNAME): $(OBJS)
 $(OBJDIR):
 	@mkdir -p $(OBJDIR)
 
-ifneq ($(USE_BIN_DIST),yes)
+ifneq ($(findstring src/,$(CURDIR)),)
 # Generated C++ source
 $(call mkobjtargetpattern,$(OBJDIR)/%_cpp.o): $(OBJDIR)/%.cpp
 	@$(call mkobj,$<,$@,-I$(OBJDIR)/include $(CXX_CPPFLAGS))
