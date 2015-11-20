@@ -342,7 +342,13 @@
 {
     reloadScheduled = FALSE;
     [output reloadData];
-    NSUInteger path[] = {0, messages.count-1};
+
+    if(messages.count == 0)
+    {
+        return;
+    }
+
+    NSUInteger path[] = {0, messages.count -1};
     [output scrollToRowAtIndexPath:[NSIndexPath indexPathWithIndexes:path length:2]
                   atScrollPosition:UITableViewScrollPositionBottom
                           animated:NO];
