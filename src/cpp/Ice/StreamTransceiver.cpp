@@ -230,7 +230,7 @@ IceObjC::StreamTransceiver::closeStreams()
 }
 
 SocketOperation
-IceObjC::StreamTransceiver::initialize(Buffer& readBuffer, Buffer& writeBuffer, bool&)
+IceObjC::StreamTransceiver::initialize(Buffer& readBuffer, Buffer& writeBuffer)
 {
     IceUtil::Mutex::Lock sync(_mutex);
     if(_state == StateNeedConnect)
@@ -388,7 +388,7 @@ IceObjC::StreamTransceiver::write(Buffer& buf)
 }
 
 SocketOperation
-IceObjC::StreamTransceiver::read(Buffer& buf, bool&)
+IceObjC::StreamTransceiver::read(Buffer& buf)
 {
     IceUtil::Mutex::Lock sync(_mutex);
     if(_error)
