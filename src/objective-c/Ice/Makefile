@@ -17,7 +17,7 @@ SLICE_DIRS	= Ice IceSSL
 HEADER_DIRS	= objc/Ice objc/IceSSL
 SRC_DIRS	= Ice IceSSL
 
-EXCLUDE_SLICE_SRCS = Ice/ObjectFactory.ice
+EXCLUDE_SLICE_SRCS = Ice/ObjectFactory.ice Ice/ValueFactory.ice
 
 HEADERS		= objc/Ice.h objc/IceSSL.h
 
@@ -44,3 +44,6 @@ $(call mkobjtargetpattern,$(OBJDIR)/%_mm.o): $(objcdir)/src/%.mm
 
 $(includedir)/objc/Ice/ObjectFactory.h $(OBJDIR)/Ice/ObjectFactory.m: $(slicedir)/Ice/ObjectFactory.ice
 	@$(call mkheader,$(langdir)/include/objc/Ice/ObjectFactory.h,$(includedir)/objc/Ice/ObjectFactory.h)
+
+$(includedir)/objc/Ice/ValueFactory.h $(OBJDIR)/Ice/ValueFactory.m: $(slicedir)/Ice/ValueFactory.ice
+	@$(call mkheader,$(langdir)/include/objc/Ice/ValueFactory.h,$(includedir)/objc/Ice/ValueFactory.h)

@@ -450,7 +450,7 @@ endif
 slice2objc = $(call mkslice,$1,$2,$3,$4,$(if $5,$5,$(SLICE2OBJCFLAGS)),$(SLICE2OBJC))
 slice2cpp  = $(call mkslice,$1,$2,$3,$4,$(if $5,$5,$(SLICE2CPPFLAGS)),$(SLICE2CPP))
 
-CXX_CPPFLAGS 	= $(CPPFLAGS)
+CXX_CPPFLAGS 	= -I$(cppdir)/src $(CPPFLAGS)
 OBJC_CPPFLAGS 	= $(CPPFLAGS)
 OBJCXX_CPPFLAGS = $(CXX_CPPFLAGS)
 
