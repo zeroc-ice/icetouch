@@ -19,6 +19,9 @@
 
 #include <set>
 
+using namespace std;
+using namespace IceInternal;
+
 namespace IceInternal
 {
 
@@ -27,45 +30,39 @@ void unregisterForBackgroundNotification(IncomingConnectionFactory*);
 
 }
 
-using namespace std;
-using namespace IceInternal;
-
-@interface Observer : NSObject
+namespace
 {
-    BOOL background;
-    set<IncomingConnectionFactory*> factories;
-}
-@end
 
-static Observer* observer = nil;
-
-@implementation Observer
-+(void) initialize
+class Observer
 {
-    observer = [[Observer alloc] init];
-    observer->background = NO;
+public:
 
-    [[NSNotificationCenter defaultCenter] addObserver:observer
-                                             selector:@selector(didEnterBackground)
-                                                 name:UIApplicationDidEnterBackgroundNotification
-                                               object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:observer
-                                             selector:@selector(willEnterForeground)
-                                                 name:UIApplicationWillEnterForegroundNotification
-                                               object:nil];
-}
-+(Observer*) sharedInstance
-{
-    return observer;
-}
--(BOOL)add:(IncomingConnectionFactory*)factory
-{
-    @synchronized(self)
+    Observer() : _background(false)
     {
-        factories.insert(factory);
+        [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification
+                                                          object:nil
+                                                           queue:nil
+                                                      usingBlock:^(NSNotification*)
+                                                                 {
+                                                                     didEnterBackground();
+                                                                 }];
+
+        [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification
+                                                          object:nil
+                                                           queue:nil
+                                                      usingBlock:^(NSNotification*)
+                                                                 {
+                                                                     willEnterForeground();
+                                                                 }];
+    }
+
+    bool
+    add(IncomingConnectionFactory* factory)
+    {
+        IceUtil::Mutex::Lock sync(_mutex);
+        _factories.insert(factory);
         factory->__incRef();
-        if(background)
+        if(_background)
         {
             factory->stopAcceptor();
         }
@@ -73,59 +70,71 @@ static Observer* observer = nil;
         {
             factory->startAcceptor();
         }
-        return background;
+        return _background;
     }
-}
--(void)remove:(IncomingConnectionFactory*)factory
-{
-    @synchronized(self)
+
+    void
+    remove(IncomingConnectionFactory* factory)
     {
-        factories.erase(factory);
+        IceUtil::Mutex::Lock sync(_mutex);
+        _factories.erase(factory);
         factory->__decRef();
     }
-}
--(void)didEnterBackground
-{
-    @synchronized(self)
+
+    void
+    didEnterBackground()
     {
+        IceUtil::Mutex::Lock sync(_mutex);
+        NSLog(@"didEnterBackground");
         //
         // Notify all the incoming connection factories that we are
         // entering the background mode.
         //
-        for(set<IncomingConnectionFactory*>::const_iterator p = factories.begin(); p != factories.end(); ++p)
+        for(set<IncomingConnectionFactory*>::const_iterator p = _factories.begin(); p != _factories.end(); ++p)
         {
             (*p)->stopAcceptor();
         }
-        background = YES;
+        _background = true;
     }
-}
--(void)willEnterForeground
-{
-    @synchronized(self)
+
+    void
+    willEnterForeground()
     {
+        IceUtil::Mutex::Lock sync(_mutex);
+        NSLog(@"willEnterForeground");
         //
         // Notify all the incoming connection factories that we are
         // entering the foreground mode.
         //
-        background = NO;
-        for(set<IncomingConnectionFactory*>::const_iterator p = factories.begin(); p != factories.end(); ++p)
+        _background = false;
+        for(set<IncomingConnectionFactory*>::const_iterator p = _factories.begin(); p != _factories.end(); ++p)
         {
             (*p)->startAcceptor();
         }
     }
+
+private:
+
+    IceUtil::Mutex _mutex;
+    bool _background;
+    set<IncomingConnectionFactory*> _factories;
+};
+
+
 }
-@end
+
+static Observer* observer = new Observer();
 
 bool
 IceInternal::registerForBackgroundNotification(IncomingConnectionFactory* factory)
 {
-    return [[Observer sharedInstance] add:factory] == YES;
+    return observer->add(factory);
 }
 
 void
 IceInternal::unregisterForBackgroundNotification(IncomingConnectionFactory* factory)
 {
-    [[Observer sharedInstance] remove:factory];
+    observer->remove(factory);
 }
 
 #endif

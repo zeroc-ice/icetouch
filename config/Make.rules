@@ -518,11 +518,11 @@ mktest 	   	= bundledir=$(dir $(1)); libname=$(notdir $(basename $(1))); \
 		     sed "s/NAME/$$libname/" $(top_srcdir)/test/cpp/iPhone/container/BundleInfo.plist > \
 					     $$bundledir/Info.plist ; \
 		  fi ;\
-	          $(CXX) -bundle $(LDFLAGS) $(ARCHFLAGS) -L$(libdir) -o $(1) $(2) $(3)
+	          $(CXX) -bundle $(LDFLAGS) $(ARCHFLAGS) -L$(OBJDIR) -L$(libdir) -o $(1) $(2) $(3)
 else
 
 mktestname	= $(1)
-mktest 	  	= $(CXX) $(LDFLAGS) -o $(@) $(2) $(3)
+mktest 	  	= $(CXX) -L$(OBJDIR) $(LDFLAGS) -o $(@) $(2) $(3)
 
 endif
 
@@ -533,6 +533,8 @@ COLOBJS 	:= $(if $(COLOBJS),$(addprefix $(OBJDIR)/, $(COLOBJS)))
 SLICE_OBJS 	:= $(if $(SLICE_OBJS),$(addprefix $(OBJDIR)/, $(SLICE_OBJS)))
 
 ICECPPFLAGS	:= -I$(testdir) $(ICECPPFLAGS)
+
+TESTLIBNAME	:= $(if $(TESTLIBNAME),$(addprefix $(OBJDIR)/,$(TESTLIBNAME)))
 
 #
 # It's important that the two following rules appear first, otherwise
