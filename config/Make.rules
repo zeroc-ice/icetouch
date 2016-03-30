@@ -295,7 +295,7 @@ else
 ICE_OS_LIBS 	= -framework UIKit -framework CFNetwork -framework Security -framework Foundation -liconv
 endif
 
-MCPP_LIBS 	= $(if $(MCPP_HOME),-L$(MCPP_HOME)/$(libsubdir)) -lmcpp
+MCPP_LIBS 	= $(if $(MCPP_HOME),-L$(MCPP_HOME)/lib) -lmcpp
 
 LIBS            = -L$(libdir) $(if $(ice_language:cpp=),-lIceObjC,-lIce) $(ICE_OS_LIBS)
 TEST_LIBS	= -L$(top_srcdir)/test/lib -lTestCommon $(LIBS)
