@@ -292,7 +292,7 @@ LDFLAGS	= $(LDPLATFORMFLAGS) $(COMPFLAGS) $(if $(ice_language:cpp=),-ObjC,)
 ifeq ($(PLATFORM_NAME),macosx)
 ICE_OS_LIBS 	= -framework Security -framework Foundation -lbz2 -liconv
 else
-ICE_OS_LIBS 	= -framework UIKit -framework CFNetwork -framework Security -framework Foundation -liconv
+ICE_OS_LIBS 	= -framework UIKit -framework CFNetwork -framework Security -framework Foundation -lbz2 -liconv
 endif
 
 MCPP_LIBS 	= $(if $(MCPP_HOME),-L$(MCPP_HOME)/$(libsubdir)) -lmcpp
