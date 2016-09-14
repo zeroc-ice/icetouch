@@ -313,6 +313,21 @@
 		D83717A01BFFC5BE005D65BC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82D53AA61823264600703264 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		D8A866791D872BFD005E6906 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.ice";
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE).m",
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE).h",
+			);
+			script = "#!/bin/bash\n# For Xcode < 8 we still use the Xcode plug-in\nif [ \"$XCODE_VERSION_MAJOR\" = \"0800\" ]; then\n    if [ -x /usr/local/bin/icebuilder ]; then\n        cmd=/usr/local/bin/icebuilder\n    else\n        echo \"Unable to find Ice Builder for Xcode. Visit https://github.com/zeroc-ice/ice-builder-xcode for installation instructions.\"\n        exit 1\n    fi\nfi";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXFileReference section */
 		140064131234DFE800249AA4 /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Server.m; path = "../../../../ice/objective-c/test/Ice/invoke/Server.m"; sourceTree = SOURCE_ROOT; };
 		140064141234DFE800249AA4 /* InvokeTest.ice */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.slice; name = InvokeTest.ice; path = "../../../../ice/objective-c/test/Ice/invoke/InvokeTest.ice"; sourceTree = SOURCE_ROOT; };
@@ -1034,6 +1049,7 @@
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
 			);
 			buildRules = (
+				D8A866791D872BFD005E6906 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -1563,6 +1579,7 @@
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1579,7 +1596,15 @@
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "-fobjc-arc-exceptions";
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-lc++",
+					"-liconv",
+					"-ObjC",
+					"-lIceObjc",
+					"-lIceStormObjc",
+					"-lIceGridObjC",
+					"-lGlacier2Objc",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zeroc.Ice-Touch-Objective-C-Test-Suite";
 				PRODUCT_NAME = "Ice Touch Objective-C Test Suite";
 				PROVISIONING_PROFILE = "";
@@ -1613,6 +1638,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ice Touch Objective-C Test Suite_Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = ICE_OBJC_NOGC;
@@ -1627,7 +1653,15 @@
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "-fobjc-arc-exceptions";
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-lc++",
+					"-liconv",
+					"-ObjC",
+					"-lIceObjc",
+					"-lIceStormObjc",
+					"-lIceGridObjC",
+					"-lGlacier2Objc",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zeroc.Ice-Touch-Objective-C-Test-Suite";
 				PRODUCT_NAME = "Ice Touch Objective-C Test Suite";
 				PROVISIONING_PROFILE = "";
@@ -1649,6 +1683,7 @@
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1665,7 +1700,15 @@
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "";
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-lc++",
+					"-liconv",
+					"-ObjC",
+					"-lIceObjc",
+					"-lIceStormObjc",
+					"-lIceGridObjC",
+					"-lGlacier2Objc",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zeroc.Ice-Touch-Objective-C-Test-Suite";
 				PRODUCT_NAME = "Ice Touch Objective-C Test Suite";
 				PROVISIONING_PROFILE = "";
@@ -1686,6 +1729,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ice Touch Objective-C Test Suite_Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = ICE_OBJC_NOGC;
@@ -1700,7 +1744,15 @@
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "";
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-lc++",
+					"-liconv",
+					"-ObjC",
+					"-lIceObjc",
+					"-lIceStormObjc",
+					"-lIceGridObjC",
+					"-lGlacier2Objc",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zeroc.Ice-Touch-Objective-C-Test-Suite";
 				PRODUCT_NAME = "Ice Touch Objective-C Test Suite";
 				PROVISIONING_PROFILE = "";
