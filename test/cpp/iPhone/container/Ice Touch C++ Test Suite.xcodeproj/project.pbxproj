@@ -45,6 +45,7 @@
 		144B483C1A78F71F00C0E06B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344126370FD8E8EA00C8D69C /* CFNetwork.framework */; };
 		144B483D1A78F71F00C0E06B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E396620FF1D71400FBACD6 /* CoreGraphics.framework */; };
 		1450A10C1ABC5E9C00A71895 /* client.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 1450A10B1ABC5E9C00A71895 /* client.p12 */; };
+		14806FD61DA5170F00319A2A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8842EDB1BFF885600A8B607 /* Default-568h@2x.png */; };
 		D837179F1BFFC25C005D65BC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8842ED91BFF87E700A8B607 /* Images.xcassets */; };
 		D8842EDA1BFF87E700A8B607 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8842ED91BFF87E700A8B607 /* Images.xcassets */; };
 		D8842EDC1BFF885600A8B607 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8842EDB1BFF885600A8B607 /* Default-568h@2x.png */; };
@@ -266,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				142B83841B6BA7A600E28347 /* MainWindow.xib in Resources */,
+				14806FD61DA5170F00319A2A /* Default-568h@2x.png in Resources */,
 				D837179F1BFFC25C005D65BC /* Images.xcassets in Resources */,
 				142B83851B6BA7A600E28347 /* TestSelect.xib in Resources */,
 				142B83871B6BA7A600E28347 /* server.p12 in Resources */,
