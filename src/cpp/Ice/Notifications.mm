@@ -85,7 +85,7 @@ public:
     didEnterBackground()
     {
         IceUtil::Mutex::Lock sync(_mutex);
-        NSLog(@"didEnterBackground");
+
         //
         // Notify all the incoming connection factories that we are
         // entering the background mode.
@@ -101,7 +101,7 @@ public:
     willEnterForeground()
     {
         IceUtil::Mutex::Lock sync(_mutex);
-        NSLog(@"willEnterForeground");
+
         //
         // Notify all the incoming connection factories that we are
         // entering the foreground mode.
