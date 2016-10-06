@@ -26,7 +26,7 @@ couple of options:
 
 ### Ice Builder for Xcode
 
-The [Ice Builder for Xcode][5] plug-in is required for building the iOS test
+The [Ice Builder for Xcode][5] is required for building the iOS test
 projects in this distribution.
 
 ## Building Ice Touch
@@ -79,7 +79,7 @@ the `test/cpp/iPhone/container` or `test/objective-c/iPhone/container`
 directories.
 
 [1]: https://doc.zeroc.com/display/Ice36/Using+the+Ice+Touch+Binary+Distribution
-[2]: https://zeroc.com/platforms_3_6_0.html
+[2]: https://doc.zeroc.com/display/Ice36/Supported+Platforms+for+Ice+Touch+3.6.3
 [3]: https://github.com/zeroc-ice/mcpp
 [4]: http://brew.sh
 [5]: https://github.com/zeroc-ice/ice-builder-xcode
