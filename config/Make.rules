@@ -94,7 +94,7 @@ ice_language 	= cpp
 endif
 endif
 
-VERSION		= 3.6.3
+VERSION		= 3.6.4
 
 INSTALL		= cp -fp
 INSTALL_PROGRAM	= ${INSTALL}
