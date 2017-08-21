@@ -153,6 +153,7 @@ readCert(const string& defaultDir, const string& certFile)
     {
         path = defaultDir.empty() ? certFile : defaultDir + "/" + certFile;
     }
+    CFRelease(url);
 
     FILE *file = fopen(path.c_str(), "rb");
     if(!file)

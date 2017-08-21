@@ -243,6 +243,11 @@ IceObjC::StreamTransceiver::initialize(Buffer& readBuffer, Buffer& writeBuffer, 
     {
         if(_error)
         {
+            if(CFWriteStreamGetStatus(_writeStream) == kCFStreamStatusAtEnd ||
+               CFReadStreamGetStatus(_readStream) == kCFStreamStatusAtEnd)
+            {
+                throw ConnectionLostException(__FILE__, __LINE__);
+            }
             CFErrorRef err = NULL;
             if(CFWriteStreamGetStatus(_writeStream) == kCFStreamStatusError)
             {
@@ -337,6 +342,10 @@ IceObjC::StreamTransceiver::write(Buffer& buf)
     IceUtil::Mutex::Lock sync(_mutex);
     if(_error)
     {
+        if(CFWriteStreamGetStatus(_writeStream) == kCFStreamStatusAtEnd)
+        {
+            throw ConnectionLostException(__FILE__, __LINE__);
+        }
         assert(CFWriteStreamGetStatus(_writeStream) == kCFStreamStatusError);
         checkError(CFWriteStreamCopyError(_writeStream), __FILE__, __LINE__);
     }
@@ -363,9 +372,7 @@ IceObjC::StreamTransceiver::write(Buffer& buf)
         {
             if(CFWriteStreamGetStatus(_writeStream) == kCFStreamStatusAtEnd)
             {
-                ConnectionLostException ex(__FILE__, __LINE__);
-                ex.error = getSocketErrno();
-                throw ex;
+                throw ConnectionLostException(__FILE__, __LINE__);
             }
 
             assert(CFWriteStreamGetStatus(_writeStream) == kCFStreamStatusError);
@@ -393,6 +400,10 @@ IceObjC::StreamTransceiver::read(Buffer& buf, bool&)
     IceUtil::Mutex::Lock sync(_mutex);
     if(_error)
     {
+        if(CFReadStreamGetStatus(_readStream) == kCFStreamStatusAtEnd)
+        {
+            throw ConnectionLostException(__FILE__, __LINE__);
+        }
         assert(CFReadStreamGetStatus(_readStream) == kCFStreamStatusError);
         checkError(CFReadStreamCopyError(_readStream), __FILE__, __LINE__);
     }
@@ -426,9 +437,7 @@ IceObjC::StreamTransceiver::read(Buffer& buf, bool&)
         {
             if(CFReadStreamGetStatus(_readStream) == kCFStreamStatusAtEnd)
             {
-                ConnectionLostException ex(__FILE__, __LINE__);
-                ex.error = getSocketErrno();
-                throw ex;
+                throw ConnectionLostException(__FILE__, __LINE__);
             }
 
             assert(CFReadStreamGetStatus(_readStream) == kCFStreamStatusError);
