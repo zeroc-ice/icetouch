@@ -747,6 +747,7 @@ ConnectorPtr
 IceObjC::StreamEndpointI::createConnector(const Address& address, const NetworkProxyPtr& proxy) const
 {
     assert(false);
+    return 0;
 }
 
 IPEndpointIPtr
