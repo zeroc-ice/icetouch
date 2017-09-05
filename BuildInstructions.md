@@ -1,4 +1,4 @@
-# Building Ice Touch on OS X
+# Building Ice Touch on macOS
 
 This page describes the Ice Touch source distribution, including information
 about compiler requirements, third-party dependencies, and instructions for
@@ -9,7 +9,7 @@ building and testing the distribution. If you prefer, you can install a
 
 ### Operating Systems and Compilers
 
-Ice Touch is supported on OS X, and was extensively tested using the operating
+Ice Touch is supported on macOS, and was extensively tested using the operating
 system and compiler versions listed for our [supported platforms][2].
 
 ### Third-Party Libraries
@@ -35,7 +35,7 @@ Edit `config/Make.rules` to establish your build configuration. The comments in
 the file provide more information. Pay particular attention to the variables
 that define the locations of the third-party libraries.
 
-In a command window, run `make` to build Ice Touch. 
+In a command window, run `make` to build Ice Touch.
 
 This will build:
 
@@ -43,7 +43,7 @@ This will build:
 - the C++ Xcode SDK
 - the Objective-C Xcode SDK
 - the C++ tests
- 
+
 The Xcode SDKs are built in the `lib/IceTouch` directory.
 
 You should now use Xcode to build the test suite GUI located in the
@@ -79,7 +79,7 @@ the `test/cpp/iPhone/container` or `test/objective-c/iPhone/container`
 directories.
 
 [1]: https://doc.zeroc.com/display/Ice36/Using+the+Ice+Touch+Binary+Distribution
-[2]: https://doc.zeroc.com/display/Rel/Supported+Platforms+for+Ice+Touch+3.6.3
+[2]: https://doc.zeroc.com/display/Ice36/Supported+Platforms+for+Ice+Touch+3.6.4
 [3]: https://github.com/zeroc-ice/mcpp
 [4]: http://brew.sh
 [5]: https://github.com/zeroc-ice/ice-builder-xcode

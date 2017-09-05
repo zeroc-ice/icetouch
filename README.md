@@ -4,10 +4,10 @@
 
 Ice Touch brings [Ice](https://github.com/zeroc-ice/ice) for Objective-C and C++ to iOS devices.
 
-With Ice Touch, you can build iOS apps that communicate with each other and with Ice servers running on OS X, Windows, or Linux. You can implement these servers in any of the languages supported by Ice (C++, Java, C#, Python, Objective-C).
+With Ice Touch, you can build iOS apps that communicate with each other and with Ice servers running on macOS, Windows, or Linux. You can implement these servers in any of the languages supported by Ice (C++, Java, C#, Python, Objective-C).
 
 Ice Touch provides development kits and run-times for iOS devices, the
-iOS simulator, and OS X.
+iOS simulator, and macOS.
 
 ## Copyright and License
 
@@ -26,5 +26,5 @@ The Ice Touch software itself remains the same: the only difference between an o
 
 ## Documentation
 
-- [Ice Touch Release Notes](https://doc.zeroc.com/display/Rel/Ice+Touch+3.6.3+Release+Notes)
+- [Ice Touch Release Notes](https://doc.zeroc.com/display/Ice36/Ice+Touch+Release+Notes)
 - [Ice Manual](https://doc.zeroc.com/display/Ice36/Home)
