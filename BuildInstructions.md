@@ -14,15 +14,11 @@ system and compiler versions listed for our [supported platforms][2].
 
 ### Third-Party Libraries
 
-Ice Touch depends on [mcpp][3] 2.7.2 (with patches). To install mcpp you have a
-couple of options:
-
-- Using [Homebrew][4], install mcpp with these commands:
-
-        $ brew tap zeroc-ice/tap
-        $ brew install mcpp
-
-- Download the mcpp source distributions and build them yourself.
+Ice Touch depends on [mcpp][3] 2.7.2 (with patches). We recommend you install
+mcpp with [Homebrew][4]:
+```
+brew install mcpp
+```
 
 ### Ice Builder for Xcode
 
@@ -67,8 +63,9 @@ setting in your Xcode project build settings:
 
 Python is required to run the test suite. After a successful source build, you
 can run the tests as follows:
-
-    $ python allTests.py
+```
+python allTests.py
+```
 
 If everything worked out, you should see lots of `ok` messages. In case of a
 failure, the tests abort with `failed`.
