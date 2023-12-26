@@ -13,7 +13,7 @@ iOS simulator, and macOS.
 
 Ice Touch is a single-copyright project: all the source code in this [icetouch repository](https://github.com/zeroc-ice/icetouch) is Copyright &copy; ZeroC, Inc.
 
-As copyright owner, ZeroC can license Ice Touch under different license terms, and offers the following licenses for both Ice Touch:
+As copyright owner, ZeroC can license Ice Touch under different license terms, and offers the following licenses for Ice Touch:
 - GPL v2, a popular open-source license with strong [copyleft](http://en.wikipedia.org/wiki/Copyleft) conditions
   (the default license)
 - Commercial or closed-source licenses
